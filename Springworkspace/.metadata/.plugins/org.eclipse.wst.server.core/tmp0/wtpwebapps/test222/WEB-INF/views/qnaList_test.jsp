@@ -1,5 +1,6 @@
 
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -171,12 +172,22 @@
 				</tr>
 			</tbody>
 		</table>
+		
+		<ul class="pagination">
+			<li><a href="#">Prev</a></li>
+			<li><a href="#">1</a></li>
+			<li class="active"><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			
+		</ul>
 	</div>
-	
-	
-	
-	<!--페이지네이션  ===========================================================================================-->
-	<div class="pagination">
+
+
+
+	<!--페이지네이션 bs 4  ===========================================================================================-->
+	<!-- <div class="pagination">
 		<ul>
 			<li><a href="#">Prev</a></li>
 			<li><a href="#">1</a></li>
@@ -186,6 +197,11 @@
 			<li><a href="#">Next</a></li>
 		</ul>
 	</div>
+ -->
+
+
+
+
 	<div class="modal small hide fade" id="myModal" tabindex="-1"
 		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-header">
