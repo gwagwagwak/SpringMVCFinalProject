@@ -44,6 +44,7 @@
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="G:\국비반\스프링 프로젝트\mvc_db_ibatis_희수꺼\board"/>
 			<item value="C:\Users\Win10\Downloads\ch11-mybatis"/>
 		</list>
 	</section>
