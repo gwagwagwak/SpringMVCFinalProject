@@ -1,0 +1,5 @@
+package com.project.ings.service;
+
+public class MemberServiceImpl implements MemberService{
+
+}

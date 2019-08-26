@@ -2,6 +2,8 @@
 <aop-reference-model>
 <aop-project name="paylog_ver2"/>
 <aop-project name="test222"/>
+<aop-project name="Final_paylog"/>
+<aop-project name="Project_Page (3)"/>
 <aop-project name="ch11-mybatis"/>
 <aop-project name="board"/>
 </aop-reference-model>

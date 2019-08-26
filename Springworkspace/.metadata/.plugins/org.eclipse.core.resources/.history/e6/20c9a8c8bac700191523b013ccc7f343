@@ -1,0 +1,16 @@
+package com.project.ings.service;
+
+public interface MemberService {
+
+	
+	public ArrayList<MemberVO> getMemberList(Map<String,Object> map);
+	public int getMemberCount();
+	public void insertMember(MemberCommand member);
+	public MemberCommand getMember(String id);
+	public void updateMember(MemberCommand member);
+	public void deleteMember(String id);
+
+
+
+
+}

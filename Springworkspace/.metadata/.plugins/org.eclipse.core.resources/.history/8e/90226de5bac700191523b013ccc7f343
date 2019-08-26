@@ -1,0 +1,20 @@
+package com.project.ings.service;
+
+import java.util.ArrayList;
+
+import com.project.ings.model.MemberVO;
+
+public interface MemberService {
+
+	
+	public ArrayList<MemberVO> getMemberList();
+	public int getMemberCount();
+	public void insertMember(MemberCommand member);
+	public MemberCommand getMember(String id);
+	public void updateMember(MemberCommand member);
+	public void deleteMember(String id);
+
+
+
+
+}
