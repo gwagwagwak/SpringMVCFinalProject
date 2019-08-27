@@ -1,0 +1,8 @@
+package com.test.paytesting.dto;
+
+public class TestDTO {
+	private String id;
+	private String name;
+	
+	
+}

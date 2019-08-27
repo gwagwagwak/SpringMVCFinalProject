@@ -1,0 +1,13 @@
+package com.protest.resulting.dao;
+
+import com.protest.resulting.dto.TestmemberDTO;
+
+public class TestMemberDAOImpl implements TestMemberDAO{
+
+	@Override
+	public TestmemberDTO test() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

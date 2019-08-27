@@ -1,0 +1,5 @@
+package com.protest.resulting.dao;
+
+public class TestMemberDAOImpl implements TestMemberDAO{
+
+}

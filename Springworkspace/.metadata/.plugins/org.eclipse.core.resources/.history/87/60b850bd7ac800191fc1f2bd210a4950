@@ -1,0 +1,5 @@
+package com.protest.resulting.dao;
+
+public interface TestMemberDAO {
+
+}

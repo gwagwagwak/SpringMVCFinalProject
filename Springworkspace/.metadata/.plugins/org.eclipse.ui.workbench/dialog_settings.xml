@@ -17,11 +17,9 @@
 		</list>
 	</section>
 	<section name="NewWizardAction">
-		<item value="org.eclipse.wst.xml.ui.internal.wizards.NewXMLWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<item value="org.eclipse.datatools.sqltools.internal.sqlscrapbook.wizards.NewSQLScrapbookFileCreationWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
-			<item value="org.eclipse.jpt.dbws"/>
-			<item value="org.eclipse.emf.codegen.ecore.ui.wizardCategory"/>
-			<item value="org.eclipse.wst.XMLCategory"/>
+			<item value="org.eclipse.datatools.sql"/>
 		</list>
 	</section>
 	<section name="FileSystemExportWizard">
@@ -46,6 +44,7 @@
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.26\Final_paylog"/>
 			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.23_한 파일\이경희\Project_Page (3)"/>
 			<item value="G:\국비반\스프링 프로젝트\mvc_db_ibatis_희수꺼\board"/>
 			<item value="C:\Users\Win10\Downloads\ch11-mybatis"/>

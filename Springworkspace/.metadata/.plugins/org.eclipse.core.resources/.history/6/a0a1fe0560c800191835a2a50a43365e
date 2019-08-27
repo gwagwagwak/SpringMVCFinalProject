@@ -1,0 +1,19 @@
+package com.test.paytesting.dao;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.test.paytesting.dto.TestDTO;
+
+@Repository
+public class TestDAOImpl implements TestDAO {
+
+	@Autowired
+	SqlSession sqlsession;
+
+	@Override
+	public TestDTO test() {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne("testtest.test");
+	}
+}

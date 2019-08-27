@@ -1,0 +1,6 @@
+package com.protest.resulting.dto;
+
+public class testmember {
+	private String id;
+	private String name;
+}
