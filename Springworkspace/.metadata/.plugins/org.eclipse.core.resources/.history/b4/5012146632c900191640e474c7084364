@@ -1,0 +1,80 @@
+package oracle.java.nomyBatis3.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import oracle.java.nomyBatis3.dao.AutoPayDao;
+import oracle.java.nomyBatis3.dao.CardDao;
+import oracle.java.nomyBatis3.dao.MemberDao;
+import oracle.java.nomyBatis3.dao.QnaCommentDao;
+import oracle.java.nomyBatis3.dao.QnaDao;
+import oracle.java.nomyBatis3.dao.QnaMainDao;
+import oracle.java.nomyBatis3.model.QnaVO;
+@Service
+public class QnaServiceImpl implements QnaService{
+	@Autowired
+	private MemberDao mdao;
+	@Autowired
+	private AutoPayDao adao;
+	@Autowired
+	private CardDao cdao;
+	@Autowired
+	private QnaCommentDao qcdao;
+	@Autowired
+	private QnaDao qdao;
+	@Autowired
+	private QnaMainDao qmdao;
+	
+	@Override
+	public List<QnaVO> qnaList() {
+		
+		return qdao.getQnaList();
+	}
+	@Override
+	public List<QnaVO> qnaIncompleteList() {
+		// TODO Auto-generated method stub
+		return qdao.getQnaIncompleteList();
+	}
+	@Override
+	public List<QnaVO> qnaCompleteList() {
+		// TODO Auto-generated method stub
+		return qdao.getQnaCompleteList();
+	}
+	@Override
+	public QnaVO getQna(int q_id) {
+		// TODO Auto-generated method stub
+		return qdao.getQna(q_id);
+	}
+	@Override
+	public void insertQna(QnaVO qvo) {
+		qdao.insertQna(qvo);
+		
+	}
+	@Override
+	public void updateQna(QnaVO qvo) {
+		qdao.updateQna(qvo);
+		
+	}
+	@Override
+	public void deleteQna(QnaVO qvo) {
+		qdao.deleteQna(qvo);
+		
+	}
+	@Override
+	public int getTotalQnaCount() {
+		
+		return qdao.getTotalQnaCount();
+	}
+	@Override
+	public int getIncompleteQnaCount() {
+		// TODO Auto-generated method stub
+		return qdao.getIncompleteQnaCount();
+	}
+	@Override
+	public int getCompleteQnaCount() {
+		// TODO Auto-generated method stub
+		return qdao.getCompleteQnaCount();
+	}
+}

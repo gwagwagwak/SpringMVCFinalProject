@@ -1,0 +1,144 @@
+
+
+
+
+
+
+CREATE TABLE qna(
+	q_no	number(50)	NOT NULL,
+	q_writer number
+	q_title	varchar2(100)	NULL,
+	q_content	varchar2(500)	NULL,
+	q_date	date	NULL,
+	q_flag	number(20)	NULL,
+	q_reply	number(20)	NULL,
+	q_private	VARCHAR(255)	NULL
+);
+
+
+CREATE TABLE qmain (
+	qs_no	number(50)	NOT NULL,
+	qs_email	varchar2(100)	NULL,
+	qs_title	varchar2(500)	NULL,
+	qs_content	varchar2(2000)	NULL
+);
+
+CREATE TABLE member (
+	qs_no	number(50)	NOT NULL,
+	qs_email	varchar2(100)	NULL,
+	qs_title	varchar2(500)	NULL,
+	qs_content	varchar2(2000)	NULL
+);
+
+
+
+
+
+
+
+CREATE TABLE member (
+	m_email	varchar2(30)		NOT NULL,
+	m_pw	varchar2(30)		NULL,
+	m_fname	varchar2(30)		NULL,
+	m_lame	varchar2(30)		NULL,
+	m_hp	varchar2(20)		NULL,
+	m_addr	varchar2(100)		NULL,
+	m_joindate	date		NULL,
+	m_nation	varchar2(20)		NULL,
+	m_secu	varchar2(50)		NULL,
+	m_answer	varchar2(50)		NULL,
+	m_type	number(2)		NULL,
+	b_type	varchar2(30)		NULL,
+	b_number	number(20)		NULL
+);
+
+
+
+
+
+CREATE TABLE qnamain (
+	qm_no	number(20)		NOT NULL,
+	qm_email	varchar2(20)		NULL,
+	qm_title	varchar2(100)		NULL,
+	qm_content	varchar2(1000)		NULL
+);
+
+CREATE TABLE qna (
+	q_no	number(20)		NOT NULL,
+	q_title	varchar2(20)		NULL,
+	q_content	varchar2(100)		NULL,
+	q_date	date		NULL,
+	q_divide	varchar2(30)		NULL,
+	q_complete	varchar2(10)		NULL,
+	q_replytype	varchar2(10)		NULL,
+	q_private	varchar2(10)		NULL,
+	q_writer	varchar2(30)		NOT NULL
+);
+
+CREATE TABLE qnacomment (
+	comt_no	number(20)		NOT NULL,
+	comt_date	date		NULL,
+	comt_content	varchar2(500)		NULL,
+	comt_flag	number(2)		NULL,
+	q_no	number(20)		NOT NULL
+);
+
+CREATE TABLE card (
+	c_number	number(20)		NOT NULL,
+	c_type	varchar2(20)		NULL,
+	c_expr	date		NULL,
+	c_csc	number(5)		NULL,
+	c_address	varchar2(200)		NULL,
+	c_username	varchar2(30)		NOT NULL
+);
+
+CREATE TABLE paylist (
+	p_no	number(20)		NOT NULL,
+	p_target	varchar2(50)		NULL,
+	p_date	date		NULL,
+	p_charge	number(15)		NULL,
+	p_currc	varchar2(10)		NULL,
+	p_type	varchar2(2)		NULL,
+	c_number	number(20)		NOT NULL,
+	p_user	varchar2(30)		NOT NULL
+);
+
+CREATE TABLE autopay (
+	a_no	number(20)		NOT NULL,
+	a_date	date		NULL,
+	a_charge	number(15)		NULL,
+	a_target	varchar2(50)		NULL,
+	a_currc	varchar2(10)		NULL,
+	c_number	number(20)		NOT NULL
+);
+
+
+ALTER TABLE member ADD CONSTRAINT PK_MEMBER PRIMARY KEY (
+	m_email
+);
+
+ALTER TABLE qnamain ADD CONSTRAINT PK_QNAMAIN PRIMARY KEY (
+	qm_no
+);
+
+ALTER TABLE qna ADD CONSTRAINT PK_QNA PRIMARY KEY (
+	q_no
+);
+
+ALTER TABLE qnacomment ADD CONSTRAINT PK_QNACOMMENT PRIMARY KEY (
+	comt_no
+);
+
+ALTER TABLE card ADD CONSTRAINT PK_CARD PRIMARY KEY (
+	c_number
+);
+
+ALTER TABLE paylist ADD CONSTRAINT PK_PAYLIST PRIMARY KEY (
+	p_no
+);
+
+ALTER TABLE autopay ADD CONSTRAINT PK_AUTOPAY PRIMARY KEY (
+	a_no
+);
+
+

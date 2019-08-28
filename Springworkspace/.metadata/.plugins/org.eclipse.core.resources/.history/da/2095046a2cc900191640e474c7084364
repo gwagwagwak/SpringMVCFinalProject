@@ -1,0 +1,180 @@
+-------drop table------------
+drop table member;
+drop table qna;
+drop table qnamain;
+drop table qnacomment;
+drop table card;
+drop table paylist;
+drop table autopay;
+
+
+
+------------create--------------------
+
+CREATE TABLE member (
+	m_email	varchar2(30)		primary key,
+	m_pw	varchar2(30)		NULL,
+	m_fname	varchar2(30)		NULL,
+	m_lame	varchar2(30)		NULL,
+	m_hp	varchar2(20)		NULL,
+	m_addr	varchar2(100)		NULL,
+	m_joindate	date		NULL,
+	m_nation	varchar2(20)		NULL,
+	m_secu	varchar2(50)		NULL,
+	m_answer	varchar2(50)		NULL,
+	m_type	number(2)		NULL,
+	b_type	varchar2(30)		NULL,
+	b_number	number(20)		NULL
+);
+
+
+
+CREATE TABLE qnamain (
+	qm_no	number(20)		primary key,
+	qm_email	varchar2(30)		NULL,
+	qm_title	varchar2(100)		NULL,
+	qm_content	varchar2(1000)		NULL
+);
+
+
+
+
+CREATE TABLE qna(
+	q_no	number(20)	primary key,
+	q_writer varchar2(30),
+	q_title	varchar2(100)	NULL,
+	q_content	varchar2(1000)	NULL,
+	q_date	date	NULL,
+	q_divide varchar2(30) null,
+	q_complete varchar2(20) null, 
+	q_replytype	varchar2(20)	NULL,
+	q_private	varchar2(20)	NULL
+);
+
+
+
+CREATE TABLE qnacomment (
+	comt_no	number(20)		primary key,
+	comt_writer	varchar2(30),
+	comt_content	varchar2(500)		NULL,
+	comt_date	date		NULL,
+	comt_flag	number(2)		NULL,
+	comt_textid	number(20)		NOT NULL
+);
+
+
+
+CREATE TABLE card (
+	c_number	number(20)		primary key,
+	c_type	varchar2(30)		NULL,
+	c_expr	date		NULL,
+	c_csc	number(5)		NULL,
+	c_address	varchar2(500)		NULL,
+	c_username	varchar2(30)		NOT NULL
+);
+
+
+
+CREATE TABLE paylist (
+	p_no	number(20)		primary key,
+	p_target	varchar2(100)		NULL,
+	p_date	date		NULL,
+	p_charge	number(15)		NULL,
+	p_currc	varchar2(10)		NULL,
+	p_type	varchar2(2)		NULL,
+	p_cnumber	number(20)		NOT NULL,
+	p_user	varchar2(30)		NOT NULL
+);
+
+CREATE TABLE autopay (
+	a_no	number(20)		primary key,
+	a_target	varchar2(100)		NULL,
+	a_charge	number(15)		NULL,
+	a_currc	varchar2(20)		NULL,
+	a_date	date		NULL,
+	a_cnumber	number(20)		NOT NULL
+);
+
+-------
+
+
+-----테이블 조건 변경----------------
+
+ALTER TABLE member ADD CONSTRAINT PK_USERS PRIMARY KEY(USERNO);
+
+ALTER TABLE qna ADD CONSTRAINT PK_QNAPRIMARY KEY(q_no);
+
+
+
+
+-----외래키--------------------
+alter table qna add constraint qna_fk_memail foreign key(q_writer) references member(m_email);
+alter table qnacomment add constraint qnacomment_fk_qno foreign key(comt_textid) references qna(q_no);
+alter table card add constraint card_fk_cusername foreign key(c_username) references member(m_email);
+alter table paylist add constraint paylist_fk_cardnumber foreign key(p_cnumber) references card(c_number);
+alter table paylist add constraint paylist_fk_memail foreign key(p_user) references member(m_email);
+alter table autopay add constraint autopay_fk_cnumber foreign key(a_cnumber) references card(c_number);
+
+
+
+
+
+
+
+
+
+---insert----------------------
+
+insert into member values();
+insert into qna values();
+insert into qnacomment values();
+insert into qnamain values();
+insert into card values();
+insert into paylist values();
+insert into autopay values();
+
+
+
+ALTER TABLE member ADD CONSTRAINT PK_MEMBER PRIMARY KEY(m_email);
+
+ALTER TABLE qnamain ADD CONSTRAINT PK_QNAMAIN PRIMARY KEY (
+	qm_no
+);
+
+ALTER TABLE qna ADD CONSTRAINT PK_QNA PRIMARY KEY (
+	q_no
+);
+
+ALTER TABLE qnacomment ADD CONSTRAINT PK_QNACOMMENT PRIMARY KEY (
+	comt_no
+);
+
+ALTER TABLE card ADD CONSTRAINT PK_CARD PRIMARY KEY (
+	c_number
+);
+
+ALTER TABLE paylist ADD CONSTRAINT PK_PAYLIST PRIMARY KEY (
+	p_no
+);
+
+ALTER TABLE autopay ADD CONSTRAINT PK_AUTOPAY PRIMARY KEY (
+	a_no
+);
+
+
+select * from member;
+select * from qna;
+
+
+외래키 설정
+ALTER TABLE 테이블명  ADD CONSTRAINTS 외래키 이름 FOREIGN KEY (참조컬럼)   REFERENCES 참조 테이블명(참조컬럼)
+
+ALTER TABLE USERS ADD CONSTRAINT FK_USERS FOREIGN KEY(USERNO) REFERENCES USERS_INFO(USERNO);
+
+
+qna 오래키
+ALTER TABLE qna ADD CONSTRAINT FK_QNA FOREIGN KEY(q_writer) REFERENCES member(m_email);
+
+
+
+

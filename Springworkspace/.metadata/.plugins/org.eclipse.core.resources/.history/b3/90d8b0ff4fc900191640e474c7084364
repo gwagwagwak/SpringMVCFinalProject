@@ -1,0 +1,48 @@
+package oracle.java.nomyBatis3.model;
+
+public class Pager {
+	//페이지당 게시물 수
+	public static final int PAGE_SCALE=10;
+	
+	public static final int BLOCK_SCALE=10;
+	
+	private int curPage;	//다음 페이지 블록
+	private int prevPage;	//다음 페이지 블록
+	private int nextPage;	//다음 페이지 블록
+	private int totPage;	//다음 페이지 블록
+	private int totBlock;	//다음 페이지 블록
+	private int curBlock;	//다음 페이지 블록
+	private int prevBlock;	//다음 페이지 블록
+	private int nextBlock;	//다음 페이지 블록
+	
+	private int pageBegin;	//#{start}
+	private int pageEnd;	//#{end}
+	
+	// [이전] blockBegin 42 43 44 45 46 47 48 49 blockEnd [다음]
+	private int blockBegin;	//현재 페이지 블록의 시작 번호
+	private int blockEnd;	//현재 페이지 블록의 끝번호
+	
+	public Pager(int count, int curPage){
+		curBlock = 1;
+	}
+	public Pager(int curPage, int prevPage, int nextPage, int totPage, int totBlock, int curBlock, int prevBlock,
+			int nextBlock, int pageBegin, int pageEnd, int blockBegin, int blockEnd) {
+		super();
+		this.curPage = curPage;
+		this.prevPage = prevPage;
+		this.nextPage = nextPage;
+		this.totPage = totPage;
+		this.totBlock = totBlock;
+		this.curBlock = curBlock;
+		this.prevBlock = prevBlock;
+		this.nextBlock = nextBlock;
+		this.pageBegin = pageBegin;
+		this.pageEnd = pageEnd;
+		this.blockBegin = blockBegin;
+		this.blockEnd = blockEnd;
+	}
+
+	
+	
+	
+}

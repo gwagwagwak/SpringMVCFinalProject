@@ -1,0 +1,22 @@
+package oracle.java.nomyBatis3.model;
+
+public class Pager {
+	//페이지당 게시물 수
+	public static final int PAGE_SCALE=10;
+	
+	public static final int BLOCK_SCALE=10;
+	
+	private int curPage;	//다음 페이지 블록
+	private int prevPage;	//다음 페이지 블록
+	private int nextPage;	//다음 페이지 블록
+	private int totPage;	//다음 페이지 블록
+	private int totBlock;	//다음 페이지 블록
+	private int curBlock;	//다음 페이지 블록
+	private int prevBlock;	//다음 페이지 블록
+	private int nextBlock;	//다음 페이지 블록
+	private int curPage;
+	private int curPage;
+	private int curPage;
+	private int curPage;
+	
+}

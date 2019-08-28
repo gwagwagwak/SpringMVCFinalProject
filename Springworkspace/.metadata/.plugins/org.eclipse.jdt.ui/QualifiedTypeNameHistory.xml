@@ -6,12 +6,16 @@
 <fullyQualifiedTypeName name="javax.annotation.Resource"/>
 <fullyQualifiedTypeName name="com.project.ings.dao.MemberDao"/>
 <fullyQualifiedTypeName name="org.springframework.test.context.ContextConfiguration"/>
+<fullyQualifiedTypeName name="com.test.paytesting.service.TestService"/>
+<fullyQualifiedTypeName name="com.test.paytesting.service.TestServiceImpl"/>
 <fullyQualifiedTypeName name="javax.inject.Inject"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-<fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
 <fullyQualifiedTypeName name="com.test.paytesting.dao.TestDAO"/>
 <fullyQualifiedTypeName name="com.test.paytesting.dto.TestDTO"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="com.protest.resulting.dto.TestmemberDTO"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
-<fullyQualifiedTypeName name="com.test.paytesting.service.TestService"/>
+<fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="com.protest.resulting.dao.TestMemberDAO"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="com.protest.resulting.service.TestMemberService"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,28 @@
+package oracle.java.nomyBatis3.service;
+
+import java.util.List;
+
+import oracle.java.nomyBatis3.model.QnaVO;
+
+public interface QnaService {
+	public List<QnaVO> qnaList();
+
+	public List<QnaVO> qnaIncompleteList();
+
+	public List<QnaVO> qnaCompleteList();
+
+	public QnaVO getQna(int q_id);
+
+	public void insertQna(QnaVO qvo);
+
+	public void updateQna(QnaVO qvo);
+
+	public void deleteQna(QnaVO qvo);
+
+	public int getTotalQnaCount();
+
+	public int getIncompleteQnaCount();
+
+	public int getCompleteQnaCount();
+
+}

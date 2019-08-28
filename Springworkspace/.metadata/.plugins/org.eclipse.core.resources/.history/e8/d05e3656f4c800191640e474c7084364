@@ -1,0 +1,31 @@
+
+
+
+
+
+
+CREATE TABLE qna(
+	q_no	number(50)	NOT NULL,
+	q_writer number
+	q_title	varchar2(100)	NULL,
+	q_content	varchar2(500)	NULL,
+	q_date	date	NULL,
+	q_flag	number(20)	NULL,
+	q_reply	number(20)	NULL,
+	q_private	VARCHAR(255)	NULL
+);
+
+
+CREATE TABLE qmain (
+	qs_no	number(50)	NOT NULL,
+	qs_email	varchar2(100)	NULL,
+	qs_title	varchar2(500)	NULL,
+	qs_content	varchar2(2000)	NULL
+);
+
+CREATE TABLE member (
+	qs_no	number(50)	NOT NULL,
+	qs_email	varchar2(100)	NULL,
+	qs_title	varchar2(500)	NULL,
+	qs_content	varchar2(2000)	NULL
+);
