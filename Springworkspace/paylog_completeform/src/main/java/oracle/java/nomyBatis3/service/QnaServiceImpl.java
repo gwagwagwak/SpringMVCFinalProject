@@ -31,6 +31,12 @@ public class QnaServiceImpl implements QnaService {
 	private QnaMainDao qmdao;
 
 	@Override
+	public QnaVO getQna(int q_no) throws Exception {
+		// TODO Auto-generated method stub
+		return qdao.getQna(q_no);
+	}
+	
+	@Override
 	public List<QnaVO> getQnaList(int start, int end) throws Exception {
 		// TODO Auto-generated method stub
 		return qdao.getQnaList(start, end);
@@ -48,11 +54,7 @@ public class QnaServiceImpl implements QnaService {
 		return qdao.getQnaCompleteList(start, end);
 	}
 
-	@Override
-	public QnaVO getQna(int q_id) throws Exception {
-		// TODO Auto-generated method stub
-		return qdao.getQna(q_id);
-	}
+	
 
 	@Override
 	public void insertQna(QnaVO qvo) throws Exception {
@@ -91,8 +93,8 @@ public class QnaServiceImpl implements QnaService {
 	}
 
 	@Override
-	public void increaseViewCnt(int q_id) throws Exception {
-		qdao.increaseViewCnt(q_id);
+	public void increaseViewCnt(int q_no) throws Exception {
+		qdao.increaseViewCnt(q_no);
 	}
 
 	/*

@@ -15,7 +15,7 @@ public interface QnaDao {
 
 	public List<QnaVO> getQnaCompleteList(int start, int end) throws Exception;
 
-	public QnaVO getQna(int q_id) throws Exception;
+	public QnaVO getQna(int q_no) throws Exception;
 
 	public void insertQna(QnaVO qvo) throws Exception;
 
@@ -30,6 +30,6 @@ public interface QnaDao {
 	public int getCompleteQnaCount() throws Exception;
 
 	// 조회수 증가 처리 - 차후 할 계획
-	public void increaseViewCnt(int q_id) throws Exception;
+	public void increaseViewCnt(int q_no) throws Exception;
 
 }

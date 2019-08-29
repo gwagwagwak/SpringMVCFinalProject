@@ -100,8 +100,9 @@
 			<li><a href="#">PayLog</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-center">
-			<li><a href="#">개인</a></li>
-			<li><a href="#">고객</a></li>
+<!-- 			<li><a href="qnaList.do">개인</a></li> -->
+			<li><a href="getQnaList.do">테스트 qna리스트 작동</a></li>
+			<li><a href="qnaList.do">qna 리스트 예시 </a></li>
 			<li><a href="#">구매</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">

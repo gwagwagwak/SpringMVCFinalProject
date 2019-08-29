@@ -17,11 +17,9 @@
 		</list>
 	</section>
 	<section name="NewWizardAction">
-		<item value="org.eclipse.wst.xml.ui.internal.wizards.NewXMLWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<item value="org.eclipse.jst.jsp.ui.internal.wizard.NewJSPWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
-			<item value="org.eclipse.jpt.dbws"/>
-			<item value="org.eclipse.emf.codegen.ecore.ui.wizardCategory"/>
-			<item value="org.eclipse.wst.XMLCategory"/>
+			<item value="org.eclipse.wst.web.ui"/>
 		</list>
 	</section>
 	<section name="FileSystemExportWizard">
@@ -46,6 +44,9 @@
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="G:\국비반\중간 프로젝트\Game Board최종 완성본\GameRankingPAGE-master\GameRankingPAGE-master"/>
+			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.28\학원\paylog_completeform"/>
+			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.27\학원에서 한것\paylog_completeform"/>
 			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.26\Final_paylog"/>
 			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.23_한 파일\이경희\Project_Page (3)"/>
 			<item value="G:\국비반\스프링 프로젝트\mvc_db_ibatis_희수꺼\board"/>

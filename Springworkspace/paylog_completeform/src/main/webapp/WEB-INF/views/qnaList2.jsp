@@ -26,15 +26,22 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 
-<!-- 글쓰기 버튼 작동 스크립트 -->
+
 <script>
-	$(function(){
-		$("#btnWrite").click(function(){
+	/*  글쓰기 버튼 작동 jquery*/
+	$(function() {
+		$("#btnWrite").click(function() {
 			/* location.href="${path}/qna/qnaWrite.do"; */
-			location.href="$qnaWritePage.do";
+			location.href = "qnaWritePage.do";
+			/* location.href = "&{path}/qna/qnaWritePage.do"; */
 		})
 	});
 
+	/* 페이징 처리 스크립트 */
+	function list(page) {
+		location.href = "getQnaList.do?curPage=" +page;
+
+	};
 </script>
 
 
@@ -52,8 +59,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
  -->
- 
-<!-- include로 헤더 포함 --> 
+
+<!-- include로 헤더 포함 -->
 <%-- 	<%@ include file="../include/header.jsp" %> --%>
 
 
@@ -74,7 +81,7 @@ td.number_dot:after {
 <body>
 
 
-<!-- include로 네비바 추가 -->
+	<!-- include로 네비바 추가 -->
 	<%-- <%@ include file="../include/menu.jsp" %> --%>
 
 	<!-- 네비게이션 바~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
@@ -138,6 +145,7 @@ td.number_dot:after {
 
 		<button type="button" id="btnWrite">글 작성</button>
 		<!-- 테이블 리스트 =============================================================================== -->
+		총 ${map.count}개의 게시물이 있습니다.
 		<div class="well">
 			<table class="table">
 				<thead>
@@ -341,19 +349,76 @@ td.number_dot:after {
 				<tbody>
 					<c:forEach var="row" items="${map.list}">
 						<tr>
-							<td class="number_dot">${row.q_id}</td>
+							<td class="number_dot">${row.q_no}</td>
 							<td>${row.q_divide}</td>
-							<td>${row.q_title}</td>
-							<td>${row.q_writer}</td>
 							<td>
-								<fmt:formatDate value="${row.q_date}"
-								pattern="yyyy-MM-dd HH:mm:ss"/>
+								<a href="qnaRead.do?q_no=${row.q_no}	
+								&curPage=${map.pager.curPage}">
+								${row.q_title}	
+								</a>
 							</td>
+							<td>${row.q_writer}</td>
+							<td><fmt:formatDate value="${row.q_date}"
+									pattern="yyyy-MM-dd HH:mm:ss" /></td>
 							<td>${row.q_complete}</td>
 						</tr>
 					</c:forEach>
+
+					<!--페이징 :pager  -->
+					<%-- <tr>
+						<td colsapn="5" align="center">
+							<c:if test="${map.pager.curBlock > 1}">
+								<a href="javascript:list('1')">[처음]</a>
+							</c:if>
+							
+							<c:if test="${map.pager.curBlock > 1}">
+								<a href="javascript:list('${map.pager.prevPage}')">[이전]</a>
+							</c:if>
+							
+							<c:forEach var="num" begin="${map.pager.blockBegin}" end="${map.pager.blockEnd}">
+								<c:choose>
+									<c:when test="${num == map.pager.curPage}">
+										<sapn style="clolr:red;">${num}</span>&nbsp;
+									</c:when>
+									<c:otherwise>
+										<a href="javascript:list('${num}')">${num}</a>&nbsp;
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+							
+							<c:if test="${map.pager.curBlock <= map.pager.totBlock}">
+								<a href="javascript:list('${map.pager.nextPage}')">[다음]</a>
+							</c:if>
+								
+							<c:if test="${map.pager.curPage <= map.pager.totPage}">
+								<a href="javascript:list('${map.pager.totPage}')">[끝]</a>
+							</c:if>
+							
+						</td>
+					</tr> --%>
+					
+					
+					<%-- 페이징 처리 기초 예시 
+							<c:forEach var="num" begin="1"
+								end="${map.pager.totPage}">
+								<a href="javascript:list('${num}')">${num}</a>
+							</c:forEach> --%>
+
 				</tbody>
 			</table>
+
+			<!--페이징 처리 : Pager  -->
+			<div class="container" align="center">
+				<ul class="pagination">
+					<li><a href="#">Prev</a></li>
+					<li><a href="#">1</a></li>
+					<li class="active"><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">Next</a></li>
+				</ul>
+			</div>
 		</div>
 
 		<!-- 페이지네이션~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
