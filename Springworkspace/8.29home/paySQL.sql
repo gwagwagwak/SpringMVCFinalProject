@@ -1,13 +1,14 @@
 
 ------------create table--------------------
 
-
+select * from member
+		order by m_fname;
 
 CREATE TABLE member (
 	m_email	varchar2(30)		primary key,
 	m_pw	varchar2(30)		NULL,
 	m_fname	varchar2(30)		NULL,
-	m_lame	varchar2(30)		NULL,
+	m_lname	varchar2(30)		NULL,
 	m_hp	varchar2(20)		NULL,
 	m_addr	varchar2(100)		NULL,
 	m_joindate	date		NULL,
@@ -151,25 +152,32 @@ insert into member values('ㅁㄴ어라ㅇㄹㅇㅁ', '111', '장', '만득', '0
 insert into member values('ㅁㄴ어라ㅇㄹㅇㄹㅇㄹㅇㄹㅁ', '111', '장', '만득', '010555544444', '서울시 강서구', SYSDATE, 'south korea', null, null, 3, '상장', '1231231', '삼성');
 
 ----qna------
+비밀번호 계정설정 계정제한 결제 비지니스 솔루션
 
-insert into qna values(seq_qna.nextval, '제목', 'sadfasdf', '얄리얄리야라셩 내용', SYSDATE, '결제', '미완료', '이메일', '비밀글');
-insert into qna values(seq_qna.nextval, '제목1', 'sadfasdf', '얄리얄리야라셩 내용', SYSDATE, '결제', '미완료', '이메일', '비밀글');
-insert into qna values(seq_qna.nextval, '제목2', 'sadfasdf', '얄리얄리야라셩 내용', SYSDATE, '결제', '미완료', '이메일', '비밀글');
-insert into qna values(seq_qna.nextval, '제목3', 'sadfasdf', '얄리얄리야라셩 내용', SYSDATE, '결제', '미완료', '이메일', '비밀글');
-insert into qna values(seq_qna.nextval, '제목4', 'sadfasdf', '얄리얄리야라셩 내용', SYSDATE, '결제', '미완료', '이메일', '비밀글');
-insert into qna values(seq_qna.nextval, '제목5', 'sadfasdf', '얄리얄리야라셩 내용', SYSDATE, '결제', '미완료', '이메일', '비밀글');
-insert into qna values(seq_qna.nextval, '제목6', 'sadfasdf', '얄리얄리야라셩 내용', SYSDATE, '결제', '미완료', '이메일', '비밀글');
-insert into qna values(seq_qna.nextval, '제목7', 'sadfasdf', '얄리얄리야라셩 내용', SYSDATE, '결제', '미완료', '이메일', '비밀글');
-insert into qna values(seq_qna.nextval, '제목8', 'sadfasdf', '얄리얄리야라셩 내용', SYSDATE, '결제', '미완료', '이메일', '비밀글');
-insert into qna values(seq_qna.nextval, '제목9', 'sadfasdf', '얄리얄리야라셩 내용', SYSDATE, '결제', '미완료', '이메일', '비밀글');
-insert into qna values(seq_qna.nextval, 'asdfasdf', 'sadfasdf', '얄리얄리야라셩 내용', SYSDATE, '결제', '미완료', '이메일', '비밀글');
-insert into qna values(seq_qna.nextval, '타이틀', 'sadfasdf', '얄리얄리야라셩 내용', SYSDATE, '결제', '미완료', '이메일', '비밀글');
-insert into qna values(seq_qna.nextval, '타이틀1', 'sadfasdf', '얄리얄리야라셩 내용', SYSDATE, '결제', '미완료', '이메일', '비밀글');
-insert into qna values(seq_qna.nextval, '타이틀21', 'sadfasdf', '얄리얄리야라셩 내용', SYSDATE, '결제', '미완료', '이메일', '비밀글');
+insert into qna values(seq_qna.nextval, '제목', 'ggggg', '내요내요내용내용내용', SYSDATE, '비밀번호', '웹사이트', '비밀글', '미완료');
+insert into qna values(seq_qna.nextval, '제목1', 'ggggg', '내요내요내용내용내용', SYSDATE, '계정설정', '웹사이트', '공개글', '미완료');
+insert into qna values(seq_qna.nextval, '제목2', 'ggggg', '내요내요내용내용내용', SYSDATE, '계정제한', '웹사이트', '공개글', '미완료');
+insert into qna values(seq_qna.nextval, '제목3', 'ggggg', '내요내요내용내용내용', SYSDATE, '계정제한', '웹사이트', '공개글', '미완료');
+insert into qna values(seq_qna.nextval, '제목4', 'ggggg', '내요내요내용내용내용', SYSDATE, '솔루션', '웹사이트', '공개글', '미완료');
+insert into qna values(seq_qna.nextval, '제목5', 'ggggg', '내요내요내용내용내용', SYSDATE, '계정제한', '웹사이트', '공개글', '미완료');
+insert into qna values(seq_qna.nextval, '제목6', 'ggggg', '내요내요내용내용내용', SYSDATE, '비밀번호', '웹사이트', '공개글', '미완료');
+insert into qna values(seq_qna.nextval, '제목7', 'ggggg', '내요내요내용내용내용', SYSDATE, '솔루션', '웹사이트', '공개글', '미완료');
+
+insert into qna values(seq_qna.nextval, '제목8', 'ggggg', '내요내요내용내용내용', SYSDATE, '계정설정', '비지니스 솔루션', '공개글', '미완료');
+insert into qna values(seq_qna.nextval, '제목9', 'ggggg', '내요내요내용내용내용', SYSDATE, '계정설정', '비지니스 솔루션', '공개글', '미완료');
+insert into qna values(seq_qna.nextval, '제목10', 'ggggg', '내요내요내용내용내용', SYSDATE, '계정설정', '웹사이트', '공개글', '미완료');
+insert into qna values(seq_qna.nextval, '제11', 'ggggg', '내요내요내용내용내용', SYSDATE, '계정설정', '웹사이트', '공개글', '미완료');
+insert into qna values(seq_qna.nextval, '제목12', 'ggggg', '내요내요내용내용내용', SYSDATE, '계정설정', '비지니스 솔루션', '공개글', '미완료');
+insert into qna values(seq_qna.nextval, '제목13', 'ggggg', '내요내요내용내용내용', SYSDATE, '계정설정', '웹사이트', '공개글', '미완료');
+
+insert into qna values(seq_qna.nextval, '제목23', 'ggggg', '내요내요내용내용내용', SYSDATE, '비밀번호', '웹사이트', '비밀글', '미완료');
+insert into qna values(seq_qna.nextval, '제목24', 'ggggg', '내요내요내용내용내용', SYSDATE, '계정설정', '웹사이트', '비밀글', '미완료');
+insert into qna values(seq_qna.nextval, '제ㄴㅇㄹ목', 'ggggg', '내요내요내용내용내용', SYSDATE, '비지니스 솔루션', '웹사이트', '비밀글', '미완료');
+insert into qna values(seq_qna.nextval, '제ㄴㅇㄹ목', 'ggggg', '내요내요내용내용내용', SYSDATE, '계정설정', '웹사이트', '비밀글', '미완료');
+delete from qna;
 
 
-
- 
+select * from qna ;
 -----다량  더미 데이터 insert---------------
 
 declare
@@ -232,7 +240,7 @@ MAXVALUE n ▶ n = 최대값 또는 NOMAXVALUE = 무한대 값
 MINVALUE n ▶ n = 최소값 또는 NOMINVALUE = 무한대 값
 
 
-
+ALTER TABLE member RENAME COLUMN m_lame TO m_lname;
 
 
 -----------------------------------------------------시퀀스---------------------------------------
@@ -241,6 +249,10 @@ CREATE SEQUENCE seq_qnamain START WITH 1 INCREMENT BY 1 NOMAXVALUE ;
 CREATE SEQUENCE seq_qnacomment START WITH 1 INCREMENT BY 1 NOMAXVALUE ;
 CREATE SEQUENCE seq_paylist START WITH 1 INCREMENT BY 1 NOMAXVALUE ;
 CREATE SEQUENCE seq_autopay START WITH 1 INCREMENT BY 1 NOMAXVALUE ;
+
+
+-------시퀀스 삭제-----
+DROP SEQUENCE seq_qna;
 
 
 -----------시퀀스 초기화--------------

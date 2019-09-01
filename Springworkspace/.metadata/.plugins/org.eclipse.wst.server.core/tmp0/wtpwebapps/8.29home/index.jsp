@@ -13,6 +13,8 @@
 response.sendRedirect("main.do"); 
 /* response.sendRedirect("googlemap_markersdrop.jsp"); */
 
+
+
 %>
 </body>
 </html>

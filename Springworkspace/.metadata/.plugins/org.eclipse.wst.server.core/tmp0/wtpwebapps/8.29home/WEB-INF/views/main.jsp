@@ -101,13 +101,13 @@
 		</ul>
 		<ul class="nav navbar-nav navbar-center">
 			<!-- 			<li><a href="qnaList.do">개인</a></li> -->
-			<li><a href="getQnaList.do">테스트 qna리스트 작동</a></li>
-			<li><a href="qnaList.do">qna 리스트 예시 </a></li>
+			<li><a href="getQnaList.do">qna리스트 작동</a></li>
+			<li><a href="getMemberList.do">멤버 목록 작동 </a></li>
 			<li><a href="qnaWritePage.do">작성 페이지로 이동</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="loginForm.do">로그인</a></li>
-			<li><a href="log_v19.do">회원가입</a></li>
+			<li><a href="registerForm_03_p.do">회원가입</a></li>
 		</ul>
 	</div>
 	</nav>

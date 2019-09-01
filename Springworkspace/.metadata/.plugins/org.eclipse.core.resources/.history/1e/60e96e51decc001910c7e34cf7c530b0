@@ -1,0 +1,19 @@
+package oracle.java.nomyBatis3.dao;
+
+import java.util.List;
+
+import oracle.java.nomyBatis3.model.MemberVO;
+
+public interface MemberDao {
+	
+	//회원 리스트 가져오기
+	public List<MemberVO> getMemberList();
+	
+	//일반회원 가입
+	public void insertMember(MemberVO member);
+	
+	public MemberVO viewMember(String m_email);
+	
+	
+	
+}

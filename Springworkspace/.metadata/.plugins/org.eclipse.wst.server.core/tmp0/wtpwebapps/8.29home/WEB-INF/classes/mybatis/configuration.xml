@@ -2,8 +2,9 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
+
 	<typeAliases>
-		
 		<typeAlias alias="MemberVO"         type="oracle.java.nomyBatis3.model.MemberVO"/>
 	    <typeAlias alias="AutoPayVO"        type="oracle.java.nomyBatis3.model.AutoPayVO" />
 		<typeAlias alias="CardVO"           type="oracle.java.nomyBatis3.model.CardVO" />
@@ -16,7 +17,6 @@
 	
 	
 	<mappers>
-		
 		<mapper resource="mybatis/Member.xml"/>
 		<mapper resource="mybatis/AutoPay.xml" />
 		<mapper resource="mybatis/Card.xml" />
@@ -24,7 +24,6 @@
 		<mapper resource="mybatis/QnaComment.xml"/>
 		<mapper resource="mybatis/QnaMain.xml" />
 		<mapper resource="mybatis/Qna.xml"/>
-	
 	</mappers>
 
 

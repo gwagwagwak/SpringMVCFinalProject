@@ -149,191 +149,7 @@ td.number_dot:after {
 		<br> <br>
 		<!-- 테이블 리스트 =============================================================================== -->
 		총 ${map.count}개의 게시물이 있습니다.
-		<!-- 	<div class="well">
-			<table class="table">
-				<thead>
-					<tr>
-						<th style="width: 70px">No.</th>
-						<th style="width: 150px">Division</th>
-						<th style="width: 670px">Title</th>
-						<th style="width: 180px">Writer</th>
-						<th style="width: 160px">Date</th>
-						<th style="width: 60px">check</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-
-						<td class="number_dot">1</td>
-						<td>Mark</td>
-						<td>Tompson</td>
-						<td>the_mark7</td>
-						<td>the_mark7</td>
-
-						<td><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="user.html"><span class="glyphicon glyphicon-pencil"></span></a>
-
-							<i class="icon-ok"></i> <a href="user.html"><i
-							class="icon-pencil"></i></a> <a
-							href="#myModal" role="button" data-toggle="modal"><i
-								class="icon-remove"></i></a></td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Ashley</td>
-						<td>Jacobs</td>
-						<td>ash11927</td>
-						<td>ash11927</td>
-						<td><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="user.html"><span class="glyphicon glyphicon-pencil"></span></a>
-
-							<i class="icon-ok"></i> <a href="user.html"><i
-							class="icon-pencil"></i></a> <a
-							href="#myModal" role="button" data-toggle="modal"><i
-								class="icon-remove"></i></a></td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>Audrey</td>
-						<td>Ann</td>
-						<td>audann84</td>
-						<td>audann84</td>
-						<td><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="user.html"><span class="glyphicon glyphicon-pencil"></span></a>
-
-							<i class="icon-ok"></i> <a href="user.html"><i
-							class="icon-pencil"></i></a> <a
-							href="#myModal" role="button" data-toggle="modal"><i
-								class="icon-remove"></i></a></td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>John</td>
-						<td>Robinson</td>
-						<td>jr5527</td>
-						<td>jr5527</td>
-						<td><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="user.html"><span class="glyphicon glyphicon-pencil"></span></a>
-
-							<i class="icon-ok"></i> <a href="user.html"><i
-							class="icon-pencil"></i></a> <a
-							href="#myModal" role="button" data-toggle="modal"><i
-								class="icon-remove"></i></a></td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>Aaron</td>
-						<td>Butler</td>
-						<td>aaron_butler</td>
-						<td>aaron_butler</td>
-						<td><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="user.html"><span class="glyphicon glyphicon-pencil"></span></a>
-
-							<i class="icon-ok"></i> <a href="user.html"><i
-							class="icon-pencil"></i></a> <a
-							href="#myModal" role="button" data-toggle="modal"><i
-								class="icon-remove"></i></a></td>
-					</tr>
-					<tr>
-						<td>6</td>
-						<td>Chris</td>
-						<td>Albert</td>
-						<td>cab79</td>
-						<td>cab79</td>
-						<td><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="user.html"><span class="glyphicon glyphicon-pencil"></span></a>
-
-							<i class="icon-ok"></i> <a href="user.html"><i
-							class="icon-pencil"></i></a> <a
-							href="#myModal" role="button" data-toggle="modal"><i
-								class="icon-remove"></i></a></td>
-
-					</tr>
-					<tr>
-						<td>7</td>
-						<td>Ashley</td>
-						<td>Jacobs</td>
-						<td>ash11927</td>
-						<td>ash11927</td>
-						<td><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="user.html"><span class="glyphicon glyphicon-pencil"></span></a>
-
-							<i class="icon-ok"></i> <a href="user.html"><i
-							class="icon-pencil"></i></a> <a
-							href="#myModal" role="button" data-toggle="modal"><i
-								class="icon-remove"></i></a></td>
-					</tr>
-					<tr>
-						<td>8</td>
-						<td>Aaron</td>
-						<td>Butler</td>
-						<td>aaron_butler</td>
-						<td>aaron_butler</td>
-						<td><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="user.html"><span class="glyphicon glyphicon-pencil"></span></a>
-
-							<i class="icon-ok"></i> <a href="user.html"><i
-							class="icon-pencil"></i></a> <a
-							href="#myModal" role="button" data-toggle="modal"><i
-								class="icon-remove"></i></a></td>
-					</tr>
-					<tr>
-						<td>9</td>
-						<td>Ashley</td>
-						<td>Jacobs</td>
-						<td>ash11927</td>
-						<td>ash11927</td>
-						<td><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="user.html"><span class="glyphicon glyphicon-pencil"></span></a>
-
-							<i class="icon-ok"></i> <a href="user.html"><i
-							class="icon-pencil"></i></a> <a
-							href="#myModal" role="button" data-toggle="modal"><i
-								class="icon-remove"></i></a></td>
-					</tr>
-					<tr>
-						<td>10</td>
-						<td>Audrey</td>
-						<td>Ann</td>
-						<td>audann84</td>
-						<td>audann84</td>
-						<td><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="user.html"><span class="glyphicon glyphicon-pencil"></span></a>
-
-							<i class="icon-ok"></i> <a href="user.html"><i
-							class="icon-pencil"></i></a> <a
-							href="#myModal" role="button" data-toggle="modal"><i
-								class="icon-remove"></i></a></td>
-					</tr>
-					<tr>
-						<td>11</td>
-						<td>John</td>
-						<td>Robinson</td>
-						<td>jr5527</td>
-						<td>jr5527</td>
-						<td><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="user.html"><span class="glyphicon glyphicon-pencil"></span></a>
-
-							<i class="icon-ok"></i> <a href="user.html"><i
-							class="icon-pencil"></i></a> <a
-							href="#myModal" role="button" data-toggle="modal"><i
-								class="icon-remove"></i></a></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<div class="container" align="center">
-			<ul class="pagination">
-				<li><a href="#">Prev</a></li>
-				<li><a href="#">1</a></li>
-				<li class="active"><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#">Next</a></li>
-			</ul>
-		</div>
- -->
+	
 
 		<!-- test table -->
 		<br> <br>
@@ -349,22 +165,23 @@ td.number_dot:after {
 						<th style="width: 60px">check</th>
 					</tr>
 				</thead>
-				<span class="glyphicon glyphicon-pencil"></span>
-				<span class="glyphicon glyphicon-ok"></span>
+				<!-- <span class="glyphicon glyphicon-pencil"></span>
+				<span class="glyphicon glyphicon-ok"></span> -->
 				<tbody>
 					<c:forEach var="row" items="${map.list}">
 						<tr>
 							<td class="number_dot">${row.q_no}</td>
 							<td>${row.q_divide}</td>
-							<td><c:choose>
-									<c:when test="${row.q_private eq '비밀글'}">
-										${row.q_title} <span class="glyphicon glyphicon-ok"></span>
-									</c:when>
-									<c:when test="${row.q_private eq '공개글'}">
-										<a href="qnaRead.do?q_no=${row.q_no} &curPage=${map.pager.curPage}">${row.q_title} </a>
-									</c:when>
-									<%-- <c:otherwise> ... </c:otherwise> --%>
-								</c:choose></td>
+							<td>
+									<c:if test="${row.q_private eq '비밀글'}">
+										${row.q_title} <span class="glyphicon glyphicon-lock"></span>
+									</c:if>
+									
+									<c:if test="${row.q_private eq '공개글'}"> 
+										<a href="qnaRead.do?q_no=${row.q_no}&curPage=${map.pager.curPage}">${row.q_title} </a>
+									</c:if>
+								
+							</td>
 							<td>${row.q_writer}</td>
 							<td><fmt:formatDate value="${row.q_date}"
 									pattern="yyyy-MM-dd" /></td>

@@ -9,16 +9,17 @@
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
 			<item value="m_date"/>
+			<item value="c_user"/>
 			<item value="drop"/>
 			<item value="q_id"/>
 			<item value="body"/>
 			<item value="&lt;body&gt;"/>
 			<item value="anno"/>
 			<item value="Context"/>
-			<item value="context"/>
 		</list>
 		<list key="replacehistory">
 			<item value="m_joindate"/>
+			<item value="c_username"/>
 			<item value="q_no"/>
 		</list>
 	</section>

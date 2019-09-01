@@ -1,6 +1,9 @@
 package oracle.java.nomyBatis3.service;
 
 import java.util.List;
+
+import javax.inject.Inject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +18,10 @@ import oracle.java.nomyBatis3.model.MemberVO;
 @Service
 public class MemberServiceImpl implements MemberService{
 
-	@Autowired
+	@Inject
 	private MemberDao mdao;
-	@Autowired
+	
+/*	@Autowired
 	private AutoPayDao adao;
 	@Autowired
 	private CardDao cdao;
@@ -28,18 +32,49 @@ public class MemberServiceImpl implements MemberService{
 	@Autowired
 	private QnaMainDao qmdao;
 	
+	*/
+
 	@Override
-	public MemberVO selMember(String id){
-		return mdao.selMember(id);
+	public List<MemberVO> getMemberList() {
+		// TODO Auto-generated method stub
+		return mdao.getMemberList();
 	}
 
-
 	@Override
-	public int total() {
+	public void insertMember(MemberVO member) {
+		// TODO Auto-generated method stub
 		
-		return  mdao.total();
 	}
-	
+
+	@Override
+	public MemberVO viewMember(String m_email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateMember(MemberVO member) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteMember(String m_email) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean checkPw(String m_email, String pw) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int getMemberCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 	
 }
