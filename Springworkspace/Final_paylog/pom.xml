@@ -25,13 +25,13 @@
 
 	<dependencies>
 		<!--oracle jdbc -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc6</artifactId>
 			<version>12.1.0.1-atlassian-hosted</version>
 			<scope>compile</scope>
 		</dependency>
-		
+		 -->
 		
 		<!-- 
 		<dependency>

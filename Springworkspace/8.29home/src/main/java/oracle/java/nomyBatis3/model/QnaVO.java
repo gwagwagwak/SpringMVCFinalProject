@@ -34,6 +34,7 @@ public class QnaVO {
 		this.q_complete = q_complete;
 	}
 
+	
 	public int getQ_no() {
 		return q_no;
 	}

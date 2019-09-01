@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="WorkbenchPreferenceDialogSettings">
-		<item value="150" key="DIALOG_X_ORIGIN"/>
-		<item value="8" key="DIALOG_Y_ORIGIN"/>
+		<item value="263" key="DIALOG_X_ORIGIN"/>
+		<item value="193" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
 		<item value="-1" key="dialogHeight"/>
@@ -44,6 +44,10 @@
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.30\학원\paylog_completeform"/>
+			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.28\집\paylog_completeform"/>
+			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.29\집\paylog_completeform"/>
+			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.29\학원\paylog_completeform"/>
 			<item value="G:\국비반\중간 프로젝트\Game Board최종 완성본\GameRankingPAGE-master\GameRankingPAGE-master"/>
 			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.28\학원\paylog_completeform"/>
 			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.27\학원에서 한것\paylog_completeform"/>

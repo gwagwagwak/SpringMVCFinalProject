@@ -22,7 +22,9 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService ms;
-	@Autowired
+	
+	
+/*	@Autowired
 	private AutoPayService as;
 	@Autowired
 	private CardService cs;
@@ -33,7 +35,7 @@ public class MemberController {
 	@Autowired
 	private QnaMainService qms;
 	@Autowired
-	private QnaService qs;
+	private QnaService qs;*/
 	
 	
 	
@@ -57,7 +59,9 @@ public class MemberController {
 		return "loginForm";
 	}
 	
-	@RequestMapping(value="main")
+
+	
+	@RequestMapping(value="main.do")
 	public String main(Model model){
 		System.out.println("11111111111111111111111");
 		return "main";

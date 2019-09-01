@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<!-- <mapper namespace="QnaCommentVO"> -->
+<mapper namespace="QnaCommentVO">
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	
+	<resultMap id="QnaCommentVOResult" type="QnaCommentVO">
+        <result property="comt_no" column="comt_no" />
+        <result property="comt_writer" column="comt_writer" />
+		<result property="comt_content" column="comt_content" />
+		<result property="comt_date" column="comt_date" />
+		<result property="comt_flag" column="comt_flag" />
+		<result property="comt_textid" column="comt_textid" />
+	</resultMap>
+	
+	<select id="getCount" resultType="int">
+		select count(*) from qnacomment 
+		where comt_textid = #{q_no}
+	</select>
+	
+	<insert id="insertComment">
+		insert into qnacomment(comt_no, comt_writer, comt_content, comt_date, comt_flag, comt_textid)
+		values(seq_qnacomment.nextval, #{comt_writer}, #{comt_content}, #{comt_date}, #{comt_flag}, #{q_no})
+	</insert>
+
+	
+	<select id="getCommentList" resultType="oracle.java.nomyBatis3.model.QnaCommentVO">
+		<!-- select 
+		from qnacomment m, mem 
+		where comt_textid = #{q_no} -->
+	</select>
+	
+
+</mapper>

@@ -8,7 +8,7 @@ public class MemberVO {
 	private String m_lname;		//회원 성씨
 	private String m_hp;		//회원 핸드폰번호
 	private String m_addr;		//회원 거주지 주소
-	private String m_date;		//회원 가입일
+	private String m_joindate;		//회원 가입일
 	private String m_nation;	//회원 국적
 	private String m_secu;		//회원 보안 질문	(회원 가입 후에 회원관리에서 따로 설정해야 한다.)
 	private String m_answer;	//회원 보안 질문 답
@@ -23,7 +23,7 @@ public class MemberVO {
 	}
 
 	public MemberVO(String m_email, String m_pw, String m_fname, String m_lname, String m_hp, String m_addr,
-			String m_date, String m_nation, String m_secu, String m_answer, int m_type, String b_type, String b_number,
+			String m_joindate, String m_nation, String m_secu, String m_answer, int m_type, String b_type, String b_number,
 			String b_name) {
 		super();
 		this.m_email = m_email;
@@ -32,7 +32,7 @@ public class MemberVO {
 		this.m_lname = m_lname;
 		this.m_hp = m_hp;
 		this.m_addr = m_addr;
-		this.m_date = m_date;
+		this.m_joindate = m_joindate;
 		this.m_nation = m_nation;
 		this.m_secu = m_secu;
 		this.m_answer = m_answer;
@@ -90,12 +90,12 @@ public class MemberVO {
 		this.m_addr = m_addr;
 	}
 
-	public String getM_date() {
-		return m_date;
+	public String getm_joindate() {
+		return m_joindate;
 	}
 
-	public void setM_date(String m_date) {
-		this.m_date = m_date;
+	public void setm_joindate(String m_joindate) {
+		this.m_joindate = m_joindate;
 	}
 
 	public String getM_nation() {

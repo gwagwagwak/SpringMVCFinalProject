@@ -9,7 +9,7 @@ public class CardVO {
 	private Date c_expr;		//카드 만료일
 	private int c_csc;			//카드 csc번호
 	private String c_addr;	//카드 청구 주소
-	private String c_user;		//카드 회원 메일	(외래키 : member.m_email)
+	private String c_username;		//카드 회원 메일	(외래키 : member.m_email)
 	
 	
 	public CardVO() {
@@ -18,14 +18,14 @@ public class CardVO {
 	}
 
 
-	public CardVO(int c_number, String c_type, Date c_expr, int c_csc, String c_addr, String c_user) {
+	public CardVO(int c_number, String c_type, Date c_expr, int c_csc, String c_addr, String c_username) {
 		super();
 		this.c_number = c_number;
 		this.c_type = c_type;
 		this.c_expr = c_expr;
 		this.c_csc = c_csc;
 		this.c_addr= c_addr;
-		this.c_user = c_user;
+		this.c_username = c_username;
 	}
 
 
@@ -79,13 +79,13 @@ public class CardVO {
 	}
 
 
-	public String getC_user() {
-		return c_user;
+	public String getc_username() {
+		return c_username;
 	}
 
 
-	public void setC_user(String c_user) {
-		this.c_user = c_user;
+	public void setc_username(String c_username) {
+		this.c_username = c_username;
 	}
 	
 	

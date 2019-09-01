@@ -1,5 +1,0 @@
-package oracle.java.nomyBatis3.model;
-
-public class Pager {
-
-}
