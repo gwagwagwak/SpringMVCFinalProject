@@ -1,5 +1,7 @@
+select * from member;
 
 ------------create table--------------------
+
 
 select * from member
 		order by m_fname;
@@ -23,7 +25,16 @@ CREATE TABLE member (
 --b_type : '개인' or '상장' or '비상장'
 
 
+select * from member;
 
+insert into member
+		(m_email, m_pw, m_fname, m_lname, m_hp, m_addr, m_joindate
+		,m_nation, m_type)
+		values
+		('email', '111', '상홍ㅇ', '황', '010', '주소', SYSDATE, 'korea', 2);
+		
+		
+		select * from member;
 
 CREATE TABLE qnamain (
 	qm_no	number(20)		primary key,

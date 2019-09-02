@@ -31,21 +31,36 @@
 
 
 	<!-- 일반 회원 가입  -->
-	<insert id="insertMember" parameterType="MemberVO">
+	<!-- parameterType="MemberVO" -->
+	<insert id="insertPersonalMember">
 		insert into member
 		(m_email, m_pw, m_fname, m_lname, m_hp, m_addr, m_joindate
 		,m_nation, m_type)
 		values
-		(#{m_email}, #{m_pw}, #{m_fname}, #{m_lname}, #{m_hp}, #{m_addr}, SYSDATE, #{m_nation}, #{m_type})
-		)
+		(#{m_email}, #{m_pw}, #{m_fname}, #{m_lname}, #{m_hp}, #{m_addr}, SYSDATE, #{m_nation}, 2)
+		
 	</insert>
 	
 	<select id="getMemberList" resultType="oracle.java.nomyBatis3.model.MemberVO">
 		select * from member
 		order by m_fname
-	
 	</select>
-
+	
+	
+	<select id="loginMember" resultType="oracle.java.nomyBatis3.model.MemberVO">
+		select * from member
+		where m_email=#{m_email} and m_pw = #{m_pw}
+	</select>
+	
+	
+	
+	<!-- 실패한 로그인 -->
+	<!-- <select id="loginMember" parameterType="oracle.java.nomyBatis3.model.MemberVO" resultType="oracle.java.nomyBatis3.model.MemberVO">
+		select m_email, m_pw, m_fname, m_lname, m_hp, m_addr, m_joindate
+		from member 
+		where m_email=#{m_email} and m_pw=#{m_pw}
+	</select>
+	 -->
 
 
 

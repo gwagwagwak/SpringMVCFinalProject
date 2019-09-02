@@ -157,6 +157,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="description">
+							아이디 : ${sessionScope.loginID}님		<!-- 아이디 임시 표시 -->
 							<h4 class="header-text">Pay Your Way</h4>
 							<p>
 								Our digital wallet lets you add credit, debit and bank accounts

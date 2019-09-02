@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import oracle.java.nomyBatis3.DTO.LoginDTO;
 import oracle.java.nomyBatis3.dao.AutoPayDao;
 import oracle.java.nomyBatis3.dao.CardDao;
 import oracle.java.nomyBatis3.dao.MemberDao;
@@ -40,9 +41,19 @@ public class MemberServiceImpl implements MemberService{
 		return mdao.getMemberList();
 	}
 
+	
+	//로그인 처리
+	@Override
+	public MemberVO loginMember(LoginDTO logindto) throws Exception {
+		// TODO Auto-generated method stub
+		return mdao.loginMember(logindto);
+	}
+
+	
+	//일반회원 가입
 	@Override
 	public void insertMember(MemberVO member) {
-		// TODO Auto-generated method stub
+		mdao.insertMember(member);
 		
 	}
 
@@ -75,6 +86,7 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 
 	
 }

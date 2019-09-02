@@ -43,7 +43,7 @@ form>fieldset>legend {
 		<div class="row">
 
 			<div class="col-md-8 col-md-offset-2">
-				<form role="form" method="POST" action="#">
+				<form role="form" method="POST" action="memberInsert.do">
 
 					<legend class="text-center">Register</legend>
 
@@ -52,43 +52,43 @@ form>fieldset>legend {
 
 						<div class="form-group col-md-6">
 							<label for="first_name">First name</label> <input type="text"
-								class="form-control" name="" id="first_name"
+								class="form-control" name="m_fname" id="first_name"
 								placeholder="First Name">
 						</div>
 
 						<div class="form-group col-md-6">
 							<label for="last_name">Last name</label> <input type="text"
-								class="form-control" name="last_name" id=""
+								class="form-control" name="m_lname" id=""
 								placeholder="Last Name">
 						</div>
 
 						<div class="form-group col-md-12">
 							<label for="">Email</label> <input type="email"
-								class="form-control" name="" id="" placeholder="Email">
+								class="form-control" name="m_email" id="" placeholder="Email">
 						</div>
 
 						<div class="form-group col-md-6">
 							<label for="password">Password</label> <input type="password"
-								class="form-control" name="" id="password"
+								class="form-control" name="m_pw" id="password"
 								placeholder="Password">
 						</div>
 
 						<div class="form-group col-md-6">
 							<label for="confirm_password">Confirm Password</label> <input
-								type="password" class="form-control" name=""
+								type="password" class="form-control" name="m_pw_check"
 								id="confirm_password" placeholder="Confirm Password">
 						</div>
 
 						<div class="form-group col-md-6">
 							<label for="Phone">Phone</label> <input type="text"
-								class="form-control" name="" id="phone"
+								class="form-control" name="m_hp" id="phone"
 								placeholder="Your Cell Phone Number">
 						</div>
 
 
 						<div class="form-group col-md-6">
 							<label for="country">Country of Residence</label> <select
-								class="form-control" name="" id="country">
+								class="form-control" name="m_nation" id="country">
 								<option value="korea" selected="selected">KOREA</option>
 								<option value="uk">United Kingdom</option>
 								<option value="us">United America</option>
@@ -122,13 +122,13 @@ form>fieldset>legend {
 
 						<div class="form-group col-md-6">
 							<label for="addr1">Address</label> 
-							<input type="text" class="form-control" name="addr1" id="addr1"	placeholder="Your address">
+							<input type="text" class="form-control" name="m_addr" id="addr1"	placeholder="Your address">
 							
 						</div>
 						
 						<div class="form-group col-md-12">
 							<label for=""></label> <input type="text"
-								class="form-control" name="" id="" placeholder="detail address">
+								class="form-control" name="m_addr2" id="" placeholder="detail address">
 						</div>
 					
 						
@@ -150,7 +150,7 @@ form>fieldset>legend {
 					<div class="form-group">
 						<div class="col-md-12">
 							<button type="submit" class="btn btn-primary">Register</button>
-							<a href="log_v19.jsp">Already have an account?</a>
+							<a href="loginForm.do">Already have an account?</a>
 						</div>
 					</div>
 

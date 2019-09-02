@@ -2,6 +2,7 @@ package oracle.java.nomyBatis3.dao;
 
 import java.util.List;
 
+import oracle.java.nomyBatis3.DTO.LoginDTO;
 import oracle.java.nomyBatis3.model.MemberVO;
 
 public interface MemberDao {
@@ -27,5 +28,7 @@ public interface MemberDao {
 	//회원 수 구하기
 	public int getMemberCount();
 	
+	//로그인
+	public MemberVO loginMember(LoginDTO logindto) throws Exception;
 	
 }

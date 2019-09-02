@@ -40,6 +40,8 @@ public class CardController {
 	private QnaService qs;
 	
 	
+	
+	
 	ModelAndView mv;
 	
 	//카드 한개 정보 가져오기

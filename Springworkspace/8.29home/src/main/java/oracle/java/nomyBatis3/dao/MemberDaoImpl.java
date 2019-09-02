@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import oracle.java.nomyBatis3.DTO.LoginDTO;
 import oracle.java.nomyBatis3.model.MemberVO;
 
 @Repository
@@ -16,22 +17,34 @@ public class MemberDaoImpl implements MemberDao{
 	private static final Logger logger = 
 			LoggerFactory.getLogger(MemberDaoImpl.class);
 	
-	
-	
-	
 	@Autowired
 	private SqlSession session;
+	
+	
+	//LoginDTO를 받아서 MemberVO를 리턴한다.
+	@Override
+	public MemberVO loginMember(LoginDTO logindto) throws Exception{
+		System.out.println("dao진입");
+		System.out.println(logindto.getM_email());
+		System.out.println(logindto.getM_pw());
+		
+		
+		return session.selectOne("member.loginMember", logindto);
+		
+		
+		
+	}
 
 	@Override
 	public List<MemberVO> getMemberList() {
 		
 		return session.selectList("member.getMemberList");
-		
 	}
 
 	@Override
 	public void insertMember(MemberVO member) {
-		// TODO Auto-generated method stub
+		//member안에 레코드 정보가 들어있다.
+		session.insert("member.insertPersonalMember", member);
 		
 	}
 
@@ -64,6 +77,8 @@ public class MemberDaoImpl implements MemberDao{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
 	
 /*	
 	public List<MemberVO> list(){

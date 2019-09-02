@@ -26,7 +26,11 @@
 				<td>
 					<a href="memberView.do?m_email=${row.m_email}">${row.m_fname}${row.m_lname}</a>
 				</td>
-				<td>${row.m_joindate}</td>
+				<td>
+				<%-- 	<fmt:formatDate value="${row.m_joindate}"
+					pattern="yyyy-MM-dd"/> --%>
+					${row.m_joindate}
+				</td>
 			</tr>
 		
 		</c:forEach>
