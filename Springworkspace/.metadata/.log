@@ -9898,3 +9898,213 @@ org.xml.sax.SAXParseException; lineNumber: 54; columnNumber: 3; Element type "be
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-09-03 00:36:39.185
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-09-03 00:36:39.312
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-09-03 00:36:41.770
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-09-03 00:36:41.777
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.134
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.136
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.137
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.141
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.142
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.143
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.174
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.175
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.176
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.176
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.177
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.177
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.210
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.212
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.213
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.214
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.214
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.215
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.251
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.252
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.253
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.253
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.253
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.254
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.293
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.294
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.294
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.295
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.409
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.410
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.600
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:37:09.601
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.wst.validation 4 0 2019-09-03 00:37:25.811
+!MESSAGE IWAE0027E Could not retrieve the validation configuration for resource test333.
+!STACK 0
+java.lang.reflect.InvocationTargetException: IWAE0027E Could not retrieve the validation configuration for resource test333.
+	at org.eclipse.wst.validation.internal.ConfigurationManager.getProjectConfiguration(ConfigurationManager.java:135)
+	at org.eclipse.wst.validation.internal.ConfigurationManager.getConfiguration(ConfigurationManager.java:251)
+	at org.eclipse.wst.validation.internal.ValManager.getValidatorsNotCached(ValManager.java:226)
+	at org.eclipse.wst.validation.internal.ValManager.access$1(ValManager.java:220)
+	at org.eclipse.wst.validation.internal.ValManager$ValidatorCache.getValidatorsCached(ValManager.java:1263)
+	at org.eclipse.wst.validation.internal.ValManager.getValidators(ValManager.java:197)
+	at org.eclipse.wst.validation.internal.ValManager.validate(ValManager.java:668)
+	at org.eclipse.wst.validation.internal.ValBuilderJob$Visitor.visit(ValBuilderJob.java:327)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:64)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:48)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.deltaBuild(ValBuilderJob.java:211)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.run(ValBuilderJob.java:179)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.runInWorkspace(ValBuilderJob.java:126)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.core.internal.resources.ResourceException: Resource '/test333' does not exist.
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:335)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:209)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:141)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:215)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1207)
+	at org.eclipse.wst.validation.internal.ConfigurationManager.getProjectConfiguration(ConfigurationManager.java:126)
+	... 19 more
+Root exception:
+org.eclipse.core.internal.resources.ResourceException: Resource '/test333' does not exist.
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:335)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:209)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:141)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:215)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1207)
+	at org.eclipse.wst.validation.internal.ConfigurationManager.getProjectConfiguration(ConfigurationManager.java:126)
+	at org.eclipse.wst.validation.internal.ConfigurationManager.getConfiguration(ConfigurationManager.java:251)
+	at org.eclipse.wst.validation.internal.ValManager.getValidatorsNotCached(ValManager.java:226)
+	at org.eclipse.wst.validation.internal.ValManager.access$1(ValManager.java:220)
+	at org.eclipse.wst.validation.internal.ValManager$ValidatorCache.getValidatorsCached(ValManager.java:1263)
+	at org.eclipse.wst.validation.internal.ValManager.getValidators(ValManager.java:197)
+	at org.eclipse.wst.validation.internal.ValManager.validate(ValManager.java:668)
+	at org.eclipse.wst.validation.internal.ValBuilderJob$Visitor.visit(ValBuilderJob.java:327)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:64)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:48)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.deltaBuild(ValBuilderJob.java:211)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.run(ValBuilderJob.java:179)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.runInWorkspace(ValBuilderJob.java:126)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-09-03 00:37:45.578
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-09-03 00:37:45.581
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-09-03 00:37:46.429
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-09-03 00:37:46.433
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:38:13.765
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:38:13.769
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:38:13.770
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:38:13.771
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:38:13.832
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:38:13.840
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:38:13.842
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:38:13.843
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:38:13.843
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.core 4 1006 2019-09-03 00:38:13.844
+!MESSAGE C:\Users\Win10\.m2\repository\org\springframework\spring-context\3.1.1.RELEASE\spring-context-3.1.1.RELEASE.jar is not on its project's build path

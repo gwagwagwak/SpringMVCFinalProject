@@ -13,6 +13,9 @@ public interface MemberDao {
 	//일반회원 가입
 	public void insertMember(MemberVO member);
 	
+	//비지니스 회원 가입
+	public void insertBusinessMember(MemberVO member);
+	
 	//회원 정보 보기
 	public MemberVO viewMember(String m_email);
 	
@@ -30,5 +33,8 @@ public interface MemberDao {
 	
 	//로그인
 	public MemberVO loginMember(LoginDTO logindto) throws Exception;
+
+	//이메일 중복 확인
+	public int userIdCheck(String m_email);
 	
 }

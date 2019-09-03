@@ -56,7 +56,14 @@ public class MemberServiceImpl implements MemberService{
 		mdao.insertMember(member);
 		
 	}
-
+	
+	//비지니스 멤버 회원가입
+	@Override
+	public void insertBusinessMember(MemberVO member) {
+		mdao.insertBusinessMember(member);
+	}
+	
+	//멤버 정보 보기
 	@Override
 	public MemberVO viewMember(String m_email) {
 		// TODO Auto-generated method stub
@@ -86,6 +93,18 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
+	
+	//이메일 중복 처리 
+	@Override
+	public int userIdCheck(String m_email) {
+		// TODO Auto-generated method stub
+		return mdao.userIdCheck(m_email);
+	}
+
+
+	
 
 
 	

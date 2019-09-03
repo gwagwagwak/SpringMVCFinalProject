@@ -25,6 +25,8 @@
 		
 	</resultMap>
 	
+	
+	<!-- 총 회원수   -->
 	<select id="total" resultType="int">
 		select count(*) from member
 	</select>
@@ -38,15 +40,34 @@
 		,m_nation, m_type)
 		values
 		(#{m_email}, #{m_pw}, #{m_fname}, #{m_lname}, #{m_hp}, #{m_addr}, SYSDATE, #{m_nation}, 2)
+	</insert>
+	
+	
+	<!-- 비지니스 회원 가입  -->
+	<insert id="insertBusinessMember">
+		insert into member
+		(m_email, m_pw, m_fname, m_lname, m_hp, m_addr, m_joindate ,m_nation, m_type, b_type, b_number, b_name)
+		values
+		(#{m_email}, #{m_pw}, #{m_fname}, #{m_lname}, #{m_hp}, #{m_addr}, SYSDATE, #{m_nation}, 3, #{b_type}, #{b_number}, #{b_name})
 		
 	</insert>
 	
+	
+	
+	<!--아이디 중복 체크   -->
+		<select id="userIdCheck" resultType="java.lang.Integer">
+		select count(*) from member where m_email = #{m_email}	
+	</select>
+	
+	
+	<!-- 전체 멤버 목록 얻기 -->
 	<select id="getMemberList" resultType="oracle.java.nomyBatis3.model.MemberVO">
 		select * from member
 		order by m_fname
 	</select>
 	
 	
+	<!-- 로그인 처리  -->
 	<select id="loginMember" resultType="oracle.java.nomyBatis3.model.MemberVO">
 		select * from member
 		where m_email=#{m_email} and m_pw = #{m_pw}

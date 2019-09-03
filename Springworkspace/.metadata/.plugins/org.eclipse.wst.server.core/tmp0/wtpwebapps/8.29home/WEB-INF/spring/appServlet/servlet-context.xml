@@ -44,7 +44,8 @@
 		class="oracle.java.nomyBatis3.interceptor.SampleInterceptor" />
 	<beans:bean id="LoginInterceptor"
 		class="oracle.java.nomyBatis3.interceptor.LoginInterceptor" />
-		
+	<beans:bean id="authInterceptor"
+		class="oracle.java.nomyBatis3.interceptor.AuthInterceptor" />
 		
 	<interceptors>
 		<interceptor>
@@ -54,9 +55,18 @@
 		
 		<!--로그인인터셉터  -->
 		<interceptor>
-			<mapping path="loginPost.do" />	<!-- 컨트롤러가 실행되기전 지정한 uri만 탄다. -->
+			<mapping path="/loginPost.do" />	<!-- 컨트롤러가 실행되기전 지정한 uri만 탄다. -->
 			<beans:ref bean="LoginInterceptor" />
 		</interceptor>
+		
+		<!-- 로그인 확인 처리 인터셉터  로그인처리 확인을 거쳐야 할 컨트롤러만 검사-->
+		<!-- <interceptor>
+			<mapping path="/qnaDelete.do" />	
+			<mapping path="/qnaWrite.do" />
+			<mapping path="/qnaUpdate.do" />
+			<mapping path="/getQnaList.do" />	
+			<beans:ref bean="authInterceptor" />
+		</interceptor> -->
 	</interceptors>
 
 

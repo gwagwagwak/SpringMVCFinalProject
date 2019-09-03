@@ -4,6 +4,8 @@
 
 <html lang="en">
 <head>
+
+
 <meta charset="utf-8" />
 <link rel="icon" type="image/png"
 	href="${pageContext.request.contextPath}/resources/img/favicon.ico">
@@ -31,6 +33,65 @@
 <link
 	href="${pageContext.request.contextPath}/resources/css/pe-icon-7-stroke.css"
 	rel="stylesheet" />
+
+
+<!-- 구글 맵 필요 코드  -->
+
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-3.2.0.min.js"></script>
+<style>
+.map-container {
+	overflow: hidden;
+	padding-bottom: 56.25%;
+	position: relative;
+	height: 0;
+}
+
+.map-container iframe {
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+/* /* /*  */
+* / * /
+	/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */  
+#map {
+	height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#floating-panel {
+	position: absolute;
+	top: 10px;
+	left: 25%;
+	z-index: 5;
+	background-color: #fff;
+	padding: 5px;
+	border: 1px solid #999;
+	text-align: center;
+	font-family: 'Roboto', 'sans-serif';
+	line-height: 30px;
+	padding-left: 10px;
+}
+
+#floating-panel {
+	margin-left: -52px;
+}
+</style>
+
+
+<!--  ============================================================ -->
+
+
 
 
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
@@ -70,8 +131,8 @@
 	</nav>
 
 
-
-
+	<!-- 
+<div id="map"></div> -->
 
 	<!-- =============body===========================================================================================================================================  -->
 	<div class="wrapper">
@@ -239,35 +300,36 @@
 		</div>
 		</section>
 
-
-		<!--그래프 넣을 위치 -->
+		<!-- iframe 구글 맵 불러오기  -->
 		<div class="section section-presentation">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6">
-						<div class="description">
-							<h4 class="header-text">It's beautiful</h4>
-							<p>And your app is also probably social, awesome, easy-to-use
-								and vital to users. This is the place to enlist all the good
-								things that your app has to share. Focus on the benefits that
-								the uers will receive. Try to combine imaginery with text and
-								show meaningful printscreens from your app, that will make it
-								clear what exactly the basic functions are.</p>
-							<p>Try to make it very clear for the people browsing the page
-								that this product will enrich their life and will make a nice
-								addition to the homescreen.
-							<p>
-						</div>
+
+					<!--Google map-->
+					<div id="map-container-google-1"
+						class="z-depth-1-half map-container" style="height: 500px">
+						<!-- <iframe
+							src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
+							frameborder="0" style="border: 0" allowfullscreen>
+						</iframe> -->
+						
+							<!-- src="WEB-INF/googlemap_markersdrop.jsp"; -->
+						<iframe
+							src="${pageContext.request.contextPath}/googlemap_markersdrop.jsp";
+							
+							frameborder="0" style="border: 0" allowfullscreen>
+						</iframe>
+						
 					</div>
-					<div class="col-md-5 col-md-offset-1 hidden-xs">
-						<img
-							src="${pageContext.request.contextPath}/resources/img/mac.png" />
-					</div>
+					
+					
 				</div>
 			</div>
 		</div>
 
+		
 
+		<!-- 회사 소개 설명 1 -->
 		<!--  =========================================================================================-->
 		<div class="section section-demo">
 			<div class="container">
@@ -318,6 +380,8 @@
 
 
 
+
+		<!-- 회사 특징 2  -->
 		<!-- =================================================================================================================================== -->
 		<div class="section section-features">
 			<div class="container">
@@ -360,8 +424,10 @@
 			</div>
 		</div>
 
+
+
 		<!-- ======================================================================================================================================== -->
-		<div class="section section-testimonial">
+		<%-- <div class="section section-testimonial">
 			<div class="container">
 				<h4 class="header-text text-center">What people think</h4>
 				<div id="carousel-example-generic" class="carousel fade"
@@ -411,7 +477,7 @@
 				</div>
 			</div>
 		</div>
-
+ --%>
 
 
 		<!-- =============================================================================================================================== -->
@@ -422,10 +488,11 @@
 						src="${pageContext.request.contextPath}/resources/img/bg3.jpg" />
 				</div>
 				<div class="info">
-					<h1>Download this landing page for free!</h1>
-					<p>Beautiful multipurpose bootstrap landing page.</p>
-					<a href="http://www.creative-tim.com/product/awesome-landing-page"
-						class="btn btn-neutral btn-lg btn-fill">DOWNLOAD</a>
+				 
+					<h1>Try this Fantastic Pament System!</h1>
+					<p>Most convenient payment system</p>
+					<a href="http://www.creative-tim.com/product/awesome-landing-page"	//결제 페이지
+						class="btn btn-neutral btn-lg btn-fill">Use It Now!(결제 페이지 이동)</a>
 				</div>
 			</div>
 		</div>
@@ -438,10 +505,10 @@
 		<div class="container">
 			<nav class="pull-left">
 			<ul>
-				<li><a href="#"> Home </a></li>
-				<li><a href="#"> Company </a></li>
-				<li><a href="#"> Portfolio </a></li>
-				<li><a href="#"> Blog </a></li>
+				<li><a href="#"> 회사소개</a></li>
+				<li><a href="privacy.do"> 이용방법 </a></li>
+				<li><a href="serviceCenter.do"> 고객센터 </a></li>
+				
 			</ul>
 			</nav>
 			<div class="social-area pull-right">
@@ -460,7 +527,6 @@
 		</div>
 		</footer>
 	</div>
-
 </body>
 <script type='text/javascript'>
 	//<![CDATA[
@@ -478,6 +544,13 @@
 	});
 	//]]>
 </script>
+
+<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9F39VV9KJFSl5ojbKnYJWQxxZB_RtNPQ&callback=initMap">
+	
+</script>
+
+
 <script
 	src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.js"
 	type="text/javascript"></script>

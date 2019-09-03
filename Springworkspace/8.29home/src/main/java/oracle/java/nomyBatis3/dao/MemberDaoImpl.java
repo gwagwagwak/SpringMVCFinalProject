@@ -30,10 +30,17 @@ public class MemberDaoImpl implements MemberDao{
 		
 		
 		return session.selectOne("member.loginMember", logindto);
-		
-		
-		
 	}
+	
+
+	//이메일 중복 확인
+	@Override
+	public int userIdCheck(String m_email) {
+		// TODO Auto-generated method stub
+		System.out.println("dao 세션 접근");
+		return session.selectOne("member.userIdCheck", m_email);
+	}
+
 
 	@Override
 	public List<MemberVO> getMemberList() {
@@ -45,8 +52,16 @@ public class MemberDaoImpl implements MemberDao{
 	public void insertMember(MemberVO member) {
 		//member안에 레코드 정보가 들어있다.
 		session.insert("member.insertPersonalMember", member);
+	}
+	
+	@Override
+	public void insertBusinessMember(MemberVO member) {
+		session.insert("member.insertBusinessMember", member);
 		
 	}
+
+	
+	
 
 	@Override
 	public MemberVO viewMember(String m_email) {
@@ -78,6 +93,8 @@ public class MemberDaoImpl implements MemberDao{
 		return 0;
 	}
 
+	
+	
 
 	
 /*	

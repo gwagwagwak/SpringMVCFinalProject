@@ -191,7 +191,7 @@ td.number_dot:after {
 					</c:forEach>
 
 					<!--페이징 :pager  -->
-					<%-- <tr>
+					<%--  <tr>
 						<td colsapn="5" align="center">
 							<c:if test="${map.pager.curBlock > 1}">
 								<a href="javascript:list('1')">[처음]</a>
@@ -221,20 +221,59 @@ td.number_dot:after {
 							</c:if>
 							
 						</td>
-					</tr> --%>
-
-
+					</tr>  --%>
 					<%-- 페이징 처리 기초 예시 
 							<c:forEach var="num" begin="1"
 								end="${map.pager.totPage}">
 								<a href="javascript:list('${num}')">${num}</a>
 							</c:forEach> --%>
-
 				</tbody>
 			</table>
 
-			<!--페이징 처리 : Pager  -->
+
+
+
+<!-- ================== -->
 			<div class="container" align="center">
+				<ul class="pagination">
+			
+			<!-- 페이징 부분 -->
+			<c:if test="${map.pager.curBlock > 1}">
+								<li><a href="javascript:list('1')">[처음]</a></li>
+							</c:if>
+							
+							<c:if test="${map.pager.curBlock > 1}">
+								<li><a href="javascript:list('${map.pager.prevPage}')">[이전]</a></li>
+							</c:if>
+							
+							<c:forEach var="num" begin="${map.pager.blockBegin}" end="${map.pager.blockEnd}">
+								<c:choose>
+									<c:when test="${num == map.pager.curPage}">
+										<%-- <li><span style="clolr:red;">${num}</span>&nbsp;</li> --%>
+										<li><span style="font-clolr:red; font-weight: bold">${num}</span>&nbsp;</li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="javascript:list('${num}')">${num}</a>&nbsp;</li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+							
+							<c:if test="${map.pager.curBlock <= map.pager.totBlock}">
+								<li><a href="javascript:list('${map.pager.nextPage}')">[다음]</a></li>
+							</c:if>
+								
+							<c:if test="${map.pager.curPage <= map.pager.totPage}">
+								<li><a href="javascript:list('${map.pager.totPage}')">[끝]</a></li>
+							</c:if>
+			<!-- ====================== -->				
+				</ul>
+			</div>
+
+
+
+
+			<!--페이징 처리 : Pager  -->
+			<!-- <div class="container" align="center">
 				<ul class="pagination">
 					<li><a href="#">Prev</a></li>
 					<li><a href="#">1</a></li>
@@ -244,7 +283,7 @@ td.number_dot:after {
 					<li><a href="#">5</a></li>
 					<li><a href="#">Next</a></li>
 				</ul>
-			</div>
+			</div> -->
 		</div>
 
 		<!-- 페이지네이션~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->

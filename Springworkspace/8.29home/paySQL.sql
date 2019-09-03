@@ -3,6 +3,10 @@ select * from member;
 ------------create table--------------------
 
 
+	select count(*)
+		from member
+		where m_email='kkk';
+
 select * from member
 		order by m_fname;
 
@@ -24,6 +28,7 @@ CREATE TABLE member (
 );
 --b_type : '개인' or '상장' or '비상장'
 
+select count(*) from member where m_email='rmfhwlt0@naver.com11';	
 
 select * from member;
 

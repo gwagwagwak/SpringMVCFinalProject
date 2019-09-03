@@ -59,6 +59,13 @@
 							placeholder="Password"> <span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
+
+					<!--로그인 실패시 결과 표시  -->
+					<br>
+					<div align="center" style="font-family:OpenSans-Regular; font-size: 20px; color: #fe2e6c; font-weight: bold" >
+						${loginResult}</div>
+
+
 					<!-- <br>
 					<div class="form-group">
 						<label for="useCookie"> <input type="checkbox"
@@ -66,7 +73,10 @@
 						</label>
 					</div> -->
 
+
+					<!-- 쿠키이용해서 아이디 기억 -->
 					<div class="container-login100-form-btn m-t-20">
+
 						<label for="useCookie"> <input type="checkbox"
 							id="useCookie" name="useCookie" />Remember Me
 						</label>

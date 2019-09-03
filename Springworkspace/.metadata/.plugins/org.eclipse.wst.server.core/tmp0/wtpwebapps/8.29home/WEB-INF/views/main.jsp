@@ -107,7 +107,7 @@
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="loginForm.do">로그인</a></li>
-			<li><a href="registerForm_03_p.do">회원가입</a></li>
+			<li><a href="join_first.do">회원가입</a></li>
 		</ul>
 	</div>
 	</nav>
@@ -262,9 +262,9 @@
 		<div class="container">
 			<nav class="pull-left">
 			<ul>
-				<li><a href="#"> 회사소개 </a></li>
-				<li><a href="#"> 이용방법 </a></li>
-				<li><a href="#"> 고객센터 </a></li>
+				<li><a href="companyIntroduce.do"> 회사소개 </a></li>
+				<li><a href="privacy.do"> 이용방법 </a></li>
+				<li><a href="serviceCenter.do"> 고객센터 </a></li>
 
 			</ul>
 			</nav>

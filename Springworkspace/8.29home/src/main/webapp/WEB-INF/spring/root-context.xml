@@ -68,7 +68,9 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis/configuration.xml" />
 	</bean>
-	<bean id="session" class="org.mybatis.spring.SqlSessionTemplate">
+	
+	<!-- <bean id="session" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache"> -->
+	<bean id="session" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 	
