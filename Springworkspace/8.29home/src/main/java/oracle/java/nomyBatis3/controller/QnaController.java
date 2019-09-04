@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import oracle.java.nomyBatis3.model.MemberVO;
 import oracle.java.nomyBatis3.model.QnaVO;
 import oracle.java.nomyBatis3.service.AutoPayService;
 import oracle.java.nomyBatis3.service.CardService;
@@ -141,10 +142,10 @@ public class QnaController {
 	// 작성 페이지로 이동만 한다.
 	@RequestMapping(value = "qnaWritePage.do")
 	public String qnaWritePageHandle() throws Exception {
-		mv = new ModelAndView();
-		mv.setViewName("qnaWrite2");
+		/*mv = new ModelAndView();
+		mv.setViewName("qnaWrite2");*/
 		/* mv.setViewName("qnaWrite"); */
-		return "qnaWrite2";
+		return "qnaWrite";
 	}
 	
 	
@@ -152,47 +153,28 @@ public class QnaController {
 	// qna insert를 처리 -> 로그인 기능이 가능 할 때! httpsession으로 처리함!
 	@RequestMapping(value = "qnaWrite.do", method = RequestMethod.POST)
 	public String qnaWriteHandle(@ModelAttribute QnaVO qvo, HttpSession session) throws Exception {
-
+		System.out.println("qnawrite진입");
+		
 		// 중요!!!!!!!!!!!!!!!
 		// 만약 밑의 session값들이 로그인 처리가 되지 않았다면 받아올 수 없기 때문에
 		// 방지하기 위해서 servlet-context.xml에서 로그인 인터셉터를 지정해줘야한다.
-		String login_writer = (String) session.getAttribute("m_email"); // 로그인 할
-																		// 경우
-																		// 사용자
-																		// 아이디
-																		// 받아옴
 		
-		/*
-		 * int q_no = (Integer)session.getAttribute("q_no"); String q_title =
-		 * (String)session.getAttribute("q_title"); String q_writer =
-		 * (String)session.getAttribute("q_writer"); String q_divide =
-		 * (String)session.getAttribute("q_divide"); Date q_date =
-		 * (Date)session.getAttribute("q_date"); String q_replytype =
-		 * (String)session.getAttribute("q_replytype"); String q_private =
-		 * (String)session.getAttribute("q_private");
-		 */
-
-		
-		
+		//로그인이 되어있어야만 한다.
+		MemberVO loginmember = (MemberVO)session.getAttribute("loginMember"); 
+		//세션값으로 받아온 member객체의 이메일을 저장
+		String qnawriter = loginmember.getM_email();
 		
 		/*
 		 * //인터셉트 처리를 하면 if문을 안 써도 된다. if(writer == null){ return
 		 * "redirect:login.do"; }
 		 */
-
 		
+		qvo.setQ_writer(qnawriter); // 로그인 한 사람의 아이디를 writer에 set
+		System.out.println(qvo.toString());
 		
+		qservice.insertQna(qvo);
 		
-		/*
-		 * qvo.setQ_no(q_no); qvo.setQ_writer(q_writer);
-		 * qvo.setQ_title(q_title); qvo.setQ_divide(q_divide);
-		 * qvo.setQ_date(q_date); qvo.setQ_replytype(q_replytype);
-		 * qvo.setQ_private(q_private);
-		 */
-		qvo.setQ_writer(login_writer); // 로그인 한 사람의 아이디를 writer에 set
-
-		
-		
+		System.out.println("qservice 처리 완료");
 		/* mv.setViewName("qnaWrite"); */
 		return "getQnaList.do";
 
@@ -212,19 +194,22 @@ public class QnaController {
 		return "qnaRead";
 	}
 	
-
 	//실습용 qnaview
 	@RequestMapping(value = "qnaRead2.do", method = RequestMethod.GET)
 	public ModelAndView qnaview(@RequestParam int q_no, @RequestParam int curPage, HttpSession session) throws Exception{
+		System.out.println("qnaread2컨트롤러 접근");
+		System.out.println("q_no" + q_no);
+		System.out.println("curPage" + curPage);
 		
 		//조회수 증가
 		/*qservice.increaseViewCnt(q_no);*/
 		ModelAndView mv = new ModelAndView();
 		
 		/*mv.setViewName("qnaview");*/
-		mv.setViewName("qnaRead");
-		mv.addObject("qvo", qservice.getQna(q_no));
+		mv.setViewName("qnaRead2");
+		mv.addObject("qna", qservice.getQna(q_no));
 		mv.addObject("curPage", curPage);
+		System.out.println("qna 가져오기 완료");
 		return mv;
 	}
 

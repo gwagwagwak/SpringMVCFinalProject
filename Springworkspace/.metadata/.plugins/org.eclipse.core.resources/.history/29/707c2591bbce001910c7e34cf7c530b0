@@ -1,0 +1,30 @@
+package oracle.java.nomyBatis3.controller;
+
+import javax.inject.Inject;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import oracle.java.nomyBatis3.service.AutoPayService;
+import oracle.java.nomyBatis3.service.CardService;
+import oracle.java.nomyBatis3.service.MemberService;
+import oracle.java.nomyBatis3.service.PayListService;
+import oracle.java.nomyBatis3.service.QnaCommentService;
+import oracle.java.nomyBatis3.service.QnaMainService;
+import oracle.java.nomyBatis3.service.QnaService;
+
+@Controller
+public class QnaCommentController {
+
+	@Inject
+	private QnaCommentService qcservice;
+	
+	@RequestMapping("commentInsert.do")
+	public void commentInsert(QnaCommentVO commentvo, HttpSession httpsession) throws Exception{
+		String 
+	}
+	
+	
+	
+}

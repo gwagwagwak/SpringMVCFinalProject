@@ -149,7 +149,7 @@ td.number_dot:after {
 		<br> <br>
 		<!-- 테이블 리스트 =============================================================================== -->
 		총 ${map.count}개의 게시물이 있습니다.
-	
+
 
 		<!-- test table -->
 		<br> <br>
@@ -170,18 +170,23 @@ td.number_dot:after {
 				<tbody>
 					<c:forEach var="row" items="${map.list}">
 						<tr>
+							<!--글번호  -->
+							<!--
+								!!!!!!!!!!!!!!!!!!!!!!!게시물 순번
+								전체 레코드 수 - ( (현재 페이지 번호 - 1) * 한 페이지당 보여지는 레코드 수 + 현재 게시물 출력 순서 )
+							  -->
+							<%-- <td class="number_dot">${row.q_no}</td> --%>
 							<td class="number_dot">${row.q_no}</td>
+
 							<td>${row.q_divide}</td>
-							<td>
-									<c:if test="${row.q_private eq '비밀글'}">
+							<td><c:if test="${row.q_private eq '비밀글'}">
 										${row.q_title} <span class="glyphicon glyphicon-lock"></span>
-									</c:if>
-									
-									<c:if test="${row.q_private eq '공개글'}"> 
-										<a href="qnaRead.do?q_no=${row.q_no}&curPage=${map.pager.curPage}">${row.q_title} </a>
-									</c:if>
-								
-							</td>
+								</c:if> <c:if test="${row.q_private eq '공개글'}">
+									<a
+										<%-- href="qnaRead.do?q_no=${row.q_no}&curPage=${map.pager.curPage}">${row.q_title} --%>
+										href="qnaRead2.do?q_no=${row.q_no}&curPage=${map.pager.curPage}">${row.q_title}
+									</a>
+								</c:if></td>
 							<td>${row.q_writer}</td>
 							<td><fmt:formatDate value="${row.q_date}"
 									pattern="yyyy-MM-dd" /></td>
@@ -233,39 +238,40 @@ td.number_dot:after {
 
 
 
-<!-- ================== -->
+			<!-- ================== -->
 			<div class="container" align="center">
 				<ul class="pagination">
-			
-			<!-- 페이징 부분 -->
-			<c:if test="${map.pager.curBlock > 1}">
-								<li><a href="javascript:list('1')">[처음]</a></li>
-							</c:if>
-							
-							<c:if test="${map.pager.curBlock > 1}">
-								<li><a href="javascript:list('${map.pager.prevPage}')">[이전]</a></li>
-							</c:if>
-							
-							<c:forEach var="num" begin="${map.pager.blockBegin}" end="${map.pager.blockEnd}">
-								<c:choose>
-									<c:when test="${num == map.pager.curPage}">
-										<%-- <li><span style="clolr:red;">${num}</span>&nbsp;</li> --%>
-										<li><span style="font-clolr:red; font-weight: bold">${num}</span>&nbsp;</li>
-									</c:when>
-									<c:otherwise>
-										<li><a href="javascript:list('${num}')">${num}</a>&nbsp;</li>
-									</c:otherwise>
-								</c:choose>
-							</c:forEach>
-							
-							<c:if test="${map.pager.curBlock <= map.pager.totBlock}">
-								<li><a href="javascript:list('${map.pager.nextPage}')">[다음]</a></li>
-							</c:if>
-								
-							<c:if test="${map.pager.curPage <= map.pager.totPage}">
-								<li><a href="javascript:list('${map.pager.totPage}')">[끝]</a></li>
-							</c:if>
-			<!-- ====================== -->				
+
+					<!-- 페이징 부분 -->
+					<c:if test="${map.pager.curBlock > 1}">
+						<li><a href="javascript:list('1')">[처음]</a></li>
+					</c:if>
+
+					<c:if test="${map.pager.curBlock > 1}">
+						<li><a href="javascript:list('${map.pager.prevPage}')">[이전]</a></li>
+					</c:if>
+
+					<c:forEach var="num" begin="${map.pager.blockBegin}"
+						end="${map.pager.blockEnd}">
+						<c:choose>
+							<c:when test="${num == map.pager.curPage}">
+								<%-- <li><span style="clolr:red;">${num}</span>&nbsp;</li> --%>
+								<%-- 								<li><a href="#" target="blank" style="color: red; font-weight: bold">${num}</a>&nbsp;</li> --%>
+								<li><span style="color: #FF6347; font-weight: bold">${num}</span>&nbsp;</li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="javascript:list('${num}')">${num}</a>&nbsp;</li>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+
+					<c:if test="${map.pager.curBlock <= map.pager.totBlock}">
+						<li><a href="javascript:list('${map.pager.nextPage}')">[다음]</a></li>
+					</c:if>
+
+					<c:if test="${map.pager.curPage <= map.pager.totPage}">
+						<li><a href="javascript:list('${map.pager.totPage}')">[끝]</a></li>
+					</c:if>
 				</ul>
 			</div>
 

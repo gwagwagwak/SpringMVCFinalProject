@@ -15,11 +15,13 @@ public class QnaDaoImpl implements QnaDao {
 
 	@Autowired
 	private SqlSession session;
+	
+	
+	
 	//qna 1개 읽어오기/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	
 	@Override
 	public QnaVO getQna(int q_no) {
+		System.out.println("qnadaoimpl 접근완료");
 		return session.selectOne("qna.getQna", q_no);
 	}
 
@@ -34,6 +36,7 @@ public class QnaDaoImpl implements QnaDao {
 
 		return session.selectList("qna.getQnaList", map);
 	}
+	
 	//qna 게시물 작성/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
 	public void insertQna(QnaVO qvo) {
@@ -42,12 +45,12 @@ public class QnaDaoImpl implements QnaDao {
 	//qna 게시물 수정/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
 	public void updateQna(QnaVO qvo) throws Exception {
-		session.update("updateQna");
+		session.update("qna.updateQna");
 	}
 	//qna 게시물 삭제/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
 	public void deleteQna(int q_no) throws Exception {
-		session.delete("deleteQna");
+		session.delete("qna.deleteQna", q_no);
 
 	}
 	//qna 전체 게시물 갯수 출력/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -60,13 +63,13 @@ public class QnaDaoImpl implements QnaDao {
 	@Override
 	public int getIncompleteQnaCount() throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectOne("getIncompleteQnaCount");
+		return session.selectOne("qna.getIncompleteQnaCount");
 	}
 	//qna 답변 완료 게시물 갯수 출력/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
 	public int getCompleteQnaCount() throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectOne("getCompleteQnaCount");
+		return session.selectOne("qna.getCompleteQnaCount");
 	}
 	
 	//qna 관리자 미답변 리스트 목록 출력 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////

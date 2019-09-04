@@ -1,0 +1,15 @@
+package oracle.java.nomyBatis3.dao;
+
+import oracle.java.nomyBatis3.model.QnaCommentVO;
+
+public interface QnaCommentDao {
+
+	public List<QnaCommentVO> commentlist(Integer q_no, int start, int end); )
+	
+	public int count(int q_no);
+	public void create(QnaCommentVO commentvo) throws Exception;
+	public void update(QnaCommentVO commentvo) throws Exception;
+	public void delete(Integer comt_no) throws Exception;
+
+	public QnaCommentVO detail(int comt_no)throws Exception;
+}

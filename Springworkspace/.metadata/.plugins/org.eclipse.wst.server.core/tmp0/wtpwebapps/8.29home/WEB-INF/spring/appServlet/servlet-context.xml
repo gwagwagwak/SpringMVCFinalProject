@@ -59,14 +59,14 @@
 			<beans:ref bean="LoginInterceptor" />
 		</interceptor>
 		
-		<!-- 로그인 확인 처리 인터셉터  로그인처리 확인을 거쳐야 할 컨트롤러만 검사-->
+		<!-- 로그인 확인 처리 인터셉터 :   로그인처리 확인을 거쳐야 할 컨트롤러만 검사-->
 		<!-- <interceptor>
-			<mapping path="/qnaDelete.do" />	
-			<mapping path="/qnaWrite.do" />
-			<mapping path="/qnaUpdate.do" />
-			<mapping path="/getQnaList.do" />	
-			<beans:ref bean="authInterceptor" />
-		</interceptor> -->
+				<mapping path="/qnaDelete.do" />	
+				<mapping path="/qnaWrite.do" />
+				<mapping path="/qnaUpdate.do" />
+				<mapping path="/getQnaList.do" />	
+				<beans:ref bean="authInterceptor" />
+			</interceptor> -->
 	</interceptors>
 
 

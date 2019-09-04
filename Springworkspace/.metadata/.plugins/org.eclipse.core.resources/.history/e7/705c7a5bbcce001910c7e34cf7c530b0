@@ -1,0 +1,9 @@
+package oracle.java.nomyBatis3.dao;
+
+import oracle.java.nomyBatis3.model.QnaCommentVO;
+
+public interface QnaCommentDao {
+
+	void create(QnaCommentVO commentvo) throws Exception;
+
+}

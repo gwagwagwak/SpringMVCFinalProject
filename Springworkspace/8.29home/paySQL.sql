@@ -1,7 +1,28 @@
 select * from member;
 
-------------create table--------------------
+--------- qna list sql  -- -------------------------------------------------
 
+select * from(select ROW_NUMBER() over(order by q_no desc)as rn, qna.* from qna) where rn >=1 and rn <=10 ;
+
+!!!!!!!!!!!!!!!!!!!!!!!게시물 순번
+전체 레코드 수 - ( (현재 페이지 번호 - 1) * 한 페이지당 보여지는 레코드 수 + 현재 게시물 출력 순서 )
+
+SELECT ROW_NUMBER() OVER (ORDER BY q_no DESC) AS ROWNUM, qna.* FROM qna ORDER BY ROWNUM DESC
+
+	select q_no, q_title, q_content, q_writer, m_lname, q_date, q_complete, q_replytype, q_private 
+		from qna q, member m
+		where q.q_writer = m.m_email and q.q_no = 15;
+
+
+		select *  
+		from qna 
+		where q_no = 14;
+		q, member m
+		where q.q_writer = m.m_email and q.q_no = 14;
+		
+		
+		delete qna where q_no=15;
+------------create table--------------------
 
 	select count(*)
 		from member

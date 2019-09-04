@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
 
@@ -35,6 +36,7 @@ import oracle.java.nomyBatis3.service.QnaMainService;
 import oracle.java.nomyBatis3.service.QnaService;
 
 @Controller
+/*@SessionAttributes("loginMember")*/
 public class MemberController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberDaoImpl.class);
@@ -75,7 +77,7 @@ public class MemberController {
 	}
 
 
-	// 로그인 실제 처리1
+	// 로그인 실제 처리
 	@RequestMapping(value = "loginPost.do", method = RequestMethod.POST)
 	public void loginPost(@ModelAttribute LoginDTO logindto, Model model) throws Exception {
 		logger.info("loginPost={}", logindto);
@@ -92,13 +94,24 @@ public class MemberController {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
 	//로그인 성공시 이동 위치  (@CookieValue(value = "쿠키이름", defaultValue = "oraclejavacommunity")
 	@RequestMapping(value = "loginSuccess.do")
 	public String loginSuccess(Model model, HttpSession httpsession)throws Exception{
+		MemberVO loginmember =(MemberVO)httpsession.getAttribute("loginMember");
 		
-		System.out.println("로그인 성공 컨트롤러 진입 성공");
-		System.out.println(httpsession.getAttribute("loginMember"));
+		if(loginmember.getM_type() == 1) //관리자 ->관리자페이지로이동
+			return "memberMain";
+		else if(loginmember.getM_type() == 2)//일반 회원
+			return "memberMain";
+		else if(loginmember.getM_type() == 3)//비지니스 회원
+			return "businessMain";
+		
+		//기본적으로 일반회원 메인으로 ㄱㄱ
 		return "memberMain";
+			
 	}
 	// 로그인 실페시 이동 위치
 	@RequestMapping(value = "loginFail.do")
@@ -110,21 +123,24 @@ public class MemberController {
 	//로그아웃 처리   -세션값 삭제, 쿠키값 삭제
 	@RequestMapping(value = "logout.do")
 	public String logout(HttpSession httpsession, HttpServletRequest request, HttpServletResponse response)throws Exception {
+		System.out.println("로그아웃컨트롤진입");
 		logger.info("login Get...");
-		
 		httpsession.removeAttribute(SessionNames.LOGIN);//LOGIN으로 담아온 세션을 날려버림
 		httpsession.invalidate(); 						//세션의 로그인시간 여러 기록을 지움
 		
-		// SessionNames.LOGIN의 이름으로 저장된 쿠키를 가져온다.
+	
+		//SessionNames.LOGIN_COOKIE 으로 만들어논 이름의 쿠키를 가져온다.
 		Cookie loginCookie = WebUtils.getCookie(request, SessionNames.LOGIN);
 		if(loginCookie != null){
 			//브라우저에서 쿠키를 지울 수 없으므로 할당된 시간을 지금까지로 한정해서 쿠키를 없애버린다.
+			System.out.println("쿠케제거 완료로 이동");
 			loginCookie.setPath("/");
 			loginCookie.setMaxAge(0);
 			response.addCookie(loginCookie);
 		}
 		//로그아웃시 로그인 폼으로 이동
-		return "main";
+/*		return "main";*/
+		return "loginForm";
 	}
 	
 	// 로그인 실제 처리2

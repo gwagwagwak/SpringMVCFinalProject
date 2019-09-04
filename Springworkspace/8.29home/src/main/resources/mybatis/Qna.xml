@@ -64,19 +64,25 @@
 
 
 	<!-- qna 목록 1개 얻어서 읽어오기 sql!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-	<select id="getQna" parameterType="int"
-		resultType="oracle.java.nomyBatis3.model.QnaVO">
+	<select id="getQna" resultType="oracle.java.nomyBatis3.model.QnaVO">
 		
-		select q_no, q_title, q_content, q_writer, m_lame, q_date, q_complete, q_replytype, q_private 
+		<!--select  q_no, q_title, q_content, q_writer, m_fname, m_lname, q_date, q_complete, q_replytype, q_private -->
+<!-- 		select *  
+		from qna 
+		where q_no = 14;
+		 -->
+		
+		 select *  
 		from qna q, member m
-		where q.q_writer = m.m_email and q.q_no = ${q_no};
-
+		where q.q_writer = m.m_email and q.q_no = #{q_no}
 	</select>
+	
+	
 
 	<!-- qna 리스트 불러 오기 sql!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 	<!--qna 리스트 불러 오기 보강 필요 -->
 	<select id="getQnaList" resultType="oracle.java.nomyBatis3.model.QnaVO">
- 			select * 
+				select * 
 			from ( SELECT ROWNUM as rn, qna.* 
 					FROM(
 	  					select * 
@@ -85,9 +91,46 @@
 	  					) QNA
 	  				where ROWNUM<![CDATA[<=]]> #{end} 
 	 			 )
-			where rn<![CDATA[>=]]>#{start}
-			</select>
-		<!-- select q_no, q_divide, q_title, q_writer, q_date, q_complete from 
+			where rn<![CDATA[>=]]>#{start} 	 
+	</select>
+ 		<!-- select * from(select ROW_NUMBER() over(order by q_no desc)as rn, qna.* from qna) where rn<![CDATA[>=]]>#{start} and rn <![CDATA[<=]]>#{end} -->
+
+
+	<!-- qna 글 작성 sql!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+	<insert id="insertQna">
+		insert into qna (q_no, q_title, q_content, q_writer, q_divide, q_date, q_replytype, q_complete, q_private)
+		values
+		(seq_qna.nextval, #{q_title}, #{q_content}, #{q_writer}, #{q_divide}, sysdate, #{q_replytype}, '답변미완료', #{q_private})
+	</insert>
+
+
+	<!-- 전체 qna list 갯수 출력 -->
+	<select id="getTotalQnaCount" resultType="int">
+		select count(*)
+		from qna
+	</select>
+	<!-- 답변 미완료 qna list 갯수 출력    :  관리자용 -->
+	<select id="getIncompleteQnaCount" resultType="int">
+		select count(*)
+		from qna
+		where q_complete='답변미완료'
+	</select>
+	<!-- 답변 완료 qna list 갯수 출력    :  관리자용 -->
+	<select id="getCompleteQnaCount" resultType="int">
+		select count(*) from
+		qna
+		where q_complete='답변완료'
+	</select>
+
+
+
+</mapper>
+
+
+
+
+
+<!-- select q_no, q_divide, q_title, q_writer, q_date, q_complete from 
 			qna order by q_no desc 아이디 대신 이름이 나오고 싶을 때 select q_no, q_divide, q_title, 
 			q_writer, m_fname, q_date, q_complete from qna q, member m where q.q_writer=m.m_email 
 			order by q_no desc 
@@ -106,6 +149,8 @@
 			where rn >= 1;
 		 -->
 
+
+
 <!-- 
 		<include refid="paging_header" />
 		select q_no, q_title, q_content, q_writer, q_date, q_complete
@@ -115,40 +160,6 @@
  -->
 
 	
-
-
-
-	<!-- qna 글 작성 sql!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-	<insert id="insertQna">
-		insert into qna (q_no, q_title, q_content, q_writer, q_divide, q_date, q_replytype, q_complete, q_private)
-		values
-		(seq_qna.nextval, #{q_title}, #{q_content}, #{q_writer}, #{q_divide}, #{q_date}, #{q_replytype}, '답변미완료', #{q_private})
-	</insert>
-
-
-
-	<select id="getTotalQnaCount" resultType="int">
-		select count(*)
-		from qna
-	</select>
-
-
-
-	<select id="getIncompleteQnaCount" resultType="int">
-		select count(*)
-		from qna
-		where q_complete='답변미완료'
-	</select>
-
-	<select id="getCompleteQnaCount" resultType="int">
-		select count(*) from
-		qna
-		where q_complete='답변완료'
-	</select>
-
-</mapper>
-
-
 
 
 <!-- <select id="getQnaList" resultType="list<QnaVO>"> select q_no, q_title, 

@@ -10,6 +10,11 @@ public class QnaCommentVO {
 	private Date comt_date;			//댓글 작성일
 	private String comt_flag;		//댓글 삭제 여부
 	private int comt_textid;		//댓글 원본의 아이디번호(외래키 : qna.q_no) 
+	
+	// private String secret_reply;		
+	// private String name;		
+	// private String writer;		
+	
 	//private int depth;			//대댓글 작성을 위한 단계(1은 본문의 댓글, 2는 댓글의 댓글, 3은 댓글의 댓글의 댓글)
 	
 	

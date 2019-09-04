@@ -17,22 +17,15 @@ import oracle.java.nomyBatis3.model.QnaVO;
 public class QnaServiceImpl implements QnaService {
 
 	// dao의존 관계 자동 주입
-	@Autowired
-	private MemberDao mdao;
-	@Autowired
-	private AutoPayDao adao;
-	@Autowired
-	private CardDao cdao;
-	@Autowired
-	private QnaCommentDao qcdao;
+	
 	@Autowired
 	private QnaDao qdao;
-	@Autowired
-	private QnaMainDao qmdao;
+	
 
 	@Override
 	public QnaVO getQna(int q_no) throws Exception {
 		// TODO Auto-generated method stub
+		System.out.println("qnaserviceimpl 접근완료");
 		return qdao.getQna(q_no);
 	}
 	

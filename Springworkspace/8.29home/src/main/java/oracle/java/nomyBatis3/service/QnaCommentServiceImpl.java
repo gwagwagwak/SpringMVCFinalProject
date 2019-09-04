@@ -9,18 +9,19 @@ import oracle.java.nomyBatis3.dao.MemberDao;
 import oracle.java.nomyBatis3.dao.QnaCommentDao;
 import oracle.java.nomyBatis3.dao.QnaDao;
 import oracle.java.nomyBatis3.dao.QnaMainDao;
+import oracle.java.nomyBatis3.model.QnaCommentVO;
 @Service
 public class QnaCommentServiceImpl implements QnaCommentService{
-	@Autowired
-	private MemberDao mdao;
-	@Autowired
-	private AutoPayDao adao;
-	@Autowired
-	private CardDao cdao;
+	
 	@Autowired
 	private QnaCommentDao qcdao;
-	@Autowired
-	private QnaDao qdao;
-	@Autowired
-	private QnaMainDao qmdao;
+
+	@Override
+	public void create(QnaCommentVO commentvo) throws Exception {
+		qcdao.create(commentvo); 
+		
+	}
+	
+	
+	
 }
