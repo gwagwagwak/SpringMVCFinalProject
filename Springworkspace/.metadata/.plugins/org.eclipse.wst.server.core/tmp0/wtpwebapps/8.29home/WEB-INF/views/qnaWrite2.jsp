@@ -26,6 +26,18 @@
 			document.form_writeqna.submit();
 		})
 	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </script>
 
 </head>

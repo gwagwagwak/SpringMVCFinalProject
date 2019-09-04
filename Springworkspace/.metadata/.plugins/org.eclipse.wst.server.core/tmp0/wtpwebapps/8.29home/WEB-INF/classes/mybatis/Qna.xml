@@ -98,9 +98,13 @@
 
 	<!-- qna 글 작성 sql!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 	<insert id="insertQna">
-		insert into qna (q_no, q_title, q_content, q_writer, q_divide, q_date, q_replytype, q_complete, q_private)
+		<!-- insert into qna (q_no, q_title, q_content, q_writer, q_divide, q_date, q_replytype, q_complete, q_private)
+		values
+		(seq_qna.nextval, #{q_title}, #{q_content}, #{q_writer}, #{q_divide}, sysdate, #{q_replytype}, '답변미완료', #{q_private}) -->
+		 insert into qna (q_no, q_title, q_content, q_writer, q_divide, q_date, q_replytype, q_complete, q_private)
 		values
 		(seq_qna.nextval, #{q_title}, #{q_content}, #{q_writer}, #{q_divide}, sysdate, #{q_replytype}, '답변미완료', #{q_private})
+		
 	</insert>
 
 

@@ -1,6 +1,0 @@
-package com.test.paytesting.service;
-
-@Service
-public class TestServiceImpl implements TestService{
-
-}

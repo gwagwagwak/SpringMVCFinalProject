@@ -25,14 +25,15 @@
 
 	<!--qnaWrite란~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 	<div class="container">
-		<h2>Q&A</h2>
+		<h2>Q&A	</h2>
 		<hr>
 		<br>
-		
+	
 		<!-- <form action="qnaWrite.do"> -->
 		<form action="qnaWrite.do" method="post">
 			<div class="container mt-3">
 				<div class="form-group">
+				<strong><label>${loginMember.m_lname}</label></strong>
 					<strong><label for="title">Title</label></strong> <input
 						type="text" class="form-control" id="q_title" placeholder="Title"
 						name="q_title">

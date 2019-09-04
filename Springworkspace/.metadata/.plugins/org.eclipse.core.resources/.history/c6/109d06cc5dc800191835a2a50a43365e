@@ -1,9 +1,0 @@
-package com.test.paytesting.dao;
-
-import org.apache.ibatis.session.SqlSession;
-
-public class TestDAOImpl implements TestDAO {
-
-	@Autowired
-	SqlSession sqlsession;
-}

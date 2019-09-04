@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -69,7 +70,7 @@
 <style>
 thead {
 	background-color: #ADD8E6;
-	font-size: 17px;
+	font-size: 20px;
 }
 
 td.number_dot:after {
@@ -145,7 +146,7 @@ td.number_dot:after {
 		</ul>
 		<br>
 
-		<button type="button" id="btnWrite">글 작성</button>
+		<button type="button" id="btnWrite" class="btn btn-info float-right">글 작성</button>
 		<br> <br>
 		<!-- 테이블 리스트 =============================================================================== -->
 		총 ${map.count}개의 게시물이 있습니다.
@@ -176,22 +177,50 @@ td.number_dot:after {
 								전체 레코드 수 - ( (현재 페이지 번호 - 1) * 한 페이지당 보여지는 레코드 수 + 현재 게시물 출력 순서 )
 							  -->
 							<%-- <td class="number_dot">${row.q_no}</td> --%>
-							<td class="number_dot">${row.q_no}</td>
+							<td class="number_dot">
+								<strong>${row.q_no}</strong>
+							</td>
+							<%-- <td class="number_dot">${row.q_no}</td> --%>
 
-							<td>${row.q_divide}</td>
-							<td><c:if test="${row.q_private eq '비밀글'}">
+							<td><strong>${row.q_divide}</strong></td>
+							<td>
+								<c:choose>
+									<c:when test="${row.q_private eq 'private'}">
+										 <strong>${row.q_title} &nbsp;<span class="glyphicon glyphicon-lock"></span></strong>
+									</c:when>
+									<c:otherwise>
+										<strong><a href="qnaRead2.do?q_no=${row.q_no}&curPage=${map.pager.curPage}">${row.q_title}</a></strong>
+									</c:otherwise>
+								</c:choose>
+								<%-- <c:if test="${row.q_private eq 'private'}">
 										${row.q_title} <span class="glyphicon glyphicon-lock"></span>
-								</c:if> <c:if test="${row.q_private eq '공개글'}">
+								</c:if> 
+								<c:if test="${row.q_private eq 'public'}">
 									<a
-										<%-- href="qnaRead.do?q_no=${row.q_no}&curPage=${map.pager.curPage}">${row.q_title} --%>
+										href="qnaRead.do?q_no=${row.q_no}&curPage=${map.pager.curPage}">${row.q_title}
 										href="qnaRead2.do?q_no=${row.q_no}&curPage=${map.pager.curPage}">${row.q_title}
 									</a>
-								</c:if></td>
-							<td>${row.q_writer}</td>
-							<td><fmt:formatDate value="${row.q_date}"
-									pattern="yyyy-MM-dd" /></td>
+								</c:if> --%>
+							</td>
+							<td>
+								<c:set var="dott" value="...."/>
+								<Strong>${fn:substring(row.q_writer,0,5)}${dott}</Strong>
+								
+							</td>
+							<td>
+								<fmt:formatDate value="${row.q_date}" pattern="yyyy-MM-dd" />
+							</td>
 							<!--pattern="yyyy-MM-dd HH:mm:ss"  -->
-							<td>${row.q_complete}</td>
+							<td>
+								<c:choose>
+									<c:when test="${row.q_complete eq '답변미완료'}">
+								  		<span class="glyphicon glyphicon-remove"></span>
+									</c:when>
+									<c:otherwise>
+										<span class="glyphicon glyphicon-ok"></span>
+									</c:otherwise>
+								</c:choose>
+							</td>
 						</tr>
 					</c:forEach>
 

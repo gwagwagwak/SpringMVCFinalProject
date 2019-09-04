@@ -14,27 +14,55 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- jquery 추가 -->
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.1.1.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/plugins/validate/jquery.validate.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/plugins/validate/additional-methods.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/plugins/validate/messages_ko.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+	
+	
 <title>Insert title here</title>
 <script>
 	$(function(){
 		$("#btnReply").click(function(){
 			reply();
 		});	
-	};
+	});
 
+	
 
 	function reply(){
-		var comt_content = ${"#comt_content"}.val();		//댓글내용
+		var comt_content = $("#comt_content").val();		//댓글내용
 		var comt_textid = "${qna.q_no}";					//원글 번호
-		var param = {"comt_content": replytext, "comt_textid":comt_textid};
+		var param = {"comt_content": comt_content, "comt_textid":comt_textid};
 		$.ajax({
 			type: "post",
 			url: "commentInsert.do",
 			data: param,
 			success: function(){
 				alert("댓글이 등록되었습니다.");
+				listReply("1");
 			}
 		});
+	}	
+	
+	/*댓글 리스트 불러오기  */
+	function listReply(num){
+		$.ajax({
+			type: "post",
+			url: "getCommentList.do?q_no=${qna.q_no}&curPage="+num,
+			success: function(result){
+				console.log(result);
+				$("#listReply").html(result);
+			}
+			
+			});
 	}
 
 
@@ -44,7 +72,7 @@
 </head>
 <body>
 	<h2>게시물 보기 연습</h2>
-	<form id="form1" name="form1" method="post">
+	<form id="form1" name="form1" method="post" action="">
 		<div>
 			작성일자 :
 			
@@ -55,7 +83,7 @@
 		<div>분류:${qna.q_divide}</div>
 		<div>
 			내용:
-			<textarea rows="4" cols="80" name="q_content" id="q_content">${qna.q_content}</textarea>
+			<textarea rows="4" cols="80" name="q_content" id="q_content" readonly>${qna.q_content}</textarea>
 		</div>
 		<div>:${qna.q_complete}</div>
 		<div>
@@ -83,6 +111,8 @@
 			<button type="button" id="btnReply">댓글 작성</button>
 		<%-- </c:if> --%>
 	</div>
+	
+	
 	
 	<!-- 댓글 목록 출력 영역 -->
 	<div id="listReply">

@@ -1,6 +1,0 @@
-package com.protest.resulting.dao;
-
-public interface TestMemberDAO {
-
-	public MemberDTO test();
-}
