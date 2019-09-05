@@ -177,9 +177,6 @@ public class QnaController {
 		System.out.println("qservice 처리 완료");
 		/* mv.setViewName("qnaWrite"); */
 		return "redirect:/getQnaList.do";
-		
-		
-
 	}
 
 	// qna insert를 처리
@@ -192,8 +189,6 @@ public class QnaController {
 	// 로그인 후 네비게이션바의 '카드' 항목 - > 회원의 카드 리스트와 카드 상세 내용 출력 페이지
 	@RequestMapping(value = "qnaRead.do", method = RequestMethod.GET)
 	public String qnaReadHandle() {
-
-/*		return "qnaRead";*/
 		return "qnaRead";
 	}
 	

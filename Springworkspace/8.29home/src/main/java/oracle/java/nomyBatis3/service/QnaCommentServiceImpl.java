@@ -20,18 +20,24 @@ public class QnaCommentServiceImpl implements QnaCommentService{
 	@Autowired
 	private QnaCommentDao qcdao;
 
+	
+	
+	
+	
+	//qna 작성하기
 	@Override
 	public void create(QnaCommentVO commentvo) throws Exception {
 		System.out.println("qnaservice 진입 성공");
 		qcdao.create(commentvo); 
-		
 	}
 
+	//qna 갯수 구하기
 	@Override
 	public int count(int q_no) {
 		return qcdao.count(q_no);
 	}
 	
+	//comment 목록 가져오기
 	public List<QnaCommentVO> getCommentList(int q_no, int start, int end, HttpSession httpsession) {
 		return qcdao.getCommentList(q_no, start, end);
 

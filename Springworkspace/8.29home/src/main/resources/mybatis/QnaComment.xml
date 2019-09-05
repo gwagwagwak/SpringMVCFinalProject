@@ -24,7 +24,22 @@
 	</select>
 	
 	<select id="getCommentList" resultType="oracle.java.nomyBatis3.model.QnaCommentVO">
-		써야함
+		<!-- select comt_no, comt_textid, comt_content, comt_writer, c.comt_date, 
+		(select q_writer from qna where comt_textid=c.comt_textid) q_writer
+		from qnacomment c, member m
+		where c.comt_writer = m.m_email and comt_textid = #{q_no}
+		order by comt_no desc -->
+		
+		select *
+		from(
+			select rownum as rn, A.*
+			from(
+		select comt_no, comt_textid, comt_content, comt_writer, comt_date
+		from qnacomment c, member m
+		where c.comt_writer = m.m_email and comt_textid = #{q_no}
+		order by comt_no desc
+		)A
+		) where rn between #{start} and #{end}
 	</select>
 	
 	
@@ -32,8 +47,12 @@
 	<insert id="insertcomment" >
 		insert into qnacomment 
 		(comt_no, comt_writer, comt_content, comt_date, comt_flag, comt_textid) values
-		(seq_qnacomment.nextval, #{comt_writer}, #{comt_content}, sysdate, 1, #{comt_textid})
+		(seq_qnacomment.nextval, #{comt_writer}, #{comt_content}, sysdate, 0, #{comt_textid})
 	</insert>
+	
+	
+
+
 
 
 </mapper>

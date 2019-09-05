@@ -153,6 +153,58 @@ select * from autopay;
 
 ALTER TABLE member MODIFY(b_number varchar2(50));
 
+---------------------------------------
+
+----qnacomment selec slq구문--------------------------------------------------------------------------
+select comt_no, comt_textid, comt_content, comt_writer, m_lname, c.comt_date, 
+		(select q_writer from qna where comt_textid=c.comt_textid) q_writer
+		from qnacomment c, member m
+		where c.comt_writer = m.m_email and comt_textid = 17
+		order by comt_no desc;
+		
+		
+		
+		select *
+		from(
+			select rownum as rn, A.*
+			from(
+		select comt_no, comt_textid, comt_content, comt_writer, m_lname, c.comt_date, 
+		(select q_writer from qna where comt_textid=c.comt_textid) q_writer
+		from qnacomment c, member m
+		where c.comt_writer = m.m_email and comt_textid = 17
+		order by comt_no desc
+		)A
+		) where rn between 1 and 10;
+		
+
+
+select * from qna;
+
+
+
+select *
+		from(
+			select rownum as rn, A.*
+			from(
+		select comt_no, comt_textid, comt_content, comt_writer,  comt_date
+		from qnacomment c, member m
+		where c.comt_writer = m.m_email and comt_textid = 16
+		order by comt_no desc
+		)A
+		) where rn between 1 and 10;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

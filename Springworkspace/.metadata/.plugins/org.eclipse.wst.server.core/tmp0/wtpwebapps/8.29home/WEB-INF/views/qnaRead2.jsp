@@ -30,8 +30,12 @@
 <title>Insert title here</title>
 <script>
 	$(function(){
+		listReply("1");		//첫번째 페이지 댓글 목록이 나옴
 		$("#btnReply").click(function(){
 			reply();
+		});	
+		$("#btnList").click(function(){
+			location.href= "getQnaList.do";
 		});	
 	});
 
@@ -74,7 +78,7 @@
 	<h2>게시물 보기 연습</h2>
 	<form id="form1" name="form1" method="post" action="">
 		<div>
-			작성일자 :
+			작성일자 : ${qna.q_date}
 			
 			<%-- <fmt:formatDate value="${qna.q_date}" pattern="yyyy-MM-dd" /> --%>
 		</div>
@@ -85,20 +89,20 @@
 			내용:
 			<textarea rows="4" cols="80" name="q_content" id="q_content" readonly>${qna.q_content}</textarea>
 		</div>
-		<div>:${qna.q_complete}</div>
+		<div>${qna.q_complete}</div>
+		<br><br>
 		<div>
 			<input type="hidden" name="q_no" value="${qna.q_no}">
-			<%-- <c:if test="${sessionScope.userid == qna.writer}"> --%>
-			<%-- <c:if test="${loginMember.m_email == qna.writer}">
+			 <%-- <c:if test="${sessionScope.userid == qna.writer}"> --%> 
+			 <c:if test="${loginMember.m_email == qna.q_writer}">
 				<button type="button" id="btnUpdate">수정</button>
 				<button type="button" id="btnDelete">삭제</button>
-			</c:if> --%>
-			<button type="button" id="btnUpdate">수정</button>
-			<button type="button" id="btnDelete">삭제</button>
-
+			</c:if> 
 			<button type="button" id="btnList">목록</button>
 		</div>
 	</form>
+	
+	
 	<br>
 	<!-- 댓글 작성 란 -->
 	<div style="width: 700px; text-align:center">

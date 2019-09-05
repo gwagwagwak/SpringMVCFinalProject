@@ -46,6 +46,8 @@ public class MemberController {
 
 	ModelAndView mv;
 
+	
+	
 	/*
 	 * @RequestMapping(value="listMember") public String listMember(MemberDao
 	 * mdao,Model model,String currentPage){
