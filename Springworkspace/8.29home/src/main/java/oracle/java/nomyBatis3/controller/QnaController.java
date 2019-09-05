@@ -217,19 +217,23 @@ public class QnaController {
 	
 	
 	
-	
-	
+	//업데이트 페이지 이동
+	@RequestMapping(value = "qnaUpdatePage.do")
+	public String qnaUpdatePageHandle() throws Exception{
+		return "qnaUpdate";
+	}
 
 	// 로그인 후 네비게이션바의 '카드' 항목 - > 회원의 카드 리스트와 카드 상세 내용 출력 페이지
 	@RequestMapping(value = "qnaUpdate.do", method = RequestMethod.GET)
-	public String qnaUpdateHandle() {
-
-		return "qnaUpdate";
+	public String qnaUpdateHandle(QnaVO qvo) throws Exception {
+		qservice.updateQna(qvo);
+		
+		return "redirect:getQnaList.do";
 	}
 	
+	
 	@RequestMapping(value = "qnaDelete.do", method = RequestMethod.GET)
-	public String qnaDeleteHandle() {
-
+	public String qnaDeleteHandle() throws Exception{
 		return "qnaDelete";
 	}
 

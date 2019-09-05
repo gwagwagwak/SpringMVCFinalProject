@@ -18,58 +18,61 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.1.1.js"></script>
 <script type="text/javascript"
+	src="http:code.jquery.com/jquery-1.8.3.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+<%-- <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/plugins/validate/jquery.validate.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/plugins/validate/additional-methods.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/plugins/validate/messages_ko.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/main.js"></script>
-	
-	
+	src="${pageContext.request.contextPath}/resources/js/plugins/validate/messages_ko.js"></script> --%>
+
+
 <title>Insert title here</title>
 <script>
-	$(function(){
-		listReply("1");		//첫번째 페이지 댓글 목록이 나옴
-		$("#btnReply").click(function(){
+	$(function() {
+		listReply("1"); //첫번째 페이지 댓글 목록이 나옴
+		$("#btnReply").click(function() {
 			reply();
-		});	
-		$("#btnList").click(function(){
-			location.href= "getQnaList.do";
-		});	
+		});
+		$("#btnList").click(function() {
+			location.href = "getQnaList.do";
+		});
+		$("#btnUpdate").click(function() {
+			location.href = "qnaUpdatePage.do";
+		});
 	});
 
-	
-
-	function reply(){
-		var comt_content = $("#comt_content").val();		//댓글내용
-		var comt_textid = "${qna.q_no}";					//원글 번호
-		var param = {"comt_content": comt_content, "comt_textid":comt_textid};
+	function reply() {
+		var comt_content = $("#comt_content").val(); //댓글내용
+		var comt_textid = "${qna.q_no}"; //원글 번호
+		var param = {
+			"comt_content" : comt_content,
+			"comt_textid" : comt_textid
+		};
 		$.ajax({
-			type: "post",
-			url: "commentInsert.do",
-			data: param,
-			success: function(){
+			type : "post",
+			url : "commentInsert.do",
+			data : param,
+			success : function() {
 				alert("댓글이 등록되었습니다.");
 				listReply("1");
 			}
 		});
-	}	
-	
+	}
+
 	/*댓글 리스트 불러오기  */
-	function listReply(num){
+	function listReply(num) {
 		$.ajax({
-			type: "post",
-			url: "getCommentList.do?q_no=${qna.q_no}&curPage="+num,
-			success: function(result){
+			type : "post",
+			url : "getCommentList.do?q_no=${qna.q_no}&curPage=" + num,
+			success : function(result) {
 				console.log(result);
 				$("#listReply").html(result);
 			}
-			
-			});
+		});
 	}
-
-
 </script>
 
 
@@ -79,7 +82,7 @@
 	<form id="form1" name="form1" method="post" action="">
 		<div>
 			작성일자 : ${qna.q_date}
-			
+
 			<%-- <fmt:formatDate value="${qna.q_date}" pattern="yyyy-MM-dd" /> --%>
 		</div>
 		<div>이름:${qna.q_writer}</div>
@@ -90,40 +93,39 @@
 			<textarea rows="4" cols="80" name="q_content" id="q_content" readonly>${qna.q_content}</textarea>
 		</div>
 		<div>${qna.q_complete}</div>
-		<br><br>
+		<br>
+		<br>
 		<div>
 			<input type="hidden" name="q_no" value="${qna.q_no}">
-			 <%-- <c:if test="${sessionScope.userid == qna.writer}"> --%> 
-			 <c:if test="${loginMember.m_email == qna.q_writer}">
+			<%-- <c:if test="${sessionScope.userid == qna.writer}"> --%>
+			<c:if test="${loginMember.m_email == qna.q_writer}">
 				<button type="button" id="btnUpdate">수정</button>
 				<button type="button" id="btnDelete">삭제</button>
-			</c:if> 
+			</c:if>
 			<button type="button" id="btnList">목록</button>
 		</div>
 	</form>
-	
-	
+
+
 	<br>
 	<!-- 댓글 작성 란 -->
-	<div style="width: 700px; text-align:center">
+	<div style="width: 700px; text-align: center">
 		<!--현재는 로그인을 해야만 보임  -->
 		<%-- <c:if test="${sessionScope.userid != null}"> --%>
-			<textarea rows="5" cols="80" name="comt_content" id="comt_content" placeholder="댓글을 작성하세요">
+		<textarea rows="5" cols="80" name="comt_content" id="comt_content"
+			placeholder="댓글을 작성하세요">
 				
 			</textarea>
-			<br>
-			<button type="button" id="btnReply">댓글 작성</button>
+		<br>
+		<button type="button" id="btnReply">댓글 작성</button>
 		<%-- </c:if> --%>
 	</div>
-	
-	
-	
+
+
+
 	<!-- 댓글 목록 출력 영역 -->
-	<div id="listReply">
-	
-	
-	</div>
-	
+	<div id="listReply"></div>
+
 
 </body>
 </html>
