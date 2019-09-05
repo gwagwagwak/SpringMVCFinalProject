@@ -30,6 +30,20 @@
 			<item value="C:\Users\Win10\Desktop"/>
 		</list>
 	</section>
+	<section name="org.eclipse.ui.internal.dialogs.WorkbenchEditorsDialog">
+		<item value="0" key="sort"/>
+		<item value="false" key="allPersp"/>
+		<list key="columns">
+			<item value="246"/>
+			<item value="493"/>
+		</list>
+		<list key="bounds">
+			<item value="1041"/>
+			<item value="155"/>
+			<item value="798"/>
+			<item value="553"/>
+		</list>
+	</section>
 	<section name="ImportExportAction">
 		<item value="org.eclipse.ui.wizards.export.FileSystem" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
 		<item value="org.eclipse.ui.wizards.import.FileSystem" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>

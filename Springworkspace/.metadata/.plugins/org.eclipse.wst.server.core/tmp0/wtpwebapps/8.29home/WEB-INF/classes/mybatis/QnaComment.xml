@@ -29,12 +29,11 @@
 		from qnacomment c, member m
 		where c.comt_writer = m.m_email and comt_textid = #{q_no}
 		order by comt_no desc -->
-		
 		select *
 		from(
 			select rownum as rn, A.*
 			from(
-		select comt_no, comt_textid, comt_content, comt_writer, comt_date
+		select comt_no, comt_textid, comt_content, comt_writer, comt_date, comt_flag
 		from qnacomment c, member m
 		where c.comt_writer = m.m_email and comt_textid = #{q_no}
 		order by comt_no desc

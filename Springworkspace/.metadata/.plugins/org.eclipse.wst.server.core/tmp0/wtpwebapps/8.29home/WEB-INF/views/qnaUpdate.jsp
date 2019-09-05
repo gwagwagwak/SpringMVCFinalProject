@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -29,24 +32,28 @@
 		<hr>
 		<br>
 
-		<form action="/#">
+		<form action="qnaUpdate.do" method="post">
 			<div class="container mt-3">
 				<div class="form-group">
 					<strong><label for="title">Title</label></strong> <input
-						type="text" class="form-control" id="title" 
-						name="title">
+						type="text" class="form-control" id="q_title" 
+						name="q_title" value="${qna.q_title}">
+					<input type="hidden" name="q_complete" value="${qna.q_complete}">
+					<input type="hidden" name="q_writer" value="${qna.q_writer}">
+					<input type="hidden" name="q_no" value="${qna.q_no}">
+					
 				</div>
 			</div>
 		
 
 			<div class="container mt-3">
 				<strong><label for="sel1">Answer Division</label></strong> <select
-					name="cars" class="custom-select mb-3">
+					name="q_divide" id="q_divide" class="custom-select mb-3">
 					<option value="비밀번호">비밀번호</option>
 					<option value="계정 설정">계정 설정</option>
 					<option value="계정 제한">계정 제한</option>
 					<option value="결제">결제</option>
-					<option value="비즈니스 솔루션">비즈니스 솔루션</option>
+					<option value="비즈니스 솔루션">비즈니스</option>
 				</select>
 			</div>
 
@@ -55,52 +62,98 @@
 				<div class="form-group">
 					<strong><label for="content">Content</label></strong>
 					<textarea class="form-control" rows="10" id="content"
-						placeholder="Content" name="content">
-						
+						placeholder="Content" name="q_content">
+						${qna.q_content}"
 					</textarea>
 				</div>
 			</div>
 
-
-			<div class="container mt-3">
-				<strong><label for="private">Private</label></strong><br>
-				<div class="form-check-inline"></div>
-				<div class="custom-control custom-radio custom-control-inline">
-					<input type="radio" class="custom-control-input" id="customRadio11"
-						name="private" value="private" checked> 
-						<label class="custom-control-label" for="customRadio11">Private</label>
-				</div>
-				<div class="form-check-inline"></div>
-				<div class="form-check-inline"></div>
-				<div class="custom-control custom-radio custom-control-inline">
-					<input type="radio" class="custom-control-input" id="customRadio22"
-						name="private" value="public">
-						 <label class="custom-control-label" for="customRadio22">public</label>
-				</div>
-			</div>
-
+<c:choose>
+			<c:when test="${qna.q_private == 'private'}">
 			
-			<div class="container mt-3">
-				<strong><label for="private">How to Answer</label></strong><br>
-				<div class="form-check-inline"></div>
-				<div class="custom-control custom-radio custom-control-inline">
-					<input type="radio" class="custom-control-input" id="customRadio1"
-						name="answer" value="email" checked> 
-						<label class="custom-control-label"
-						for="customRadio1">by Email</label>
+				<div class="container mt-3">
+					<strong><label for="private">Private</label></strong><br>
+					<div class="form-check-inline"></div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" class="custom-control-input" id="customRadio11"
+							name="q_private" value="private" checked> 
+							<label class="custom-control-label" for="customRadio11">Private</label>
+					</div>
+					<div class="form-check-inline"></div>
+					<div class="form-check-inline"></div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" class="custom-control-input" id="customRadio22"
+							name="q_private" value="public">
+							 <label class="custom-control-label" for="customRadio22">public</label>
+					</div>
 				</div>
-				<div class="form-check-inline"></div>
-				<div class="form-check-inline"></div>
-				<div class="custom-control custom-radio custom-control-inline">
-					<input type="radio" class="custom-control-input" id="customRadio2"
-						name="answer" value="website"> 
-						<label class="custom-control-label" for="customRadio2">by Website</label>
+			</c:when>
+			<c:otherwise>
+				<div class="container mt-3">
+					<strong><label for="private">Private</label></strong><br>
+					<div class="form-check-inline"></div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" class="custom-control-input" id="customRadio11"
+							name="q_private" value="private" > 
+							<label class="custom-control-label" for="customRadio11">Private</label>
+					</div>
+					<div class="form-check-inline"></div>
+					<div class="form-check-inline"></div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" class="custom-control-input" id="customRadio22"
+							name="q_private" value="public" checked>
+							 <label class="custom-control-label" for="customRadio22">public</label>
+					</div>
 				</div>
-			</div>
+			</c:otherwise>
+</c:choose>
 			
+<c:choose>		
+			<c:when test="${qna.q_replytype == 'Email'}">
+	
+				<div class="container mt-3">
+					<strong><label for="private">How to Answer</label></strong><br>
+					<div class="form-check-inline"></div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" class="custom-control-input" id="customRadio1"
+							name="q_replytype" value="email" checked> 
+							<label class="custom-control-label"
+							for="customRadio1">by Email</label>
+					</div>
+					<div class="form-check-inline"></div>
+					<div class="form-check-inline"></div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" class="custom-control-input" id="customRadio2"
+							name="q_replytype" value="website"> 
+							<label class="custom-control-label" for="customRadio2">by Website</label>
+					</div>
+				</div>
+			</c:when>
+			
+			<c:otherwise>
+				<div class="container mt-3">
+					<strong><label for="private">How to Answer</label></strong><br>
+					<div class="form-check-inline"></div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" class="custom-control-input" id="customRadio1"
+							name="q_replytype" value="email"> 
+							<label class="custom-control-label"
+							for="customRadio1">by Email</label>
+					</div>
+					<div class="form-check-inline"></div>
+					<div class="form-check-inline"></div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" class="custom-control-input" id="customRadio2"
+							name="q_replytype" value="website" checked> 
+							<label class="custom-control-label" for="customRadio2">by Website</label>
+					</div>
+				</div>
+			
+			</c:otherwise>
+</c:choose>
 	
 
-
+			
 			<div class="container mt-3"></div>
 			<br>
 			<div class="container mt-3">

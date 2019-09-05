@@ -95,6 +95,39 @@
  		<!-- select * from(select ROW_NUMBER() over(order by q_no desc)as rn, qna.* from qna) where rn<![CDATA[>=]]>#{start} and rn <![CDATA[<=]]>#{end} -->
 
 
+	<!--관리자용 qna complete list 출력  -->
+	<select id="getQnaCompleteList" resultType="oracle.java.nomyBatis3.model.QnaVO">
+	select * 
+			from ( SELECT ROWNUM as rn, qna.* 
+					FROM(
+	  					select * 
+	  					from QNA
+	  					where q_complete='답변완료'
+	  					order by q_no desc
+	  					) QNA
+	  				where ROWNUM<![CDATA[<=]]> #{end} 
+	 			 )
+			where rn<![CDATA[>=]]>#{start} 	 
+	</select>
+	
+	
+	<!--관리자용 qna complete list 출력  -->
+	<select id="getQnaIncompleteList" resultType="oracle.java.nomyBatis3.model.QnaVO">
+	select * 
+			from ( SELECT ROWNUM as rn, qna.* 
+					FROM(
+	  					select * 
+	  					from QNA
+	  					where q_complete='답변미완료'
+	  					order by q_no desc
+	  					) QNA
+	  				where ROWNUM<![CDATA[<=]]> #{end} 
+	 			 )
+			where rn<![CDATA[>=]]>#{start} 	 
+	</select>
+
+
+
 	<!-- qna 글 작성 sql!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 	<insert id="insertQna">
 		<!-- insert into qna (q_no, q_title, q_content, q_writer, q_divide, q_date, q_replytype, q_complete, q_private)
@@ -105,11 +138,17 @@
 		(seq_qna.nextval, #{q_title}, #{q_content}, #{q_writer}, #{q_divide}, sysdate, #{q_replytype}, '답변미완료', #{q_private})
 	</insert>
 	
-	<update id="">
+	<update id="updateQna">
 		update qna set
-		q_title = #{q_title}, q_content=#{q_content}
+		q_title = #{q_title}, q_content=#{q_content}, q_divide=#{q_divide}, q_replytype=#{q_replytype}, q_private=#{q_private}
 		where q_no=#{q_no}
 	</update>
+	
+	
+	<!--qna 삭제    -->
+	<delete id="deleteQna">
+		delete from qna where q_no = #{q_no}
+	</delete>
 
 
 	<!-- 전체 qna list 갯수 출력 -->

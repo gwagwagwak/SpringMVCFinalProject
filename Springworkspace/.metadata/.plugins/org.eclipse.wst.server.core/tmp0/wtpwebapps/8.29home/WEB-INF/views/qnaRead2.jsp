@@ -1,14 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c-rt"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt-rt"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt-rt"%> --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ page import="java.util.*" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -37,7 +42,18 @@
 			reply();
 		});
 		$("#btnList").click(function() {
-			location.href = "getQnaList.do";
+			location.href = "gtQnaList.do";
+		});
+		$("#btnUpdate").click(function() {
+			location.href = "qnaUpdatePage.do?q_no=${qna.q_no}";
+		});
+		$("#btnDelete").click(function() {
+			if(confirm("정말 삭제하시겠습니까?")){
+				document.form1.action = "qnaDelete.do";
+				document.form1.submit();
+			}
+			
+			/* location.href = "qnaDelete.do?q_no=${qna.q_no}"; */
 		});
 	});
 
@@ -52,10 +68,13 @@
 			type : "post",
 			url : "commentInsert.do",
 			data : param,
-			success : function() {
+			success : function(){
 				alert("댓글이 등록되었습니다.");
 				listReply("1");
-			}
+			}/* ,
+			error: function(req, status, errThrown) {
+				alert("network error occur");
+			} */
 		});
 	}
 
@@ -75,12 +94,12 @@
 
 </head>
 <body>
-	<h2>게시물 보기 연습</h2>
+	<h2>게시물 보기 연습2</h2>
 	<form id="form1" name="form1" method="post" action="">
 		<div>
-			작성일자 : ${qna.q_date}
-
-			<%-- <fmt:formatDate value="${qna.q_date}" pattern="yyyy-MM-dd" /> --%>
+			작성일자 : <%-- ${qna.q_date} --%>
+			<fmt:formatDate value="${qna.q_date}" pattern="yyyy-MM-dd" />
+			<%-- <fmt:formatDate value="${row.q_date}" pattern="yyyy-MM-dd" /> --%>
 		</div>
 		<div>이름:${qna.q_writer}</div>
 		<div>제목:${qna.q_title}</div>
@@ -89,6 +108,8 @@
 			내용:
 			<textarea rows="4" cols="80" name="q_content" id="q_content" readonly>${qna.q_content}</textarea>
 		</div>
+		<div>${qna.q_replytype}</div>
+		<div>${qna.q_private}</div>
 		<div>${qna.q_complete}</div>
 		<br>
 		<br>

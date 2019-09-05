@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -45,6 +46,10 @@
 		location.href = "getQnaList.do?curPage=" + page;
 
 	};
+	
+	/*페이징 글 번호   */
+	/* ${map.count}, ${map.pager.curPage} */
+	
 </script>
 
 
@@ -138,22 +143,30 @@ td.number_dot:after {
 
 
 		<h2>Q&A</h2>
-
+		<h3>${loginMember.m_lname }</h3>
 		<br>
-		<ul class="nav nav-tabs">
+		<!-- <ul class="nav nav-tabs">
 			<li class="active"><a href="#">Complete</a></li>
 			<li><a href="#">Incomplete</a></li>
 		</ul>
-		<br>
-
-		<button type="button" id="btnWrite" class="btn btn-info float-right">글 작성</button>
-		<br> <br>
+		<br> -->
+		
+		<!--글 작성 버튼  -->
+		<div class="container">
+            <div class="container-fluid full-width">
+				총 ${map.count}개의 게시물이 있습니다.<button type="button" id="btnWrite" class="btn btn-info pull-right" style="align:right">글 작성</button>
+			</div>
+		</div>
+		<%-- <div>
+			총 ${map.count}개의 게시물이 있습니다.<button type="button" id="btnWrite" class="btn btn-info" style="align:right">글 작성</button>   
+		</div> --%>
+		
 		<!-- 테이블 리스트 =============================================================================== -->
-		총 ${map.count}개의 게시물이 있습니다.
-
+		
+		
 
 		<!-- test table -->
-		<br> <br>
+		<br>
 		<div class="well">
 			<table class="table">
 				<thead>
@@ -175,6 +188,7 @@ td.number_dot:after {
 							<!--
 								!!!!!!!!!!!!!!!!!!!!!!!게시물 순번
 								전체 레코드 수 - ( (현재 페이지 번호 - 1) * 한 페이지당 보여지는 레코드 수 + 현재 게시물 출력 순서 )
+							  	${count} -(${pager.curPage}-1) * 10 + 0(0번부터 9번까지 한페이지에 들어감) 
 							  -->
 							<%-- <td class="number_dot">${row.q_no}</td> --%>
 							<td class="number_dot">
@@ -185,6 +199,9 @@ td.number_dot:after {
 							<td><strong>${row.q_divide}</strong></td>
 							<td>
 								<c:choose>
+									<c:when test="${row.q_writer eq loginMember.m_email}">
+										<strong><a href="qnaRead2.do?q_no=${row.q_no}&curPage=${map.pager.curPage}">${row.q_title}</a></strong>
+									</c:when>
 									<c:when test="${row.q_private eq 'private'}">
 										 <strong>${row.q_title} &nbsp;<span class="glyphicon glyphicon-lock"></span></strong>
 									</c:when>

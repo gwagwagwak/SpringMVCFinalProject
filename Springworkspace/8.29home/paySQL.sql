@@ -6,22 +6,82 @@ select * from(select ROW_NUMBER() over(order by q_no desc)as rn, qna.* from qna)
 
 !!!!!!!!!!!!!!!!!!!!!!!게시물 순번
 전체 레코드 수 - ( (현재 페이지 번호 - 1) * 한 페이지당 보여지는 레코드 수 + 현재 게시물 출력 순서 )
+${count} -(${pager.curPage}-1) * 10 + 0(0번부터 9번까지 한페이지에 들어감) 
+
+
+
+
+select * from qna;
+
+update qna
+set q_private = 'public'
+
+
 
 SELECT ROW_NUMBER() OVER (ORDER BY q_no DESC) AS ROWNUM, qna.* FROM qna ORDER BY ROWNUM DESC
 
 	select q_no, q_title, q_content, q_writer, m_lname, q_date, q_complete, q_replytype, q_private 
-		from qna q, member m
+		from qna q, member 
 		where q.q_writer = m.m_email and q.q_no = 15;
 
+		
+			select count(*)
+		from qna
+		where q_complete='답변미완료';
+	
+		
+update qna 
+set q_complete='답변미완료'
+where q_complete='미완료';		
 
+
+select * from qna;
+		
+select * from qnacomment;
 		select *  
 		from qna 
 		where q_no = 14;
 		q, member m
 		where q.q_writer = m.m_email and q.q_no = 14;
 		
+		select * from member;
+		
+		
+		select * 
+			from ( SELECT ROWNUM as rn, qna.* 
+					FROM(
+	  					select * 
+	  					from QNA
+	  					where q_complete='답변완료'
+	  					order by q_no desc
+	  					) QNA
+	  				where ROWNUM <= 10 
+	 			 )
+			where rn>= 1	 
+		
+		select * from member
+		where m_type=3
+		order by m_joindate desc;
+		
+		
 		
 		delete qna where q_no=15;
+		
+		select * from qnacomment;
+		
+		----qna comment sql
+		select *
+		from(
+			select rownum as rn, A.*
+			from(
+		select comt_no, comt_textid, comt_content, comt_writer, comt_date
+		from qnacomment c, member m
+		where c.comt_writer = m.m_email and comt_textid = 25
+		order by comt_no desc
+		)A
+		) where rn between 1 and 10
+		
+		
 ------------create table--------------------
 
 	select count(*)
@@ -86,8 +146,18 @@ CREATE TABLE qna(
 	q_complete varchar2(20) null
 );
 
+select * from qna order by q_no desc;
+select * from qnacomment ;
 
 
+
+insert into qna (q_no, q_title, q_content, q_writer, q_divide, q_date, q_replytype, q_complete, q_private)
+		values
+		(seq_qna.nextval, 'sdfsdf', '내용', 'rmfhwlt0@naver.com', '결제', sysdate, '이메일', '답변미완료', 'public');
+
+		
+
+		
 CREATE TABLE qnacomment (
 	comt_no	number(20)		primary key,
 	comt_writer	varchar2(30),
@@ -152,58 +222,6 @@ select * from autopay;
 
 
 ALTER TABLE member MODIFY(b_number varchar2(50));
-
----------------------------------------
-
-----qnacomment selec slq구문--------------------------------------------------------------------------
-select comt_no, comt_textid, comt_content, comt_writer, m_lname, c.comt_date, 
-		(select q_writer from qna where comt_textid=c.comt_textid) q_writer
-		from qnacomment c, member m
-		where c.comt_writer = m.m_email and comt_textid = 17
-		order by comt_no desc;
-		
-		
-		
-		select *
-		from(
-			select rownum as rn, A.*
-			from(
-		select comt_no, comt_textid, comt_content, comt_writer, m_lname, c.comt_date, 
-		(select q_writer from qna where comt_textid=c.comt_textid) q_writer
-		from qnacomment c, member m
-		where c.comt_writer = m.m_email and comt_textid = 17
-		order by comt_no desc
-		)A
-		) where rn between 1 and 10;
-		
-
-
-select * from qna;
-
-
-
-select *
-		from(
-			select rownum as rn, A.*
-			from(
-		select comt_no, comt_textid, comt_content, comt_writer,  comt_date
-		from qnacomment c, member m
-		where c.comt_writer = m.m_email and comt_textid = 16
-		order by comt_no desc
-		)A
-		) where rn between 1 and 10;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

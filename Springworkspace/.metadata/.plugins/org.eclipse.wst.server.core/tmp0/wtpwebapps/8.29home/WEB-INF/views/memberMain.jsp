@@ -55,10 +55,17 @@
         <div class="row">
             <div id="A" class="col-sm-7">
                 <span class="vx_text-2_regular welcome-container">안녕하세요! ${loginMember.m_lname} ${loginMember.m_fname} 님
-                <a href="logout.do" class="btn btn-primary">Sign Out</a>
-                <a href="getQnaList.do" class="btn btn-primary">qna list</a>
-                <a href="qnaWritePage.do" class="btn btn-primary">qna write</a>
-                </span>		<!-- ${loginMember.m_fname} -->
+	                <a href="logout.do" class="btn btn-primary">Sign Out</a>
+	                <a href="getQnaList.do" class="btn btn-primary">qna list</a>
+	                <a href="qnaWritePage.do" class="btn btn-primary">qna write</a>
+	                <a href="qnaReplyIncomplete.do" class="btn btn-primary">관리자 qna 답변미완료 목록</a>
+	                <a href="qnaReplyComplete.do" class="btn btn-primary">관리자 qna 답변완료 목록</a>
+                </span>		
+                <span class="vx_text-2_regular welcome-container">
+                	<a href="getPersonalMemberList.do" class="btn btn-primary">일반 멤버 리스트</a>
+                	<a href="getBusinessMemberList.do" class="btn btn-primary">비지니스멤버 리스트</a>
+                </span>
+                
                 <span class="vx_text-6_regular welcome-container">금액보내기, 사용, 결제받기 등을 설정하는 것을 도와드립니다.</span>
                 <h2 class="vx_a11yText">제품</h2>
                 <div class="leftSide-container">
