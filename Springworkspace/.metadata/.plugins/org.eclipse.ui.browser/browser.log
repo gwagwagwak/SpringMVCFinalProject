@@ -3,3 +3,12 @@
 8월 24, 2019 02:17:03.39 [25972:29296:0824/021703.395:ERROR:browser_process_sub_thread.cc(203)] Waited 12 ms for network service
 8월 24, 2019 02:17:03.43 
 8월 24, 2019 02:17:03.43 KLIB_SelfTest return : KLR_OK
+
+9월 06, 2019 02:28:28.61 NEW SESSION
+9월 06, 2019 02:28:28.61 [19192:8176:0906/022828.612:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 06, 2019 09:05:56.68 [19192:18848:0906/090556.686:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 06, 2019 09:05:56.69 [19192:23716:0906/090556.692:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 06, 2019 09:05:57.48 [19192:8176:0906/090557.485:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -106
+9월 06, 2019 14:21:25.45 [19192:8176:0906/142125.446:ERROR:browser_process_sub_thread.cc(203)] Waited 29 ms for network service
+9월 06, 2019 14:21:25.54 
+9월 06, 2019 14:21:25.54 KLIB_SelfTest return : KLR_OK

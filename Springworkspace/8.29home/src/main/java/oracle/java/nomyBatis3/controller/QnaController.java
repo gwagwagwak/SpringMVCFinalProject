@@ -206,7 +206,11 @@ public class QnaController {
 		ModelAndView mv = new ModelAndView();
 
 		/* mv.setViewName("qnaview"); */
-		mv.setViewName("qnaRead2");
+		
+		/*mv.setViewName("qnaRead2");*/
+		
+		mv.setViewName("qnaRead3");
+		
 		mv.addObject("qna", qservice.getQna(q_no));
 		mv.addObject("curPage", curPage);
 		System.out.println("qna 가져오기 완료");

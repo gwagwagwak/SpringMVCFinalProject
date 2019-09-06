@@ -24,8 +24,30 @@ form * {
 form>fieldset>legend {
 	font-size: 120%;
 }
+
+label.error{
+	color: red;
+	font-style:italic;
+}
+
+input.error{
+	border: 1px dotted red !important;
+}
+
 </style>
 <script>
+	/* validate 처리 */
+	$(function(){
+		$("#joinBlock").validate();
+	});
+	
+	function doJoin(){
+		if($("#joinBlock").valid()){
+			alert(11);
+		}
+	}
+
+
 	$(document).ready(
 			function() {
 				$('#found_site').on(
@@ -37,6 +59,9 @@ form>fieldset>legend {
 						})
 			})
 			
+			
+			
+			
 </script>
 </head>
 <body>
@@ -45,7 +70,7 @@ form>fieldset>legend {
 		<div class="row">
 
 			<div class="col-md-8 col-md-offset-2">
-				<form role="form1" method="POST" action="memberBusinessInsert.do">
+				<form role="form1" method="POST" id="joinBlock" name="joinBlock" action="memberBusinessInsert.do">
 
 					<legend class="text-center">Register</legend>
 
@@ -53,9 +78,10 @@ form>fieldset>legend {
 						<legend>Account Details</legend>
 
 						<div class="form-group col-md-6">
-							<label for="first_name">First name</label> <input type="text"
-								class="form-control" name="m_fname" id="first_name"
-								placeholder="First Name">
+							<label for="first_name">First name</label> 
+							<input type="text"
+							class="form-control" name="m_fname" id="first_name"
+							placeholder="First Name">
 						</div>
 
 						<div class="form-group col-md-6">
@@ -172,7 +198,7 @@ form>fieldset>legend {
 
 					<div class="form-group">
 						<div class="col-md-12">
-							<button type="submit" class="btn btn-primary">Register</button>
+							<button type="submit" class="btn btn-primary" onclick="doJoin();">Register</button>
 							<a href="log_v19.jsp">Already have an account?</a>
 						</div>
 					</div>

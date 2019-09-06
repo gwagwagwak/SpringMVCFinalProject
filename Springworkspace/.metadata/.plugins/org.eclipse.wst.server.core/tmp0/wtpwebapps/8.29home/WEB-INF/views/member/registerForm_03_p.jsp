@@ -46,7 +46,7 @@ form>fieldset>legend {
 	font-size: 120%;
 }
 
-/* 에러 css */
+/* 
 /* label.error{
 	color:red;
 	font-style: italic;
@@ -54,7 +54,7 @@ form>fieldset>legend {
 input.error{
 	border : 1px dotted red !important;
 }
- */
+  */
 </style>
 
 
@@ -125,8 +125,41 @@ input.error{
 	/* 회원가입 란 validate  */
 	$(function() {
 		$("#joinBlock").validate();
+		
+		/* $("#btnCheckId").click(function(){
+			var m_email = $("#m_email").val();
+			if(m_email == "" || m_email == " "){
+				alert("Email을 입력해 주세요")
+			}else{
+				var url = "emailputcheck.do"
+				//map 키값 형태로  데이터를 url경로로 보낸다
+				$.post(url, {m_email : m_email}, function(){	
+					console
+				});
+			}
+		}); */
 	});
 
+	 function registerCheckFucntion(){
+		 var m_email = $("#m_email").val();
+		 $.ajax({
+			 type : "post",
+			url : "emailputcheck.do",
+			data : {m_email : m_email},
+			success: function(result){
+				if(result ==1){
+					$("#checkMessage").html('사용할 수 있는 이메일입니다.');
+					$("#checkType").attr("class", "modal-content panel-success");
+				}else{
+					$("#checkMessage").html('사용할 수 없는 이메일입니다.');
+					$("#checkType").attr("class", "modal-content panel-warning");
+				}
+				$("#checkModal").modal("show");
+			}
+		 });		 
+	 }
+	 
+	 
 	function doJoin() {
 		if ($("#joinBlock").valid()) {
 			alert(11);
@@ -173,20 +206,29 @@ input.error{
 
 					<fieldset>
 						<legend>Account Details</legend>
-
+						
+						<div class="form-group col-md-12">
+							<label for="">Email</label> 
+							<input type="email"
+							class="form-control" name="m_email" id="m_email"
+							placeholder="Email" title="Email을 입력하세요" maxlength="30" style="width:70%;" required>
+							<button type="button" id="btnCheckId" onclick="registerCheckFucntion();">Email 중복확인</button>
+							<!-- ajax 아이디 중복 확인 -->
+							<!-- <div class="check_font" id="id_check"></div> -->
+						</div>
 
 
 						<!-- <input type="hidden"  -->
 
 						<div class="form-group col-md-6">
 							<label for="first_name">First name</label> <input type="text"
-								class="form-control" name="m_fname" id="first_name"
-								placeholder="First Name" required>
+								class="form-control error" name="m_fname" id="m_fname"
+								placeholder="First Name" required  title="Email을 입력하세요">
 						</div>
 
 						<div class="form-group col-md-6">
 							<label for="last_name">Last name</label> <input type="text"
-								class="form-control" name="m_lname" id="last_name"
+								class="form-control error" name="m_lname" id="last_name"
 								placeholder="Last Name" required>
 						</div>
 
@@ -216,14 +258,7 @@ input.error{
 						</div>
 
  -->
-						<div class="form-group col-md-12">
-							<label for="">Email</label> <input type="email"
-								class="form-control" name="m_email" id="m_email"
-								placeholder="Email" title="이메일을 입력하세요" maxlength="30" required>
-							<!-- ajax 아이디 중복 확인 -->
-							<!-- <div class="check_font" id="id_check"></div> -->
-
-						</div>
+						
 
 						<!-- ------------------------------------------------ -->
 
@@ -246,7 +281,7 @@ input.error{
 						<div class="form-group col-md-6">
 							<label for="password">Password</label> <input type="password"
 								class="form-control" name="m_pw" id="m_pw"
-								placeholder="Password" maxlength="20" required>
+								placeholder="Password" maxlength="20" required >
 						</div>
 
 
@@ -309,7 +344,7 @@ input.error{
 							<!-- <div class="form-group"> -->
 								<!-- <div class="col-md-2"> -->
 									<div><label for="buttonpost" style="color:white">우편번호찾기</label></div>
-									<input type="button" value="Find post number" onclick="showPostcode()" name="buttonpost" id="buttonpost" class="btn btn-secondary">
+									<input type="button" value="Find post number" onclick="showPostcode()" name="buttonpost" id="buttonpost" class="btn btn-primary">
 								<!-- </div> -->
 							<!-- </div> -->
 							<!-- <label for="last_name">Last name</label> <input type="text"

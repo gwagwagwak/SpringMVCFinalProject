@@ -236,8 +236,8 @@ public class MemberController {
 	}
 
 	// 회원가입시 아이디 중복 체크
-	@RequestMapping(value = "idCheck.do", method = RequestMethod.GET)
 	@ResponseBody
+	@RequestMapping(value = "idCheck.do", method = RequestMethod.GET)
 	public int idCheck(@RequestParam("m_email") String m_email) throws Exception {
 		System.out.println("dmdkdkdkdkjfas;ldfjalsk;dfjlask;djflaksdfj");
 		System.out.println(m_email);
@@ -247,6 +247,20 @@ public class MemberController {
 		/* return mservice.userIdCheck(m_email); */
 		return result;
 	}
+	
+	
+	//값 들어갔는지 확인
+	@ResponseBody
+	@RequestMapping(value = "emailputcheck.do", method = RequestMethod.POST)
+	public int emailputcheck(String m_email) throws Exception{
+		
+		
+		return 1;
+	}
+	
+	
+	
+	
 
 	// 로그인 - 일단 실패한 로그인 처리
 	/*

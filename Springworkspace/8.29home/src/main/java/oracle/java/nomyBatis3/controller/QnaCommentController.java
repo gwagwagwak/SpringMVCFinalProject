@@ -69,7 +69,7 @@ public class QnaCommentController {
 		System.out.println("댓글 목록가져오기 완료");
 		System.out.println(commentlist.toString());
 		
-		mv.setViewName("qna_commentlist");
+		mv.setViewName("qna_commentlist2");
 		mv.addObject("commentlist", commentlist);
 		mv.addObject("pager", pager);
 		return mv;

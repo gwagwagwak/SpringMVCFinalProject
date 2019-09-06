@@ -31,10 +31,12 @@
 	
 		<!-- <form action="qnaWrite.do"> -->
 		<form action="qnaWrite.do" method="post">
+			
 			<div class="container mt-3">
 				<div class="form-group">
 				<strong><label>${loginMember.m_lname}</label></strong>
-					<strong><label for="title">Title</label></strong> <input
+					<strong><label for="title">Title</label></strong>
+					 <input
 						type="text" class="form-control" id="q_title" placeholder="Title"
 						name="q_title">
 				</div>
