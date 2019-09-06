@@ -375,9 +375,9 @@ input.error{
 					<div class="form-group">
 						<div class="col-md-12">
 							<div class="checkbox">
-								<label> <input type="checkbox" value="" id=""
-									name="check"> I accept the <a href="#">terms and
-										conditions</a>.
+								<label> <input type="checkbox" value="" id=""name="check"> 
+									I accept the 
+									<a href="Form_conditions.do">terms and conditions</a>.
 								</label>
 							</div>
 						</div>
@@ -386,11 +386,11 @@ input.error{
 
 					<div class="form-group">
 						<div class="col-md-12">
-							<button type="submit" class="btn btn-primary" id="reg_submit"
-								onclick="doJoin();">Register</button>
+							<button type="submit" class="btn btn-primary" id="reg_submit" onclick="doJoin();">Register</button>
 							<a href="loginForm.do">Already have an account?</a>
 						</div>
 					</div>
+					
 
 				</form>
 			</div>

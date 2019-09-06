@@ -62,8 +62,9 @@
 	                <a href="qnaReplyComplete.do" class="btn btn-primary">관리자 qna 답변완료 목록</a>
                 </span>		
                 <span class="vx_text-2_regular welcome-container">
-                	<a href="getPersonalMemberList.do" class="btn btn-primary">일반 멤버 리스트</a>
-                	<a href="getBusinessMemberList.do" class="btn btn-primary">비지니스멤버 리스트</a>
+                	
+                	<a href="membertypelist.do" class="btn btn-primary">관리자용 회원 리스트</a>
+                	
                 </span>
                 
                 <span class="vx_text-6_regular welcome-container">금액보내기, 사용, 결제받기 등을 설정하는 것을 도와드립니다.</span>
