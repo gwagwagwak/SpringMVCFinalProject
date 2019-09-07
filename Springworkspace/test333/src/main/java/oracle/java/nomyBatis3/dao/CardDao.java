@@ -7,22 +7,19 @@ import oracle.java.nomyBatis3.model.QnaVO;
 
 public interface CardDao {
 	
-	//ì¹´ë“œ ì •ë³´ í•˜ë‚˜ ê°€ì ¸ì˜¤ê¸°
+	//Ä«µå Á¤º¸ ÇÏ³ª °¡Á®¿À±â
 	public CardVO getCard(int c_number) throws Exception;
 	
+	public CardVO getLatestCard();
 	
-	// íšŒì› ì¹´ë“œ ì •ë³´ ê°€ì ¸ì˜¤ê¸°
-	public List<CardVO> getCardList(String c_username) throws Exception;
+	// È¸¿ø Ä«µå Á¤º¸ °¡Á®¿À±â
+	public List<CardVO> getCardList() throws Exception;
 	
-	//ì¹´ë“œ ë“±ë¡
+	//Ä«µå µî·Ï
 	public void registCard(CardVO card) throws Exception;
 	
-	//ì¹´ë“œ ì‚­ì œ
+	//Ä«µå »èÁ¦
 	public void deleteCard(int c_number) throws Exception;
 
-	//ì¹´ë“œ ì •ë³´ ìˆ˜ì • - ë§Œë£Œì¼, csc, ì£¼ì†Œ
-	public void updateCard(CardVO card) throws Exception;
-	
-	
 	
 }

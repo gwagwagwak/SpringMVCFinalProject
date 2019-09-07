@@ -34,10 +34,17 @@ public class CardServiceImpl implements CardService{
 		// TODO Auto-generated method stub
 		return cdao.getCard(c_number);
 	}
+	
 	@Override
-	public List<CardVO> getCardList(String c_username) throws Exception {
+	public CardVO getLatestCard(){
 		// TODO Auto-generated method stub
-		return cdao.getCardList(c_username);
+		return cdao.getLatestCard();
+	}
+	
+	@Override
+	public List<CardVO> getCardList() throws Exception {
+		// TODO Auto-generated method stub
+		return cdao.getCardList();
 	}
 	@Override
 	public void registCard(CardVO card) throws Exception {
@@ -45,10 +52,7 @@ public class CardServiceImpl implements CardService{
 		
 	}
 	
-	@Override
-	public void updateCard(CardVO card) throws Exception {
-		cdao.updateCard(card);
-	}
+
 	@Override
 	public void deleteCard(int c_number) throws Exception {
 		cdao.deleteCard(c_number);

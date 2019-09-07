@@ -4,8 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,43 +48,44 @@ public class CardController {
 	
 	ModelAndView mv;
 	
-	//ì¹´ë“œ í•œê°œ ì •ë³´ ê°€ì ¸ì˜¤ê¸°
+	//Ä«µå ÇÑ°³ Á¤º¸ °¡Á®¿À±âchangeCard.do
 	@RequestMapping(value = "getCardList.do")
-	public ModelAndView getcardlistHandle(@RequestParam String c_username) throws Exception {
+	public ModelAndView getcardlistHandle() throws Exception {
 		
-		List<CardVO> clist = cservice.getCardList(c_username);		//
+		List<CardVO> clist = cservice.getCardList();		//
 		
-		System.out.println("qnalistëª©ë¡ ìƒì„± ì™„ë£Œ");
 		
 		mv = new ModelAndView();
-		mv.setViewName("ì´ë™í•  jsp í˜ì´ì§€ ì´ë¦„ë§Œ ì“°ì‹œì˜¤");
+		mv.setViewName("myCard");
 
-		// ë¦¬ìŠ¤íŠ¸ì˜ ë°ì´í„°ê°€ ë§ì•„ì„œ í•´ì‰¬ë§µì— ë‹´ëŠ”ê²Œ íš¨ìœ¨ì ì´ë‹¤.
+/*		// ¸®½ºÆ®ÀÇ µ¥ÀÌÅÍ°¡ ¸¹¾Æ¼­ ÇØ½¬¸Ê¿¡ ´ã´Â°Ô È¿À²ÀûÀÌ´Ù.
 		Map<String, Object> map = new HashMap<>();
 		map.put("clist", clist);
 
-		mv.addObject("map", map); // ë°ì´í„° ì €ì¥
-		
+		mv.addObject("map", map); // µ¥ÀÌÅÍ ÀúÀå
+		*/
+
+		mv.addObject("clist",clist);
 			
 		return mv;
 		
 		/*
-	 	jsp í˜ì´ì§€ë¡œ ê°’ì„ ë„˜ê²¨ì¤€ ë’¤
+	 	jsp ÆäÀÌÁö·Î °ªÀ» ³Ñ°ÜÁØ µÚ
 	   
-	   	í˜ì´ì§€ì—ì„œëŠ” jstlì„ ì´ìš©í•˜ì—¬ ${map.clist} ë¡œ ë¦¬ìŠ¤íŠ¸ë¥¼ ë¶ˆëŸ¬ì™€ì„œ ë°˜ë³µë¬¸ì„ ì´ìš”í•˜ì—¬ ì‚¬ìš©í•  ìˆ˜ ìˆë‹¤.
+	   	ÆäÀÌÁö¿¡¼­´Â jstlÀ» ÀÌ¿ëÇÏ¿© ${map.clist} ·Î ¸®½ºÆ®¸¦ ºÒ·¯¿Í¼­ ¹İº¹¹®À» ÀÌ¿äÇÏ¿© »ç¿ëÇÒ ¼ö ÀÖ´Ù.
 	   	
 	   
-	   	ì˜ˆì‹œ!!!!!!
+	   	¿¹½Ã!!!!!!
 	   	
 	   	<c:forEach var="row" items="${map.list}">
 						<tr>
 							<td class="number_dot">${row.q_no}</td>
 							<td>${row.q_divide}</td>
 							<td><c:choose>
-									<c:when test="${row.q_private eq 'ë¹„ë°€ê¸€'}">
+									<c:when test="${row.q_private eq 'ºñ¹Ğ±Û'}">
 										${row.q_title} <span class="glyphicon glyphicon-ok"></span>
 									</c:when>
-									<c:when test="${row.q_private eq 'ê³µê°œê¸€'}">
+									<c:when test="${row.q_private eq '°ø°³±Û'}">
 										<a href="qnaRead.do?q_no=${row.q_no} &curPage=${map.pager.curPage}">${row.q_title} </a>
 									</c:when>
 									<%-- <c:otherwise> ... </c:otherwise> --%>
@@ -92,18 +97,38 @@ public class CardController {
 							<td>${row.q_complete}</td>
 						</tr>
 					</c:forEach>
-
 	  	
 	 */
 	}
+	@RequestMapping(value = "changeCard.do")
+	public ModelAndView changecardlistHandle() throws Exception {
+		
+		List<CardVO> clist = cservice.getCardList();		//
+		
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("ChangeCard");
+
+
+		mv.addObject("clist",clist);
+			
+		return mv;
+		
 	
+	}
+
 	@RequestMapping(value = "getCard.do")
-	public ModelAndView getcardHandle(@RequestParam int c_number) throws Exception {
+	public ModelAndView getcardHandle(HttpServletRequest request) throws Exception {
 		
 		mv = new ModelAndView();
-		mv.setViewName("ì´ë™í•  jsp í˜ì´ì§€ ì´ë¦„ë§Œ ì“°ì‹œì˜¤");
+		mv.setViewName("myCard");
+		System.out.println(Integer.parseInt(request.getParameter("c_number")));
+
+		mv.addObject("card", cservice.getCard(Integer.parseInt(request.getParameter("c_number"))));
+		List<CardVO> clist = cservice.getCardList();
+		mv.addObject("clist",clist);
 		
-		mv.addObject("cvo", cservice.getCard(c_number));
+		mv.setViewName("myCard");
 		return mv;
 	}
 	
@@ -114,20 +139,16 @@ public class CardController {
 	
 	
 
-	@RequestMapping(value = "registCard.do")
-	public ModelAndView registcardHandle(@ModelAttribute CardVO card) throws Exception {
-		//ë„˜ê²¨ë°›ì€ ê°’ì—ì˜í•´ ìë™ìœ¼ë¡œ ê°ì²´ ìƒì„±
+	@RequestMapping(value = "registCardForm.do")
+	public ModelAndView registcardfromHandle(@ModelAttribute CardVO card) throws Exception {
+		//³Ñ°Ü¹ŞÀº °ª¿¡ÀÇÇØ ÀÚµ¿À¸·Î °´Ã¼ »ı¼º
 		
 		
 		mv = new ModelAndView();
-		mv.setViewName("ì´ë™í•  jsp í˜ì´ì§€ ì´ë¦„ë§Œ ì“°ì‹œì˜¤");
+		mv.setViewName("addCard");
 		
 		
 
-		//í™•ì¸
-		System.out.println(card.toString());
-		
-		cservice.registCard(card);
 		
 	/*	
 		mv.addObject("cvo", map);
@@ -135,41 +156,57 @@ public class CardController {
 		return mv;
 		
 	}
+	@RequestMapping(value = "registCard.do")
+	public String registcardHandle(@ModelAttribute CardVO card, HttpServletRequest request,Model model) throws Exception {
+		//³Ñ°Ü¹ŞÀº °ª¿¡ÀÇÇØ ÀÚµ¿À¸·Î °´Ã¼ »ı¼º
+		
+		
+		ModelAndView mv = new ModelAndView();
+		
+		HttpSession session = request.getSession();
+		
+		String c_number=request.getParameter("cardNumber");
+		String brand=request.getParameter("brand");
+		String expDate=request.getParameter("expDate");
+		String verificationCode=request.getParameter("verificationCode");
+		String billingAddressId=request.getParameter("billingAddressId");
+		String username=(String) session.getAttribute("username");
+		String c_name=request.getParameter("c_name");
+
+		card=new CardVO(c_number,brand,expDate,verificationCode,billingAddressId,username,c_name);
+
+		List<CardVO> clist = cservice.getCardList();
+		mv.addObject("clist",clist);
+		
+		cservice.registCard(card);
+		return "redirect:/getCard.do?c_number="+Integer.parseInt(c_number);
+		
+	}
 	
 
-	//ì•„ë§ˆ ìˆ˜ì • í•„ìš”...?
-	@RequestMapping(value = "updateCard.do")
-	public ModelAndView updatecardHandle(@ModelAttribute CardVO card) throws Exception {
-		//ìë™ ì£¼ì…ìœ¼ë¡œ ë§Œë£Œì¼, ë³´ì•ˆì½”ë“œ, ì£¼ì†Œ ê°’ì´ ë“¤ì–´ê°„ CardVO ê°ì²´ cardê°€ ìƒì„±
-		mv = new ModelAndView();
-		mv.setViewName("ì´ë™í•  jsp í˜ì´ì§€ ì´ë¦„ë§Œ ì“°ì‹œì˜¤");
-		
-		//í™•ì¸
-		System.out.println(card.toString());
-		
-		
-		cservice.updateCard(card);
-		
-		return mv;
-	}
-	
-	
-	
-	
-	//ì•„ë§ˆ ìˆ˜ì • í•„ìš”...?
 	@RequestMapping(value = "deleteCard.do")
-	public ModelAndView deletecardHandle(@RequestParam int c_number) throws Exception {
+	public String deletecardHandle(HttpServletRequest request) throws Exception {
+
+		
+		String c_number=request.getParameter("c_number");
+		System.out.println(c_number);
+		cservice.deleteCard(Integer.parseInt(c_number));
+		
+		
+		return "redirect:/actionCardAfter.do";
+	}
+	@RequestMapping(value = "actionCardAfter.do")
+	public ModelAndView deletecardAfter(HttpServletRequest request) throws Exception {
 		
 		mv = new ModelAndView();
-		mv.setViewName("ì´ë™í•  jsp í˜ì´ì§€ ì´ë¦„ë§Œ ì“°ì‹œì˜¤");
+		mv.setViewName("myCard");
 		
-		
-		
-		cservice.deleteCard(c_number);
+		List<CardVO> clist = cservice.getCardList();
+		mv.addObject("card", cservice.getLatestCard());
+		mv.addObject("clist",clist);
 		
 		
 		return mv;
 	}
-	
 	
 }

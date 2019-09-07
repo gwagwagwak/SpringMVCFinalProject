@@ -17,8 +17,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter implements Sessi
 			throws Exception {
 		//LOGIN = loginMember
 		
-		System.out.println("prehandle ì ‘ê·¼");
-		//ë¡œê·¸ì¸ì´ ë˜ì–´ìžˆëŠ”ì§€ í™•ì¸
+		System.out.println("prehandle Á¢±Ù");
+		//·Î±×ÀÎÀÌ µÇ¾îÀÖ´ÂÁö È®ÀÎ
 		HttpSession httpsession = request.getSession();
 		
 		if(httpsession.getAttribute(LOGIN) != null){
@@ -42,7 +42,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter implements Sessi
 		System.out.println("mmmm>Model : " +modelAndView);
 		
 		HttpSession httpsession = request.getSession();
-		System.out.println("posthandleì ‘ê·¼ ");
+		System.out.println("posthandleÁ¢±Ù ");
 		Object member = modelAndView.getModelMap().get("member");
 		System.out.println("LoginInterceptor.post >> " +member);
 		
@@ -52,12 +52,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter implements Sessi
 			httpsession.setAttribute(LOGIN, member);
 			
 			if(StringUtils.inNotEmpty(request.getParameter("useCookie")){
-
 				Cookie loginCookie = new Cookie("LOGIN_COOKIE", httpsession.getId());
 				loginCookie.setPath("/");
 				loginCookie.setMaxAge(7*24*60*60);
 				response.addCookie(loginCookie);
-
 			}
 				response.sendRedirect("memberMain");
 						

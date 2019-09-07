@@ -23,9 +23,15 @@ public class CardDaoImpl implements CardDao{
 	}
 
 	@Override
-	public List<CardVO> getCardList(String c_username) throws Exception {
+	public CardVO getLatestCard(){
 		// TODO Auto-generated method stub
-		return session.selectList("card.getCardList", c_username);
+		return session.selectOne("card.getLatestCard");
+	}
+	
+	@Override
+	public List<CardVO> getCardList() throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList("card.getCardList");
 	}
 
 	@Override
@@ -39,10 +45,5 @@ public class CardDaoImpl implements CardDao{
 		session.delete("card.deleteCard", c_number);
 		
 	}
-	
-	@Override	
-	public void updateCard(CardVO card) throws Exception {
-		session.update("card.updateCard", card);
-		
-	}
+
 }

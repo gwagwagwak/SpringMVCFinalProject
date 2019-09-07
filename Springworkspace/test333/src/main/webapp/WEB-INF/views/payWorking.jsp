@@ -203,7 +203,8 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"paylog","qid":"1","text":"PayLog","
    </script>
 </head>
 <body>
-<form class="jotform-form" action="http://localhost:8055/project/NewFile.jsp" method="post" name="form_92318140173450" id="92318140173450" accept-charset="utf-8">
+<form class="jotform-form" action="payment.do?">
+
   <input type="hidden" name="formID" value="92318140173450" />
   <div role="main" class="form-all">
     <ul class="form-section page-section">
@@ -233,15 +234,13 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"paylog","qid":"1","text":"PayLog","
                     <label for="input_3_1001" class="form-product-container">
                       <span data-wrapper-react="true">
                         <span class="form-product-name" id="product-name-input_3_1001">
-                          New Product 1
+                          ${p_target }
                         </span>
                         <span class="form-product-details">
                           <b>
                             <span data-wrapper-react="true">
-                              $
-                              <span id="input_3_1001_price">
-                                100.00
-                              </span>
+                              &#8361; ${p_charge}
+                             
                             </span>
                           </b>
                         </span>
@@ -258,10 +257,9 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"paylog","qid":"1","text":"PayLog","
                      
                     <span class="form-payment-price">
                       <span data-wrapper-react="true">
-                        $
-                        <span id="payment_total">
-                          0.00
-                        </span>
+                        &#8361;${p_charge}
+                        <input type="hidden" value="${card.getC_number()}" name="p_cnumber" id="p_cnumber">
+                        
                       </span>
                     </span>
                   </b>
@@ -383,30 +381,53 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"paylog","qid":"1","text":"PayLog","
           <table summary="" class="form-address-table">
             <tbody>
               <tr>
-                <td colSpan="2">
+              <td style="width:17%;">
+              <input type="radio"  id="paymentType_paylog" name="paymentType_paylog" value="credit"/>
+              </td>
+                <td colSpan="1">
                  <!--  <span class="form-sub-label-container" style="vertical-align:top">
                     <input type="text" id="input_6_addr_line1" name="q6_shippingAddress[addr_line1]" class="form-textbox form-address-line" autoComplete="address-line1" value="" data-component="address_line_1" aria-labelledby="label_6 sublabel_6_addr_line1" />
                     <label class="form-sub-label" for="input_6_addr_line1" id="sublabel_6_addr_line1" style="min-height:13px"> Street Address </label>
                   </span> -->
                   <div>
-                  <img src="${pageContext.request.contextPath}/resources/img/creditCard.png" height="120px" width="200px">
+                  <img src="${pageContext.request.contextPath}/resources/img/creditCard.png" height="120px" width="200px" style="text-align:center">
                   </div>
                 </td>
               </tr>
-              <tr>
+              <tr >
+           
                 <td colSpan="2">
-            <h4>OO카드</h4>
+
+            <h4 style="text-align:center">${card.getC_name()} ${card.getC_number()}</h4>
+
                 </td>
               </tr>
-              <tr>
+              <tr height="10px;">
               
-                <td>
-                  <h4>OOO 체크카드</h4>
+                <td colSpan="2">
+                  <h5 style="text-align:center"></h5>
                 </td>
                 <td style="text-align:center">
-                  <h4><a href="#">변경</a></h4>
+                  <h4><a href="changeCard.do">변경</a></h4>
                 </td>
               </tr>
+            </tbody>
+          </table>
+          </div>
+<br>
+        <label class="form-label form-label-left form-label-auto" id="label_6" for="input_6_addr_line1"> ETH </label>
+        <div id="cid_6" class="form-input">
+                    <table summary="" class="form-address-table">
+            <tbody>
+              <tr>
+              <td style="width:25%;color:blue;">
+              <input type="radio" id="paymentType_paylog" name="paymentType_paylog" value="ETH"/>
+              </td>
+                <td colSpan="1">
+                <h4>이더리움(ETH)으로 결제</h4>
+                </td>
+              </tr>
+              
             </tbody>
           </table>
         </div>

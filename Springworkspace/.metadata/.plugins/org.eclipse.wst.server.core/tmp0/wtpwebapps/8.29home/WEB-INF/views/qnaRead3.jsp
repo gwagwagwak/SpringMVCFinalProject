@@ -5,11 +5,9 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c-rt"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt-rt"%> --%>
-
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page import="java.util.*"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -22,12 +20,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-
+<link rel="stylesheet" type="text/css"
+		href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <!-- jquery 추가 -->
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.1.1.js"></script>
-<script type="text/javascript"
-	src="http:code.jquery.com/jquery-1.8.3.min.js"></script>
+
+<!-- <script type="text/javascript" src="http:code.jquery.com/jquery-1.8.3.min.js"></script> -->
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 
@@ -47,153 +48,132 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/plugins/validate/messages_ko.js"></script> --%>
 <style>
-body {
-	padding-top: 30px;
+.panel-shadow {
+	box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
 }
 
-.widget .panel-body {
-	padding: 0px;
+.panel-white {
+	border: 1px solid #dddddd;
 }
 
-.widget .list-group {
+.panel-white  .panel-heading {
+	color: #333;
+	background-color: #fff;
+	border-color: #ddd;
+}
+
+.panel-white  .panel-footer {
+	background-color: #fff;
+	border-color: #ddd;
+}
+
+.post .post-heading {
+	height: 95px;
+	padding: 20px 15px;
+}
+
+.post .post-heading .avatar {
+	width: 60px;
+	height: 60px;
+	display: block;
+	margin-right: 15px;
+}
+
+.post .post-heading .meta .title {
 	margin-bottom: 0;
 }
 
-.widget .panel-title {
-	display: inline
+.post .post-heading .meta .title a {
+	color: black;
 }
 
-.widget .label-info {
-	float: right;
+.post .post-heading .meta .title a:hover {
+	color: #aaaaaa;
 }
 
-.widget li.list-group-item {
-	border-radius: 0;
-	border: 0;
-	border-top: 1px solid #ddd;
+.post .post-heading .meta .time {
+	margin-top: 8px;
+	color: #999;
 }
 
-.widget li.list-group-item:hover {
-	background-color: rgba(86, 61, 124, .1);
+.post .post-image .image {
+	width: 100%;
+	height: auto;
 }
 
-.widget .mic-info {
-	color: #666666;
-	font-size: 11px;
+.post .post-description {
+	padding: 15px;
 }
 
-.widget .action {
-	margin-top: 5px;
+.post .post-description p {
+	font-size: 14px;
 }
 
-.widget .comment-text {
-	font-size: 12px;
+.post .post-description .stats {
+	margin-top: 20px;
 }
 
-.widget .btn-block {
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-}
-
-.ui-group-buttons .or {
-	position: relative;
-	float: left;
-	width: .3em;
-	height: 1.3em;
-	z-index: 3;
-	font-size: 12px
-}
-
-.ui-group-buttons .or:before {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	content: '';
-	background-color: #5a5a5a;
-	margin-top: -.1em;
-	margin-left: -.9em;
-	width: 1.8em;
-	height: 1.8em;
-	line-height: 1.55;
-	color: #fff;
-	font-style: normal;
-	font-weight: 400;
-	text-align: center;
-	border-radius: 500px;
-	-webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	box-sizing: border-box
-}
-
-.ui-group-buttons .or:after {
-	position: absolute;
-	top: 0;
-	left: 0;
-	content: ' ';
-	width: .3em;
-	height: 2.84em;
-	background-color: rgba(0, 0, 0, 0);
-	border-top: .6em solid #5a5a5a;
-	border-bottom: .6em solid #5a5a5a
-}
-
-.ui-group-buttons .or.or-lg {
-	height: 1.3em;
-	font-size: 16px
-}
-
-.ui-group-buttons .or.or-lg:after {
-	height: 2.85em
-}
-
-.ui-group-buttons .or.or-sm {
-	height: 1em
-}
-
-.ui-group-buttons .or.or-sm:after {
-	height: 2.5em
-}
-
-.ui-group-buttons .or.or-xs {
-	height: .25em
-}
-
-.ui-group-buttons .or.or-xs:after {
-	height: 1.84em;
-	z-index: -1000
-}
-
-.ui-group-buttons {
+.post .post-description .stats .stat-item {
 	display: inline-block;
+	margin-right: 5px;
 }
 
-.ui-group-buttons:after {
-	content: ".";
+.post .post-description .stats .stat-item .icon {
+	margin-right: 8px;
+}
+
+.post .post-footer {
+	border-top: 1px solid #ddd;
+	padding: 15px;
+}
+
+.post .post-footer .input-group-addon a {
+	color: #454545;
+}
+
+.post .post-footer .comments-list {
+	padding: 0;
+	margin-top: 20px;
+	list-style-type: none;
+}
+
+.post .post-footer .comments-list .comment {
 	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden
+	width: 100%;
+	margin: 20px 0;
 }
 
-.ui-group-buttons .btn {
-	float: left;
-	border-radius: 0
+.post .post-footer .comments-list .comment .avatar {
+	width: 35px;
+	height: 35px;
 }
 
-.ui-group-buttons .btn:first-child {
-	margin-left: 0;
-	border-top-left-radius: .25em;
-	border-bottom-left-radius: .25em;
-	padding-right: 15px
+.post .post-footer .comments-list .comment .comment-heading {
+	display: block;
+	width: 100%;
 }
 
-.ui-group-buttons .btn:last-child {
-	border-top-right-radius: .25em;
-	border-bottom-right-radius: .25em;
-	padding-left: 15px
+.post .post-footer .comments-list .comment .comment-heading .user {
+	font-size: 14px;
+	font-weight: bold;
+	display: inline;
+	margin-top: 0;
+	margin-right: 10px;
+}
+
+.post .post-footer .comments-list .comment .comment-heading .time {
+	font-size: 12px;
+	color: #aaa;
+	margin-top: 0;
+	display: inline;
+}
+
+.post .post-footer .comments-list .comment .comment-body {
+	margin-left: 50px;
+}
+
+.post .post-footer .comments-list .comment>.comments-list {
+	margin-left: 50px;
 }
 </style>
 
@@ -201,11 +181,12 @@ body {
 <script>
 	$(function() {
 		listReply("1"); //첫번째 페이지 댓글 목록이 나옴
+		
 		$("#btnReply").click(function() {
 			reply();
 		});
 		$("#btnList").click(function() {
-			location.href = "gtQnaList.do";
+			location.href = "getQnaList.do";
 		});
 		$("#btnUpdate").click(function() {
 			location.href = "qnaUpdatePage.do?q_no=${qna.q_no}";
@@ -235,28 +216,236 @@ body {
 				alert("댓글이 등록되었습니다.");
 				listReply("1");
 			}/* ,
-																		error: function(req, status, errThrown) {
-																			alert("network error occur");
-																		} */
+			dataType : 'json', 		
+			data : param,																			error: function(req, status, errThrown) {
+																												alert("network error occur");
+																											} */
 		});
 	}
+	
+	
+	
+	
+	
+	  function listReply(num) {
+			$.ajax({
+				type : "post",
+				url : "getCommentList.do?q_no=${qna.q_no}&curPage=" + num,
+				dataType:'json',
+				async:false,
+				success : function(data, status, xhr) {
+					console.log(data);
+					
+					alert("댓글리스트 가져오기 성공  " + data);
+					var list = data.result;
+					//$("#listReply").html(result); //listReply
+					
+				}
+			});
+		}  
 
 	/*댓글 리스트 불러오기  */
-	function listReply(num) {
+	/* function listReply(num) {
 		$.ajax({
 			type : "post",
 			url : "getCommentList.do?q_no=${qna.q_no}&curPage=" + num,
 			success : function(result) {
 				console.log(result);
-				$("#listReply").html(result); //listReply
+				alert("댓글리스트 가져오기 성공");
+				("#listReply").html(result); //listReply
+				
 			}
 		});
-	}
+	}  */
 </script>
 
 
 </head>
 <body>
+
+	
+	<div class="container">
+
+		<h2>
+			Q&A
+			<hr>
+		</h2>
+
+
+		<div class="col-sm-16">
+			<div class="panel panel-white post panel-shadow">
+<!-- 제목 -->
+				<div class="post-heading">
+					<div class="pull-left meta">
+					
+						<div class="title h1">
+						${qna.q_title}
+						</div>
+					<h6 class="text-muted time"> &nbsp;&nbsp;&nbsp;&nbsp;${qna.q_divide}</h6>
+					</div>
+				</div>
+	
+			
+<!--회원정보  -->			
+				<div class="post-heading">
+					<div class="pull-left image">
+						<img src="http://bootdey.com/img/Content/user_1.jpg"
+							class="img-circle avatar" alt="user profile image">
+					</div>
+					<div class="pull-left meta">
+						<div class="title h5">
+							<a href="#">
+								<b style="font-size:16px;">${loginMember.m_fname}${loginMember.m_lname}</b>
+							</a>
+						</div>
+						<h5 class="pull-right text-muted time">
+							<fmt:formatDate value="${qna.q_date}" pattern="yyyy-MM-dd HH:mm:ss" />
+						</h5>
+					</div>
+				</div>
+				
+<!-- 내용  -->
+				<div class="post-description">
+				<br>
+					<p style="font-size:18px;">
+						${qna.q_content}
+					</p>
+				</div>
+				
+				<br>
+<!--버튼  -->
+				<div class="post-description">
+					<!-- buttons -->
+						<div class="stats">
+						
+						<c:choose>
+						<c:when test="${loginMember.m_email == qna.q_writer}">
+						
+							<button class="btn btn-default stat-item" id="btnUpdate"> 
+								<strong>Update</strong>
+								<!-- <i	class="fa fa-thumbs-up icon"></i>2 -->
+							</button> 
+						
+							<button class="btn btn-default stat-item" id="btnDelete"> 
+								<strong>Delete</strong>
+								<!-- <i	class="fa fa-share icon"></i>12 -->
+							</button>
+						
+							<button class="pull-right btn btn-default stat-item" id="btnList"> 
+								<strong>List</strong>
+								<!-- <i	class="fa fa-share icon"></i>12 -->
+							</button>
+						</c:when>
+						<c:otherwise>
+							<button class="btn btn-default stat-item" id="btnList"> 
+									<strong>List</strong>
+									<!-- <i	class="fa fa-share icon"></i>12 -->
+							</button>
+						</c:otherwise>
+						</c:choose>
+							<!-- 	<a href="#" class="btn btn-default stat-item"> 	
+							 	<i class="fa fa-thumbs-up icon"></i>2
+							</a> 
+							<a href="#" class="btn btn-default stat-item"> 
+								<i class="fa fa-share icon"></i>12
+							</a> -->
+						</div>
+				</div>
+				
+<!--댓글 작성 및 댓글 리스트 출력  -->
+				<div class="post-footer">
+<!-- 댓글 작성 버튼  -->
+				<div class="alert alert-info" style="line-height:5px; margin-bottom:2px; padding-left:10px;">
+ 					<strong>Write Comment for Paypal User!</strong> 
+				</div>
+
+
+
+					<div class="input-group">
+					
+				
+						<!-- <input class="form-control" placeholder="Add a comment" type="text"> -->
+						 <textarea class="form-control" rows="3" name="comt_content" id="comt_content"
+										placeholder="Write in your wall" autofocus="">
+						</textarea>
+						
+						<span class="input-group-addon"> 
+							<a id="btnReply" href="#">
+								<!-- <i class="fa fa-edit"></i> -->
+								<span class="glyphicon glyphicon-pencil"></span>
+							</a>
+						</span>
+					</div>
+<!--관리자 댓글 리스트  -->	
+			<%-- <c:if test="" > --%>					
+					<ul class="comments-list">
+						<li class="comment">
+						<a class="pull-left" href="#"> 
+							<img class="avatar" src="http://bootdey.com/img/Content/user_1.jpg" alt="avatar">
+						</a>
+							<div class="comment-body">
+								<div class="comment-heading">
+									<h4 class="user">Administrator</h4>
+									<h5 class="time">댓글 단 시간</h5>
+								</div>
+								<p>댓글 내용</p>
+							</div>
+								
+						
+			
+<!-- 일반 댓글 리스트 반복문 -->				
+	
+							<ul class="comments-list">
+								
+								<li class="comment">
+								<a class="pull-left" href="#"> 
+									<img class="avatar" src="http://bootdey.com/img/Content/user_3.jpg" alt="avatar">
+								</a>
+									<div class="comment-body">
+										<div class="comment-heading">
+											<h4 class="user">Ryan Haywood</h4>
+											<h5 class="time">3 minutes ago</h5>
+										</div>
+										<p>Relax my friend</p>
+									</div>
+								</li>
+							</ul>
+<!-- 댓글 반복문  -->		
+	
+				<c:if test="${not empty commentlist}">
+					<c:forEach var="row" items="${commentlist}">
+							<ul class="comments-list">
+								
+								<li class="comment">
+								<a class="pull-left" href="#"> 
+									<img class="avatar" src="http://bootdey.com/img/Content/user_3.jpg" alt="avatar">
+								</a>
+									<div class="comment-body">
+										<div class="comment-heading">
+											<h4 class="user"> <img
+										class="avatar" src="http://bootdey.com/img/Content/user_2.jpg"
+										alt="avatar"></h4>
+											<h5 class="time">${row.comt_date}</h5>
+										</div>
+										<p>	${row.comt_content}</p>
+									</div>
+								</li>
+								<!--  <img
+										class="avatar" src="http://bootdey.com/img/Content/user_2.jpg"
+										alt="avatar"> -->
+							</ul>
+				</c:forEach>
+			</c:if>
+							
+							
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<%-- 	<h2>게시물 보기 연습2</h2>
 	<form id="form1" name="form1" method="post" action="">
 		<div>
@@ -302,14 +491,12 @@ body {
 	<%-- </c:if> --%>
 	<!-- </div> -->
 
-
+	<%-- 
 	<div class="container">
 		<h2>Q&A</h2>
 		<hr>
 		<div class="row">
 			<form id="form1" name="form1" method="post" action="">
-
-
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-sm-2 col-md-6">
@@ -334,14 +521,18 @@ body {
 				<div class="container-fluid">
 					<div class="row">
 						<div>
-							
+
 							<textarea rows="4" cols="80" name="q_content" id="q_content"
 								readonly>${qna.q_content}</textarea>
 						</div>
 					</div>
-				</div>
+				</div> --%>
 
-			<%-- 	<div>
+
+
+
+
+	<%-- 	<div>
 					작성일자 :
 					${qna.q_date}
 					<fmt:formatDate value="${qna.q_date}" pattern="yyyy-MM-dd" />
@@ -356,24 +547,25 @@ body {
 						readonly>${qna.q_content}</textarea>
 				</div>
 				 --%>
-				<br> <br>
-				
-				
-				<div>
-					<input type="hidden" name="q_no" value="${qna.q_no}">
-					<%-- <c:if test="${sessionScope.userid == qna.writer}"> --%>
-					<c:if test="${loginMember.m_email == qna.q_writer}">
-						<button type="button" id="btnUpdate">수정</button>
-						<button type="button" id="btnDelete">삭제</button>
-					</c:if>
-					<button type="button" id="btnList">목록</button>
-				</div>
+<!-- 	<br>
+	<br> -->
 
 
+	<%-- <div>
+		<input type="hidden" name="q_no" value="${qna.q_no}">
+		<c:if test="${sessionScope.userid == qna.writer}">
+		<c:if test="${loginMember.m_email == qna.q_writer}">
+			<button type="button" id="btnUpdate">수정</button>
+			<button type="button" id="btnDelete">삭제</button>
+		</c:if>
+		<button type="button" id="btnList">목록</button>
+	</div>
+ --%>
 
-			</form>
+<!-- 
+	</form> -->
 
-			<!-- <div class="ui-group-buttons">
+	<!-- <div class="ui-group-buttons">
 				<a href="http://www.jquery2dotnet.com" class="btn btn-danger"
 					role="button"><span class="glyphicon glyphicon-pencil"
 					style="padding-right: 4px;"></span>Compose</a>
@@ -387,42 +579,48 @@ body {
 					style="padding-right: 4px;"></span>Send</a>
 			</div> -->
 
-			<div class="panel panel-default widget">
+
+
+	<!-- 댓글 입력 및 댓글 리스트  -->
+	<!-- 		<div class="panel panel-default widget">
+
 				<div class="panel-heading">
 					<span class="glyphicon glyphicon-comment"></span>
-					<h3 class="panel-title">Comment</h3>
+					<h3 class="panel-title"><Strong>Comment</Strong></h3>
+				</div> -->
 
+	<!--WRITE-->
+	<!-- <button type="button" id="btnReply" class="[ btn btn-info ]"
+					data-loading-text="Loading...">Post reply</button> -->
 
-				</div>
-
-				<!--WRITE-->
-				<button type="button" id="btnReply" class="[ btn btn-info ]"
-					data-loading-text="Loading...">Post reply</button>
-				<br>
-				<div class="col">
+	<!-- 	<div class="col">
 					<div class="panel-body">
 						<form role="form">
 							<fieldset>
 								<div class="form-group">
 									<textarea class="form-control" rows="3"
 										placeholder="Write in your wall" autofocus=""></textarea>
+									<button type="button" id="btnReply" class="[ btn btn-info ]"
+										data-loading-text="Loading...">Post reply</button>
 								</div>
 							</fieldset>
+
 						</form>
 					</div>
 				</div>
+ -->
 
 
-				<!-- ajax로 불러온 댓글 -->
-				<!-- 	<div class="panel-body">
+	<!-- ajax로 불러온 댓글 -->
+	<!-- 	<div class="panel-body">
 				<div id="listReply"></div>
 			</div> -->
 
 
-
-				<!--REPLY-->
-
-				<div class="panel-body">
+	<!-- <div class="panel-body" id="listReply" -->
+	<!--댓글 목록 ajax로 불러옴-->
+	<!-- 
+				 <div class="panel-body">
 					<ul class="list-group">
 						<li class="list-group-item">
 							<div class="row">
@@ -466,18 +664,20 @@ body {
 							</div>
 						</li>
 					</ul>
-				</div>
+				</div> 
+				
 
 
 			</div>
 		</div>
+		
 	</div>
-
+ -->
 
 
 
 	<!-- 댓글 목록 출력 영역 -->
-	<!-- <div id="listReply"></div> -->
+	<!-- 	<div id="listReply"></div> -->
 
 
 </body>

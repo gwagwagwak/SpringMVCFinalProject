@@ -135,10 +135,10 @@
 							<p>Subject to status.T&Cs apply.</p>
 						</div>
 						<div class="buttons">
-							<form action="new.do" method="get">
-								<a href="login.do" class="btn btn-neutral btn-lg btn-fill">Get
+						<!-- 	<form action="new.do" method="get"> -->
+								<a href="shopping.do" class="btn btn-neutral btn-lg btn-fill">Get
 									Started</a>
-							</form>
+						<!-- 	</form> -->
 							<!-- <button class="btn btn-simple btn-neutral">
 								<i class="fa fa-android"></i>
 							</button>

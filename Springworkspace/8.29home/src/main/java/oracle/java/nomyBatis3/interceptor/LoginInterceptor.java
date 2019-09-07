@@ -64,7 +64,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter implements Sessi
 				response.addCookie(loginCookie);	//응답이 나갈 때 response에서 쿠키를 담고 나가게 된다.
 				
 				//아이디 기억 체크 
-			if (StringUtils.isNotEmpty(request.getParameter("useCookie"))){
+ 			if (StringUtils.isNotEmpty(request.getParameter("useCookie"))){
 				//Cookie loginCookie = new Cookie("loginCookie", httpsession.getId());
 				Cookie rememberCookie = new Cookie("rememberCookie", loginmember.getM_email());	//리멤버 쿠키 처리
 				

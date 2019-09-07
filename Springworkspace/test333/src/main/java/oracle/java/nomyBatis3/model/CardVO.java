@@ -1,31 +1,45 @@
 package oracle.java.nomyBatis3.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CardVO {
 	
-	private int c_number;		//ì¹´ë“œ ë²ˆí˜¸(ê¸°ë³¸í‚¤)
-	private String c_type;		//ì¹´ë“œ íƒ€ì…
-	private Date c_expr;		//ì¹´ë“œ ë§Œë£Œì¼
-	private int c_csc;			//ì¹´ë“œ cscë²ˆí˜¸
-	private String c_addr;	//ì¹´ë“œ ì²­êµ¬ ì£¼ì†Œ
-	private String c_username;		//ì¹´ë“œ íšŒì› ë©”ì¼	(ì™¸ë˜í‚¤ : member.m_email)
+	private int c_number;		//Ä«µå ¹øÈ£(±âº»Å°)
+	private String c_type;		//Ä«µå Å¸ÀÔ
+	private Date c_expr;		//Ä«µå ¸¸·áÀÏ
+	private int c_csc;			//Ä«µå csc¹øÈ£
+	private String c_addr;	//Ä«µå Ã»±¸ ÁÖ¼Ò
+	private String c_username;//Ä«µå È¸¿ø ¸ŞÀÏ	(¿Ü·¡Å° : member.m_email)
+	private String c_name;
 	
-	
+	public String getC_name() {
+		return c_name;
+	}
+
+
+	public void setC_name(String c_name) {
+		this.c_name = c_name;
+	}
+
+
+	SimpleDateFormat date = new SimpleDateFormat("MM/yy");
 	public CardVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 
-	public CardVO(int c_number, String c_type, Date c_expr, int c_csc, String c_addr, String c_username) {
+	public CardVO(String c_number, String c_type, String c_expr, String c_csc, String c_addr, String c_username,String c_name) throws ParseException {
 		super();
-		this.c_number = c_number;
+		this.c_number = Integer.parseInt(c_number);
 		this.c_type = c_type;
-		this.c_expr = c_expr;
-		this.c_csc = c_csc;
+		this.c_expr = date.parse(c_expr);
+		this.c_csc = Integer.parseInt(c_csc);
 		this.c_addr= c_addr;
 		this.c_username = c_username;
+		this.c_name=c_name;
 	}
 
 

@@ -87,8 +87,9 @@ public class MemberController {
 	public String loginSuccess(Model model, HttpSession httpsession) throws Exception {
 		MemberVO loginmember = (MemberVO) httpsession.getAttribute("loginMember");
 
+		
 		if (loginmember.getM_type() == 1) // 관리자 ->관리자페이지로이동
-			return "memberMain";
+			return "adminMain";
 		else if (loginmember.getM_type() == 2)// 일반 회원
 			return "memberMain";
 		else if (loginmember.getM_type() == 3)// 비지니스 회원

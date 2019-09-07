@@ -18,7 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import oracle.java.nomyBatis3.DTO.LoginDTO;
 import oracle.java.nomyBatis3.dao.MemberDaoImpl;
+import oracle.java.nomyBatis3.model.CardVO;
 import oracle.java.nomyBatis3.model.MemberVO;
+import oracle.java.nomyBatis3.model.PayListVO;
 import oracle.java.nomyBatis3.service.AutoPayService;
 import oracle.java.nomyBatis3.service.CardService;
 import oracle.java.nomyBatis3.service.MemberService;
@@ -34,6 +36,11 @@ public class MemberController {
 
 	@Inject
 	MemberService mservice;
+	@Inject
+	CardService cservice;
+	
+	@Inject
+	PayListService pservice;
 
 	ModelAndView mv;
 
@@ -44,13 +51,14 @@ public class MemberController {
 	 * 
 	 * int total=ms.total(); System.out.println("controller_01");
 	 * 
-	 * 	 * //model.addAttribute("list",listMember(null, null));
+	 * 
+	 * //model.addAttribute("list",listMember(null, null));
 	 * System.out.println("controller_02"); return "listMember";
 	 * 
 	 * }
 	 */
 
-	//ë©”ì¸í˜ì´ì§€ ì´ë™
+	//¸ŞÀÎÆäÀÌÁö ÀÌµ¿
 	@RequestMapping(value = "main.do")
 	public String main(Model model) {
 		System.out.println("11111111111111111111111");
@@ -58,18 +66,18 @@ public class MemberController {
 	}
 
 	
-	// íšŒì› ëª©ë¡ í˜ì´ì§€ ì²˜ë¦¬
+	// È¸¿ø ¸ñ·Ï ÆäÀÌÁö Ã³¸®
 	@RequestMapping(value = "getMemberList.do")
 	public String getMemberList(Model model) {
 		List<MemberVO> list = mservice.getMemberList();
 
-		logger.info("íšŒì›ëª©ë¡ : " + list);
+		logger.info("È¸¿ø¸ñ·Ï : " + list);
 		model.addAttribute("list", list);
-		return "member/memberList"; // íšŒì› ëª©ë¡ í˜ì´ì§€ë¡œ ì´ë™
+		return "member/memberList"; // È¸¿ø ¸ñ·Ï ÆäÀÌÁö·Î ÀÌµ¿
 
 	}
 
-	// ë¡œê·¸ì¸ í˜ì´ì§€ë¡œ ì´ë™
+	// ·Î±×ÀÎ ÆäÀÌÁö·Î ÀÌµ¿
 	@RequestMapping(value = "loginForm.do")
 	public String loginForm(Model model) {
 		return "loginForm";
@@ -77,11 +85,10 @@ public class MemberController {
 
 	
 	
-	// ë¡œê·¸ì¸ ì‹¤ì œ ì²˜ë¦¬
+	// ·Î±×ÀÎ ½ÇÁ¦ Ã³¸®
 /*	@RequestMapping(value = "loginPost.do", method = RequestMethod.POST)
 	public void loginPost(@ModelAttribute LoginDTO logindto, Model model) throws Exception {
 		logger.info("loginPost={}", logindto);
-
 		try {
 			MemberVO member = mservice.loginMember(logindto);
 			if (member != null) { // login success
@@ -96,16 +103,31 @@ public class MemberController {
 	}
 */
 	
-	// ë¡œê·¸ì¸ ì‹¤ì œ ì²˜ë¦¬
+	// ·Î±×ÀÎ ½ÇÁ¦ Ã³¸®
 	@RequestMapping(value = "loginPost.do", method = RequestMethod.POST)
-	public String loginPost(@ModelAttribute LoginDTO logindto, Model model) throws Exception {
+	public String loginPost(@ModelAttribute LoginDTO logindto, Model model,HttpServletRequest request) throws Exception {
 		logger.info("loginPost={}", logindto);
+		HttpSession session = request.getSession();
+
+
 
 		try {
 			MemberVO member = mservice.loginMember(logindto);
+			
+			
 			if (member != null) { // login success
 				model.addAttribute("member", member);
 				model.addAttribute("loginResult", member.getM_fname() + member.getM_lname());
+				List<CardVO> clist = cservice.getCardList();
+				model.addAttribute("clist", clist);
+				System.out.println("ÀÌ¸ŞÀÏ: "+logindto.getM_email());
+				System.out.println("ÁÖ¼Ò: "+member.getM_addr());
+				session.setAttribute("username", logindto.getM_email());
+				session.setAttribute("m_addr", member.getM_addr());
+				List<PayListVO> plist = pservice.getPayList(logindto.getM_email());
+				model.addAttribute("plist",plist);
+				
+				
 				return "memberMain";
 			} else { // login fail
 				model.addAttribute("loginResult", "Login Fail!");
@@ -118,26 +140,26 @@ public class MemberController {
 
 	
 	
-	// íšŒì›ê°€ì… íšŒì› ì„ íƒ í˜ì´ì§€ë¡œ ì´ë™
+	// È¸¿ø°¡ÀÔ È¸¿ø ¼±ÅÃ ÆäÀÌÁö·Î ÀÌµ¿
 	@RequestMapping(value = "join_first.do")
 	public String join_first(Model model) {
 		System.out.println("11111111111111111111111");
 		return "member/join_first";
 	}
-	// ì¼ë°˜ íšŒì›ê°€ì… í˜ì´ì§€ë¡œ ì´ë™
+	// ÀÏ¹İ È¸¿ø°¡ÀÔ ÆäÀÌÁö·Î ÀÌµ¿
 	@RequestMapping(value = "registerForm_03_p.do")
 	public String registerForm_03_p(Model model) {
 		System.out.println("11111111111111111111111");
 		return "member/registerForm_03_p";
 	}
-	// ê¸°ì—… íšŒì›ê°€ì… í˜ì´ì§€ë¡œ ì´ë™
+	// ±â¾÷ È¸¿ø°¡ÀÔ ÆäÀÌÁö·Î ÀÌµ¿
 	@RequestMapping(value = "registerForm_03_b.do")
 	public String registerForm_03_b(Model model) {
 		System.out.println("11111111111111111111111");
 		return "member/registerForm_03_b";
 	}
 	
-	// ì¼ë°˜ íšŒì› ê°€ì…
+	// ÀÏ¹İ È¸¿ø °¡ÀÔ
 	@RequestMapping(value = "memberInsert.do")
 	public String insertPersonalMember(@ModelAttribute MemberVO member, HttpServletRequest request) {
 		System.out.println(
@@ -152,7 +174,7 @@ public class MemberController {
 		return "redirect:/loginForm.do";
 
 	}
-	// ê¸°ì—… íšŒì› ê°€ì…
+	// ±â¾÷ È¸¿ø °¡ÀÔ
 	@RequestMapping(value = "memberBusinessInsert.do")
 	public String insertbusinessMember(@ModelAttribute MemberVO member, HttpServletRequest request) {
 		System.out.println(
@@ -164,7 +186,7 @@ public class MemberController {
 		member.setM_addr(addr1 + " " + addr2);
 
 		mservice.insertMember(member);
-		System.out.println("ê¸°ì—…íšŒì› ê°€ì… ì²˜ë¦¬ ì™„ë£Œ ");
+		System.out.println("±â¾÷È¸¿ø °¡ÀÔ Ã³¸® ¿Ï·á ");
 		
 		return "redirect:/loginForm.do";
 
@@ -176,34 +198,34 @@ public class MemberController {
 	
 	
 
-	// ê³ ê°ì„¼í„°ë¡œ ì´ë™
+	// °í°´¼¾ÅÍ·Î ÀÌµ¿
 	@RequestMapping(value = "serviceCenter.do")
 	public String serviceCenter(Model model) {
 		System.out.println("11111111111111111111111");
 		return "serviceCenter";
 	}
 
-	// ì´ìš©ë°©ë²•í˜ì´ì§€ë¡œ ì´ë™
+	// ÀÌ¿ë¹æ¹ıÆäÀÌÁö·Î ÀÌµ¿
 	@RequestMapping(value = "privacy.do")
 	public String Privacy(Model model) {
 		System.out.println("11111111111111111111111");
 		return "privacy";
 	}
 
-	// ë¡œê·¸ì¸ - ì¼ë‹¨ ì‹¤íŒ¨í•œ ë¡œê·¸ì¸ ì²˜ë¦¬
+	// ·Î±×ÀÎ - ÀÏ´Ü ½ÇÆĞÇÑ ·Î±×ÀÎ Ã³¸®
 	/*
 	 * @RequestMapping(value="memberLogin.do") public String
 	 * loginHandle(MemberVO member, Model model, HttpSession httpsession){
 	 * 
 	 * MemberVO result = mservice.loginMember(member);
 	 * 
-	 * if(result == null){ model.addAttribute("message", "IDë‚˜ PWê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+	 * if(result == null){ model.addAttribute("message", "ID³ª PW°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
 	 * return "login"; }else{ httpsession.setAttribute("loginID",
 	 * result.getM_email());
 	 * 
 	 * return "redirect:main.do"; return "main.do"; } }
 	 */
 
-	// íšŒì›ê°€ì… ì²˜ë¦¬
+	// È¸¿ø°¡ÀÔ Ã³¸®
 
 }

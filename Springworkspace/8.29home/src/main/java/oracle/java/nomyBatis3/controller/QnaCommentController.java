@@ -1,7 +1,9 @@
 package oracle.java.nomyBatis3.controller;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -53,9 +56,12 @@ public class QnaCommentController {
 	
 	
 	//댓글 리스트 가져오기
+	@ResponseBody
 	@RequestMapping("getCommentList.do")
-	public ModelAndView getCommentList(int q_no, @RequestParam(defaultValue="1") int curPage,
+	public Map<String, Object >getCommentList(int q_no, @RequestParam(defaultValue="1") int curPage,
 			ModelAndView mv, HttpSession httpsession){
+	/*public ModelAndView getCommentList(int q_no, @RequestParam(defaultValue="1") int curPage,
+			ModelAndView mv, HttpSession httpsession){*/
 		
 		//qnacomment 갯수 가져오기
 		int comment_count = qcservice.count(q_no);
@@ -69,10 +75,15 @@ public class QnaCommentController {
 		System.out.println("댓글 목록가져오기 완료");
 		System.out.println(commentlist.toString());
 		
-		mv.setViewName("qna_commentlist2");
+		Map<String, Object> result = new HashMap<>();
+		
+		result.put("commentlist", commentlist);
+		result.put("pager", pager);
+		return result;
+		/*
 		mv.addObject("commentlist", commentlist);
 		mv.addObject("pager", pager);
-		return mv;
+		return mv;*/
 	}
 	/*
 	 * 

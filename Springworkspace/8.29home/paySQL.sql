@@ -10,12 +10,13 @@ ${count} -(${pager.curPage}-1) * 10 + 0(0번부터 9번까지 한페이지에 �
 
 
 
-
+insert into member values('business@test', '111', '', '기업', '가', 10105555, sysdate, 'south korea', null, null, 3, '비상장', '45688797', '엔쥐');
 select * from qna;
 
 update qna
 set q_private = 'public'
 
+select * from member ;
 
 
 SELECT ROW_NUMBER() OVER (ORDER BY q_no DESC) AS ROWNUM, qna.* FROM qna ORDER BY ROWNUM DESC

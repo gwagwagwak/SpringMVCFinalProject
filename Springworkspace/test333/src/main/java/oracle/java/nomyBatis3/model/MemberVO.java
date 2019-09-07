@@ -2,20 +2,20 @@ package oracle.java.nomyBatis3.model;
 
 public class MemberVO {
 
-	private String m_email;		//íšŒì› ì´ë©”ì¼(ê¸°ë³¸í‚¤)
-	private String m_pw;		//íšŒì› ë¹„ë²ˆ
-	private String m_fname;		//íšŒì› ì´ë¦„
-	private String m_lname;		//íšŒì› ì„±ì”¨
-	private String m_hp;		//íšŒì› í•¸ë“œí°ë²ˆí˜¸
-	private String m_addr;		//íšŒì› ê±°ì£¼ì§€ ì£¼ì†Œ
-	private String m_joindate;		//íšŒì› ê°€ì…ì¼
-	private String m_nation;	//íšŒì› êµ­ì 
-	private String m_secu;		//íšŒì› ë³´ì•ˆ ì§ˆë¬¸	(íšŒì› ê°€ì… í›„ì— íšŒì›ê´€ë¦¬ì—ì„œ ë”°ë¡œ ì„¤ì •í•´ì•¼ í•œë‹¤.)
-	private String m_answer;	//íšŒì› ë³´ì•ˆ ì§ˆë¬¸ ë‹µ
-	private int m_type;			//íšŒì› íƒ€ì… ( 1:ê´€ë¦¬ì, 2:ì¼ë°˜, 3.ë¹„ì§€ë‹ˆìŠ¤)
-	private String b_type;		//ë¹„ì§€ë‹ˆìŠ¤ íšŒì› íƒ€ì…		(ê°œì¸ or ìƒì¥ or ë¹„ìƒì¥)
-	private String b_number;	//ë¹„ì§€ë‹ˆìŠ¤ íšŒì› ì‚¬ì—…ì ë²ˆí˜¸
-	private String b_name;		//ë¹„ì§€ë‹ˆìŠ¤ íšŒì› ì‚¬ì—…ì ìƒí˜¸ëª…
+	private String m_email;		//È¸¿ø ÀÌ¸ŞÀÏ(±âº»Å°)
+	private String m_pw;		//È¸¿ø ºñ¹ø
+	private String m_fname;		//È¸¿ø ÀÌ¸§
+	private String m_lname;		//È¸¿ø ¼º¾¾
+	private String m_hp;		//È¸¿ø ÇÚµåÆù¹øÈ£
+	private String m_addr;		//È¸¿ø °ÅÁÖÁö ÁÖ¼Ò
+	private String m_joindate;		//È¸¿ø °¡ÀÔÀÏ
+	private String m_nation;	//È¸¿ø ±¹Àû
+	private String m_secu;		//È¸¿ø º¸¾È Áú¹®	(È¸¿ø °¡ÀÔ ÈÄ¿¡ È¸¿ø°ü¸®¿¡¼­ µû·Î ¼³Á¤ÇØ¾ß ÇÑ´Ù.)
+	private String m_answer;	//È¸¿ø º¸¾È Áú¹® ´ä
+	private int m_type;			//È¸¿ø Å¸ÀÔ ( 1:°ü¸®ÀÚ, 2:ÀÏ¹İ, 3.ºñÁö´Ï½º)
+	private String b_type;		//ºñÁö´Ï½º È¸¿ø Å¸ÀÔ		(°³ÀÎ or »óÀå or ºñ»óÀå)
+	private String b_number;	//ºñÁö´Ï½º È¸¿ø »ç¾÷ÀÚ ¹øÈ£
+	private String b_name;		//ºñÁö´Ï½º È¸¿ø »ç¾÷ÀÚ »óÈ£¸í
 	
 	public MemberVO() {
 		super();

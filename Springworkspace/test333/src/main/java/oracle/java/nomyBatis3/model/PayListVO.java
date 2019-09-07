@@ -1,17 +1,21 @@
 package oracle.java.nomyBatis3.model;
 
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class PayListVO {
 
-	private int p_no;			//ê²°ì œ ë‚´ì—­ ì•„ì´ë””(ì‹œí€€ìŠ¤, ê¸°ë³¸í‚¤)
-	private String p_target;	//ì‚¬ìš©ë‚´ì—­
-	private String p_date;		//ê²°ì œ ë‚ ì§œ
-	private int p_charge;		//ê²°ì œ ìš”ê¸ˆ
-	private String p_currc;		//ê²°ì œ í†µí™”
-	private String p_type;		//ê²°ì œ ìœ í˜•
-	private	String p_cnumber;	//ê²°ì œ ì¹´ë“œ ë²ˆí˜¸	(ì™¸ë˜í‚¤ : card.c_number)
-	private String p_user;		//ê²°ì œ íšŒì› ë©”ì¼ (ì™¸ë˜í‚¤ : member.m_email)
+	private int p_no;			//°áÁ¦ ³»¿ª ¾ÆÀÌµğ(½ÃÄö½º, ±âº»Å°)
+	private String p_target;	//»ç¿ë³»¿ª
+	private Date p_date;		//°áÁ¦ ³¯Â¥
+	private int p_charge;		//°áÁ¦ ¿ä±İ
+	private String p_currc;		//°áÁ¦ ÅëÈ­
+	private String p_type;		//°áÁ¦ À¯Çü
+	private	int p_cnumber;	//°áÁ¦ Ä«µå ¹øÈ£	(¿Ü·¡Å° : card.c_number)
+	private String p_username;		//°áÁ¦ È¸¿ø ¸ŞÀÏ (¿Ü·¡Å° : member.m_email)
 	
-	
+	SimpleDateFormat format = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
 	
 	public PayListVO() {
 		super();
@@ -21,16 +25,16 @@ public class PayListVO {
 
 
 	public PayListVO(int p_no, String p_target, String p_date, int p_charge, String p_currc, String p_type,
-			String p_cnumber, String p_user) {
+			String p_cnumber, String p_username) throws ParseException {
 		super();
 		this.p_no = p_no;
 		this.p_target = p_target;
-		this.p_date = p_date;
+		this.p_date =format.parse(p_date);
 		this.p_charge = p_charge;
 		this.p_currc = p_currc;
 		this.p_type = p_type;
-		this.p_cnumber = p_cnumber;
-		this.p_user = p_user;
+		this.p_cnumber =Integer.parseInt(p_cnumber);
+		this.p_username = p_username;
 	}
 
 
@@ -55,18 +59,6 @@ public class PayListVO {
 
 	public void setP_target(String p_target) {
 		this.p_target = p_target;
-	}
-
-
-
-	public String getP_date() {
-		return p_date;
-	}
-
-
-
-	public void setP_date(String p_date) {
-		this.p_date = p_date;
 	}
 
 
@@ -107,26 +99,38 @@ public class PayListVO {
 
 
 
-	public String getP_cnumber() {
+	public Date getP_date() {
+		return p_date;
+	}
+
+
+
+	public void setP_date(Date p_date) {
+		this.p_date = p_date;
+	}
+
+
+
+	public int getP_cnumber() {
 		return p_cnumber;
 	}
 
 
 
-	public void setP_cnumber(String p_cnumber) {
+	public void setP_cnumber(int p_cnumber) {
 		this.p_cnumber = p_cnumber;
 	}
 
 
 
-	public String getP_user() {
-		return p_user;
+	public String getp_username() {
+		return p_username;
 	}
 
 
 
-	public void setP_user(String p_user) {
-		this.p_user = p_user;
+	public void setp_username(String p_username) {
+		this.p_username = p_username;
 	}
 	
 	

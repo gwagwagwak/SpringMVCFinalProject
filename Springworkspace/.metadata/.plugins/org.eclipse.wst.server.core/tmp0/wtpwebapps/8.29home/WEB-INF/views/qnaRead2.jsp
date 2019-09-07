@@ -130,6 +130,7 @@
 	<div style="width: 700px; text-align: center">
 		<!--현재는 로그인을 해야만 보임  -->
 		<%-- <c:if test="${sessionScope.userid != null}"> --%>
+	
 		<textarea rows="5" cols="80" name="comt_content" id="comt_content"
 			placeholder="댓글을 작성하세요">
 				
