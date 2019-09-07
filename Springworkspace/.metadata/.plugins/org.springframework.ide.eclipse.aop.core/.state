@@ -2,6 +2,7 @@
 <aop-reference-model>
 <aop-project name="8.31testtestsets"/>
 <aop-project name="Final_paylog"/>
+<aop-project name="test777"/>
 <aop-project name="test555"/>
 <aop-project name="spring02"/>
 <aop-project name="ch11-mybatis"/>

@@ -58,8 +58,8 @@
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
-			<item value="C:\Users\Win10\Desktop\paylog_completeform (1)"/>
 			<item value="C:\Users\Win10\Desktop\paylog_completeform"/>
+			<item value="C:\Users\Win10\Desktop\paylog_completeform (1)"/>
 			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\9.2\집\paylog_completeform"/>
 			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.30\학원\paylog_completeform"/>
 			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.28\집\paylog_completeform"/>

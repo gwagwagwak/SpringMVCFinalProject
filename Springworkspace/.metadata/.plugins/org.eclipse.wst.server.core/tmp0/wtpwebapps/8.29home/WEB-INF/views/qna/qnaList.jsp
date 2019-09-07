@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ page import="java.util.*" %>
+<%@ page import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -46,10 +46,9 @@
 		location.href = "getQnaList.do?curPage=" + page;
 
 	};
-	
+
 	/*페이징 글 번호   */
 	/* ${map.count}, ${map.pager.curPage} */
-	
 </script>
 
 
@@ -150,20 +149,22 @@ td.number_dot:after {
 			<li><a href="#">Incomplete</a></li>
 		</ul>
 		<br> -->
-		
+
 		<!--글 작성 버튼  -->
 		<div class="container">
-            <div class="container-fluid full-width">
-				총 ${map.count}개의 게시물이 있습니다. <button type="button" id="btnWrite" class="btn btn-info pull-right" style="align:right">글 작성</button>
+			<div class="container-fluid full-width">
+				총 ${map.count}개의 게시물이 있습니다.
+				<button type="button" id="btnWrite" class="btn btn-info pull-right"
+					style="align: right">글 작성</button>
 			</div>
 		</div>
 		<%-- <div>
 			총 ${map.count}개의 게시물이 있습니다.<button type="button" id="btnWrite" class="btn btn-info" style="align:right">글 작성</button>   
 		</div> --%>
-		
+
 		<!-- 테이블 리스트 =============================================================================== -->
-		
-		
+
+
 
 		<!-- test table -->
 		<br>
@@ -191,25 +192,25 @@ td.number_dot:after {
 							  	${count} -(${pager.curPage}-1) * 10 + 0(0번부터 9번까지 한페이지에 들어감) 
 							  -->
 							<%-- <td class="number_dot">${row.q_no}</td> --%>
-							<td class="number_dot">
-								<strong>${map.count -((map.pager.curPage - 1)*10 + i.index)}</strong>
+							<td class="number_dot"><strong>${map.count -((map.pager.curPage - 1)*10 + i.index)}</strong>
 							</td>
 							<%-- <td class="number_dot">${row.q_no}</td> --%>
 
 							<td><strong>${row.q_divide}</strong></td>
-							<td>
-								<c:choose>
+							<td><c:choose>
 									<c:when test="${row.q_writer eq loginMember.m_email}">
-										<strong><a href="qnaRead2.do?q_no=${row.q_no}&curPage=${map.pager.curPage}">${row.q_title}</a></strong>
+										<strong><a
+											href="qnaRead2.do?q_no=${row.q_no}&curPage=${map.pager.curPage}">${row.q_title}</a></strong>
 									</c:when>
 									<c:when test="${row.q_private eq 'private'}">
-										 <strong>${row.q_title} &nbsp;<span class="glyphicon glyphicon-lock"></span></strong>
+										<strong>${row.q_title} &nbsp;<span
+											class="glyphicon glyphicon-lock"></span></strong>
 									</c:when>
 									<c:otherwise>
-										<strong><a href="qnaRead2.do?q_no=${row.q_no}&curPage=${map.pager.curPage}">${row.q_title}</a></strong>
+										<strong><a
+											href="qnaRead2.do?q_no=${row.q_no}&curPage=${map.pager.curPage}">${row.q_title}</a></strong>
 									</c:otherwise>
-								</c:choose>
-								<%-- <c:if test="${row.q_private eq 'private'}">
+								</c:choose> <%-- <c:if test="${row.q_private eq 'private'}">
 										${row.q_title} <span class="glyphicon glyphicon-lock"></span>
 								</c:if> 
 								<c:if test="${row.q_private eq 'public'}">
@@ -217,27 +218,21 @@ td.number_dot:after {
 										href="qnaRead.do?q_no=${row.q_no}&curPage=${map.pager.curPage}">${row.q_title}
 										href="qnaRead2.do?q_no=${row.q_no}&curPage=${map.pager.curPage}">${row.q_title}
 									</a>
-								</c:if> --%>
+								</c:if> --%></td>
+							<td><c:set var="dott" value="...." /> <Strong>${fn:substring(row.q_writer,0,5)}${dott}</Strong>
+
 							</td>
-							<td>
-								<c:set var="dott" value="...."/>
-								<Strong>${fn:substring(row.q_writer,0,5)}${dott}</Strong>
-								
-							</td>
-							<td>
-								<fmt:formatDate value="${row.q_date}" pattern="yyyy-MM-dd" />
-							</td>
+							<td><fmt:formatDate value="${row.q_date}"
+									pattern="yyyy-MM-dd" /></td>
 							<!--pattern="yyyy-MM-dd HH:mm:ss"  -->
-							<td>
-								<c:choose>
+							<td><c:choose>
 									<c:when test="${row.q_complete eq '답변미완료'}">
-								  		<span class="glyphicon glyphicon-remove"></span>
+										<span class="glyphicon glyphicon-remove"></span>
 									</c:when>
 									<c:otherwise>
 										<span class="glyphicon glyphicon-ok"></span>
 									</c:otherwise>
-								</c:choose>
-							</td>
+								</c:choose></td>
 						</tr>
 					</c:forEach>
 
@@ -284,11 +279,10 @@ td.number_dot:after {
 
 
 
-			<!-- ================== -->
+			<!-- 페이징 처리-->
 			<div class="container" align="center">
 				<ul class="pagination">
-
-					<!-- 페이징 부분 -->
+				
 					<c:if test="${map.pager.curBlock > 1}">
 						<li><a href="javascript:list('1')">[처음]</a></li>
 					</c:if>
@@ -324,34 +318,7 @@ td.number_dot:after {
 
 
 
-			<!--페이징 처리 : Pager  -->
-			<!-- <div class="container" align="center">
-				<ul class="pagination">
-					<li><a href="#">Prev</a></li>
-					<li><a href="#">1</a></li>
-					<li class="active"><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">Next</a></li>
-				</ul>
-			</div> -->
 		</div>
-
-		<!-- 페이지네이션~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-		<!-- <div class="pagination" align="center">
-		<ul>
-			<li><a href="#">Prev</a></li>
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">Next</a></li>
-		</ul>
-	</div> -->
-
-
-
 
 	</div>
 

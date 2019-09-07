@@ -138,6 +138,16 @@ public class QnaController {
 		return mv;
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	// 작성 페이지로 이동만 한다.
 	@RequestMapping(value = "qnaWritePage.do")
@@ -181,13 +191,13 @@ public class QnaController {
 
 
 	// 로그인 후 네비게이션바의 '카드' 항목 - > 회원의 카드 리스트와 카드 상세 내용 출력 페이지
+	//qna 읽기 페이지로 이동
 	@RequestMapping(value = "qnaRead.do", method = RequestMethod.GET)
 	public String qnaReadHandle() {
 		return "qnaRead";
 	}
 
-
-	// 실습용 qnaview
+	// 미완성 qnaRead
 	@RequestMapping(value = "qnaRead2.do", method = RequestMethod.GET)
 	public ModelAndView qnaview(@RequestParam int q_no, @RequestParam int curPage, HttpSession session)
 			throws Exception {

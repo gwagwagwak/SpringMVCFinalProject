@@ -1,5 +1,7 @@
 package oracle.java.nomyBatis3.service;
 
-public interface QnaMainService {
+import oracle.java.nomyBatis3.model.QnaMainVO;
 
+public interface QnaMainService {
+	public void sendEmail(QnaMainVO qnamainvo);
 }
