@@ -36,6 +36,13 @@ public class QnaServiceImpl implements QnaService {
 		return qdao.getQnaList(start, end);
 	}
 
+	//멤버별 qnalist 출력
+		@Override
+		public List<QnaVO> getMemberQnalist(String m_email) {
+			System.out.println("qnaservice - getMemberQnalist 접근성공");
+			return qdao.getMemberQnalist(m_email);
+		}
+
 	@Override
 	public List<QnaVO> getQnaIncompleteList(int start, int end) throws Exception {
 		
@@ -100,6 +107,7 @@ public class QnaServiceImpl implements QnaService {
 		qdao.increaseViewCnt(q_no);
 	}
 
+	
 	
 
 	/*

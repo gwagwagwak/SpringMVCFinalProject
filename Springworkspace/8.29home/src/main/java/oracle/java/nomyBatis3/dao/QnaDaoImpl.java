@@ -37,6 +37,14 @@ public class QnaDaoImpl implements QnaDao {
 		return session.selectList("qna.getQnaList", map);
 	}
 	
+	@Override
+	public List<QnaVO> getMemberQnalist(String m_email) {
+		System.out.println("qnadao -접근 성공");
+		Map<String, Object> map = new HashMap<>();
+		map.put("m_email", m_email);
+		System.out.println("m_email : " +m_email);
+		return session.selectList("qna.getMemberQnalist", map);
+	}
 
 	//qna 관리자 미답변 리스트 목록 출력 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
@@ -114,5 +122,7 @@ public class QnaDaoImpl implements QnaDao {
 	public void increaseViewCnt(int q_no) throws Exception {
 
 	}
+
+	
 
 }

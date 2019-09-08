@@ -125,6 +125,13 @@
 	 			 )
 			where rn<![CDATA[>=]]>#{start} 	 
 	</select>
+	
+	<select id="getMemberQnalist" resultType="oracle.java.nomyBatis3.model.QnaVO">
+		select * 
+		from qna
+		where q_writer=#{m_email}
+		order by q_date desc
+	</select>
 
 
 

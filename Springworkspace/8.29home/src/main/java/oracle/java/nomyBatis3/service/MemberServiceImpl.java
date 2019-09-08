@@ -166,13 +166,16 @@ public class MemberServiceImpl implements MemberService{
 
 
 	@Override
-	public void changePW(String m_pw) {
-		mdao.changePW(m_pw);
+	public void changePW(String m_email, String newpw, String m_pw) {
+		System.out.println(" changePW service접근 성공");
+		mdao.changePW(m_email, newpw, m_pw);
 	}
 
 
 	@Override
 	public void addSecurityAnswer(MemberVO member) {
+		System.out.println(" addSecurityAnswer service접근 성공");
+		
 		mdao.addSecurityAnswer(member);
 	}
 

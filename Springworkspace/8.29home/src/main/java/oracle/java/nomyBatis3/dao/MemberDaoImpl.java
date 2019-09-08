@@ -1,6 +1,8 @@
 package oracle.java.nomyBatis3.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -154,23 +156,32 @@ public class MemberDaoImpl implements MemberDao{
 		System.out.println("updateUserInfo dao 접근 완료");
 		System.out.println(member.toString());
 		
-		session.update("qna.updateUserInfo", member);
+		session.update("member.updateUserInfo", member);
 		System.out.println("qna 메퍼 처리 완료");
 		
 	}
 
 	//비밀번호 변경
 	@Override
-	public void changePW(String m_pw) {
+	public void changePW(String m_email, String newpw, String m_pw) {
 		System.out.println("changePW dao 접근 완료");
+		Map<String, Object> map = new HashMap<>();
+		map.put("m_email", m_email);
+		map.put("newpw", newpw);
+		map.put("m_pw", m_pw);
 		
-		
+		session.update("member.changePW", map);
+
 	}
 
 	//security answer 추가
 	@Override
 	public void addSecurityAnswer(MemberVO member) {
 		System.out.println("addSecurityAnswer dao 접근 완료");
+		System.out.println(member.toString());
+		
+		session.update("member.addSecurityAnswer", member);
+		System.out.println("addSecurityAnswer처리 완료");
 		
 	}
 

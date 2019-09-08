@@ -1,12 +1,15 @@
 package oracle.java.nomyBatis3.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,6 +47,8 @@ public class MemberController {
 	@Inject
 	MemberService mservice;
 
+	QnaService qservice;
+	
 	ModelAndView mv;
 
 	// 메인페이지 이동
@@ -337,9 +342,22 @@ public class MemberController {
 	
 	//멤버 마이 페이지 이동
 	@RequestMapping(value ="member/userInformation.do")
-	public String userInformation(Model model) throws Exception {
-		return "member/userInfomation";
+	public ModelAndView userInformation(@RequestParam String m_email, Model model) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		// myqnalist추가로 가져와야함(m_email)인자로 보내서 같은거 찾음 date순
+		System.out.println("회원정보 controller 진입 성공");
+		List<QnaVO> list = qservice.getMemberQnalist(m_email);    // 멤버 목록 가져오기
+		System.out.println("회원 qna리스트 가져오기 성공");
+		//Map<String, Object> map = new HashMap<>();
+		mv.addObject(list);
+		mv.setViewName("member/userInfomation");
+		
+		return mv;
 	}
+	
+	
+	
 	
 	// 회원 정보 업데이트 국가, hp, 주소
 	@RequestMapping(value = "updateUserInfo.do", method = RequestMethod.POST)
@@ -348,13 +366,38 @@ public class MemberController {
 		System.out.println("updateUserInfo.do  controller 진입 성공");
 		mservice.updateUserInfo(member);
 		System.out.println("member 업데이트 완료");
-		
-		
+
 		
 		return "redirect:member/userInformation.do";
 	}
 	
+
+	// 비밀번호 변경  - 인자 새 비밀번호 and 그전에 비밀번호 and m_email
+	@RequestMapping(value = "changePW.do", method = RequestMethod.POST)
+	public String changePW(@RequestParam String m_email, @RequestParam String newpw, @RequestParam String m_pw) throws Exception {
+
+		System.out.println("updateUserInfo.do  controller 진입 성공  정보 : ");
+		System.out.println(m_email + " " + m_pw + " " + newpw);
+		mservice.changePW(m_email, newpw, m_pw);
+		System.out.println("member 비밀번호 변경 완료");
+
 	
+		return "redirect:member/userInformation.do";
+	}
+	
+
+	// 2차 비번 추가 - 인자 = 2차비번 질문 , 답   "m_secu"    "m_answer"
+	@RequestMapping(value = "addSecurityAnswer.do", method = RequestMethod.POST)
+	public String addSecurityAnswer(@ModelAttribute MemberVO member) throws Exception {
+
+		
+		System.out.println("addSecurityAnswer.do  controller 진입 성공");
+		mservice.addSecurityAnswer(member);
+		System.out.println("member 업데이트 완료");
+
+		
+		return "redirect:member/userInformation.do";
+	}
 	
 	
 

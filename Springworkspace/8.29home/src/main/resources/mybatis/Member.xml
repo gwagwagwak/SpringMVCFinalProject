@@ -132,14 +132,16 @@
 	
 	<!-- 회원 비밀번호 변경 -->
 	<update id="updateUserInfo">
-	
-	
+		update member set
+		m_pw = #{newpw}
+		where m_email = #{m_email} and m_pw = {m_pw}
 	</update>
 	
 	<!-- 회원 security answer 추가 -->
 	<update id="addSecurityAnswer">
-	
-	
+		update member set
+		m_secu = #{m_secu}, m_answer = #{m_answer}
+		where m_email = #{m_email}
 	</update>
 	
 	

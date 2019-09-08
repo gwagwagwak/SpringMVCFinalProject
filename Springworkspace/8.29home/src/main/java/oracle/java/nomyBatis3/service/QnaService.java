@@ -32,4 +32,7 @@ public interface QnaService {
 	// 조회수 증가 처리 - 차후 할 계획
 	public void increaseViewCnt(int q_no) throws Exception;
 
+	public List<QnaVO> getMemberQnalist(String m_email);
+
+	
 }

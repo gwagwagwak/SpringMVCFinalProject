@@ -63,7 +63,7 @@ public interface MemberService {
 	public void updateUserInfo(MemberVO member);
 	
 	//회원 비밀번호 변경
-	public void changePW(String m_pw);
+	public void changePW(String m_email, String newpw, String m_pw);
 	
 	//회원 2차 비밀번호 추가
 	public void addSecurityAnswer(MemberVO member);
