@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="oracle.java.nomyBatis3">
+	<logger name="cre.ttsdf.rer">
 		<level value="info" />
 	</logger>
 	

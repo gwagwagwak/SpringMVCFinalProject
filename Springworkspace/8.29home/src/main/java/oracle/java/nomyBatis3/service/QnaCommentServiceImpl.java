@@ -29,6 +29,12 @@ public class QnaCommentServiceImpl implements QnaCommentService{
 		System.out.println("qnaservice 진입 성공");
 		qcdao.create(commentvo); 
 	}
+	
+	@Override
+	public void admincreate(QnaCommentVO commentvo) throws Exception {
+		System.out.println("qnaservice 진입 성공");
+		qcdao.admincreate(commentvo);
+	}
 
 	
 	

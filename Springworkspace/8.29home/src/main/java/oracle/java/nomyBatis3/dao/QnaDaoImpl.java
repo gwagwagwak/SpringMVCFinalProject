@@ -72,6 +72,15 @@ public class QnaDaoImpl implements QnaDao {
 		session.update("qna.updateQna", qvo);
 		System.out.println("qna 메퍼 처리 완료");
 	}
+	
+
+	@Override
+	public void adminreplyComplete(int q_no) throws Exception {
+		System.out.println("qna 답변완료 dao 접근 완료");
+		session.update("qna.adminreplyComplete", q_no);
+	}
+	
+	
 	//qna 게시물 삭제/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
 	public void deleteQna(int q_no) throws Exception {
@@ -91,6 +100,8 @@ public class QnaDaoImpl implements QnaDao {
 		return session.selectOne("qna.getIncompleteQnaCount");
 	}
 	//qna 답변 완료 게시물 갯수 출력/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	
 	@Override
 	public int getCompleteQnaCount() throws Exception {
 		// TODO Auto-generated method stub
@@ -103,4 +114,5 @@ public class QnaDaoImpl implements QnaDao {
 	public void increaseViewCnt(int q_no) throws Exception {
 
 	}
+
 }

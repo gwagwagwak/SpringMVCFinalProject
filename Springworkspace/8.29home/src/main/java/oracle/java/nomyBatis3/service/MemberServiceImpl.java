@@ -156,6 +156,26 @@ public class MemberServiceImpl implements MemberService{
 		return mdao.userIdCheck(m_email);
 	}
 
+
+	@Override
+	public void updateUserInfo(MemberVO member) {
+		mdao.updateUserInfo(member);
+		System.out.println("memberservice접근 완로");
+		
+	}
+
+
+	@Override
+	public void changePW(String m_pw) {
+		mdao.changePW(m_pw);
+	}
+
+
+	@Override
+	public void addSecurityAnswer(MemberVO member) {
+		mdao.addSecurityAnswer(member);
+	}
+
 	
 
 

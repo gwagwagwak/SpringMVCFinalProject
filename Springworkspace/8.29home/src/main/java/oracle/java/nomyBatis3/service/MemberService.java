@@ -58,4 +58,13 @@ public interface MemberService {
 	// 회원가입시 이메일 중복 처리
 	public int userIdCheck(String m_email);
 
+	
+	//회원 정보 업데이트
+	public void updateUserInfo(MemberVO member);
+	
+	//회원 비밀번호 변경
+	public void changePW(String m_pw);
+	
+	//회원 2차 비밀번호 추가
+	public void addSecurityAnswer(MemberVO member);
 }

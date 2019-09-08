@@ -28,6 +28,8 @@ public interface QnaDao {
 	public void insertQna(QnaVO qvo) throws Exception;
 
 	public void updateQna(QnaVO qvo) throws Exception;
+	
+	public void adminreplyComplete(int q_no) throws Exception;
 
 	public void deleteQna(int q_no) throws Exception;
 

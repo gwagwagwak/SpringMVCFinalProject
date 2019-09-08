@@ -29,7 +29,28 @@
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.paypalobjects.com/webstatic/icon/pp144.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.paypalobjects.com/webstatic/icon/pp72.png">
     <link rel="apple-touch-icon-precomposed" href="https://www.paypalobjects.com/webstatic/icon/pp64.png"><link rel="shortcut icon" sizes="196x196" href="https://www.paypalobjects.com/webstatic/icon/pp196.png"><link rel="shortcut icon" type="image/x-icon" href="https://www.paypalobjects.com/webstatic/icon/favicon.ico"><link rel="icon" type="image/x-icon" href="https://www.paypalobjects.com/webstatic/icon/pp32.png"><link rel="alternate" hreflang="ko-KR" href="https://www.paypal.com/kr/smarthelp/contact-us"><link rel="stylesheet" href="https://www.paypalobjects.com/web/res/17b/cd5bb332bb4330ea2bb85b0e1388b/css/rac/noderac.css"><link rel="stylesheet" href="https://www.paypalobjects.com/web/res/17b/cd5bb332bb4330ea2bb85b0e1388b/css/mpp-header-footer.css"><link rel="stylesheet" href="https://www.paypalobjects.com/web/res/17b/cd5bb332bb4330ea2bb85b0e1388b/css/app.css"><title>문의하기</title><script src="//cdn.jsdelivr.net/npm/mutationobserver-shim/dist/mutationobserver.min.js" nonce=""></script></head>
+
+
+
+<!-- jquery 추가 -->
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.1.1.js"></script>
+
+<!-- <script type="text/javascript" src="http:code.jquery.com/jquery-1.8.3.min.js"></script> -->
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+
+
 <meta charset="urf-8"/>
+<script>
+$(function() {
+	$("#goToQna").click(function() {
+		location.href = "getQnaList.do";
+	});
+});
+</script>
 <style>
     @media ( min-width : 768px) {
         .navbar-nav.navbar-center {
@@ -142,7 +163,7 @@
                     <div class="vx_btn-link icon-resolution" aria-hidden="true">
                     </div>
                     <div class="channel-content">
-                        <button class="btn vx_btn-link contact-link" pa-marked="1">Q&A 센터</button>
+                        <button class="btn vx_btn-link contact-link" pa-marked="1" id="goToQna">Q&A 센터</button>
                         <div class="support-message">
                             <span>거래 문제 등 해결하기</span>
                         </div>

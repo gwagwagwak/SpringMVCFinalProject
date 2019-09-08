@@ -28,6 +28,7 @@ import oracle.java.nomyBatis3.DTO.ResponseDTO;
 import oracle.java.nomyBatis3.dao.MemberDaoImpl;
 import oracle.java.nomyBatis3.interceptor.SessionNames;
 import oracle.java.nomyBatis3.model.MemberVO;
+import oracle.java.nomyBatis3.model.QnaVO;
 import oracle.java.nomyBatis3.service.AutoPayService;
 import oracle.java.nomyBatis3.service.CardService;
 import oracle.java.nomyBatis3.service.MemberService;
@@ -89,12 +90,11 @@ public class MemberController {
 
 		
 		if (loginmember.getM_type() == 1) // 관리자 ->관리자페이지로이동
-			return "adminMain";
+			return "memberMain";
 		else if (loginmember.getM_type() == 2)// 일반 회원
 			return "memberMain";
 		else if (loginmember.getM_type() == 3)// 비지니스 회원
-			return "businessMain";
-
+			return "memberMain";
 		// 기본적으로 일반회원 메인으로 ㄱㄱ
 		return "memberMain";
 	}
@@ -322,6 +322,8 @@ public class MemberController {
 		return result;
 	}
 
+	
+	
 	// 값 들어갔는지 확인
 	@ResponseBody
 	@RequestMapping(value = "emailputcheck.do", method = RequestMethod.POST)
@@ -329,6 +331,32 @@ public class MemberController {
 
 		return 1;
 	}
+	
+
+	
+	
+	//멤버 마이 페이지 이동
+	@RequestMapping(value ="member/userInformation.do")
+	public String userInformation(Model model) throws Exception {
+		return "member/userInfomation";
+	}
+	
+	// 회원 정보 업데이트 국가, hp, 주소
+	@RequestMapping(value = "updateUserInfo.do", method = RequestMethod.POST)
+	public String updateUserInfo(@ModelAttribute MemberVO member) throws Exception {
+
+		System.out.println("updateUserInfo.do  controller 진입 성공");
+		mservice.updateUserInfo(member);
+		System.out.println("member 업데이트 완료");
+		
+		
+		
+		return "redirect:member/userInformation.do";
+	}
+	
+	
+	
+	
 
 	// 로그인 - 일단 실패한 로그인 처리
 	/*

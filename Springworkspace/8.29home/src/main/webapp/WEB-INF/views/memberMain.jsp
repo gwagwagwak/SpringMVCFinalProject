@@ -78,24 +78,28 @@
 			class="vx_globalNav-main globalNav-main js_globalNavView js_ppLogo test2"
 			role="banner">
 			<div id="hc-contextual-help-app"></div>
+			
 			<div class="vx_globalNav-container">
 				<a href="/myaccount/summary" id="header-ppLogo" name="header-logo"
 					data-name="header-logo" data-pagename="main:header"
 					data-pa-click="true" class="vx_globalNav-brand_desktop"><span
 					class="vx_a11yText">요약</span></a>
+					
 				<div class="vx_globalNav-secondaryNav_mobile">
 					<div class="vx_globalNav-listItem_mobileLogout">
-						<a href="/signout" id="header-logout_mobile"
+						<a href="logout.do" id="header-logout_mobile"
 							name="header-logout_mobile" data-pagename="main:header"
 							class="vx_globalNav-link_mobileLogout">로그아웃</a>
 					</div>
+					
 					<div class="vx_globalNav-listItem_settings">
-						<a href="/myaccount/settings" id="header-settings_mobile"
+						<a href="member/userInformation.do" id="header-settings_mobile"
 							name="header-settings_mobile" data-pagename="main:header"
 							class="vx_globalNav-svgIcon vx_globalNav-link_settings"><img
 							src="https://www.paypalobjects.com/ui-web/icons/1-0-0/settings.svg"
 							width="26px" height="26px" /><span class="vx_a11yText">설정</span></a>
 					</div>
+					
 					<div>
 						<p class="vx_h5 vx_globalNav-displayName">${loginMember.m_fname}
 							${loginMember.m_lname}</p>
@@ -177,14 +181,14 @@
 										</ul>
 									</div>
 								</div></li>
-							<li><a href="/myaccount/settings" id="header-settings"
+							<li><a href="member/userInformation.do" id="header-settings"
 								name="header-settings" data-name="header-settings"
 								data-pagename="main:header" data-pa-click="true"
 								class="vx_globalNav-svgIcon vx_globalNav-link_settings js_settings"><img
 									src="https://www.paypalobjects.com/ui-web/icons/1-0-0/settings.svg"
 									width="26px" height="26px" /><span class="vx_a11yText">설정</span></a></li>
-							<li class="vx_globalNav-listItem_logout"><a href="/signout"
-								id="header-logout" name="header-logout"
+							<li class="vx_globalNav-listItem_logout">
+							<a href="logout.do"	id="header-logout" name="header-logout"
 								data-name="header-logout" data-pagename="main:header"
 								data-pa-click="true" class="vx_globalNav-link_logout js_logout">로그아웃</a></li>
 						</ul>

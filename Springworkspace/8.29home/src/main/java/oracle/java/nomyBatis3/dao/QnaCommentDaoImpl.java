@@ -21,7 +21,12 @@ public class QnaCommentDaoImpl implements QnaCommentDao{
 	public void create(QnaCommentVO commentvo) throws Exception {
 		System.out.println("qnacomment dao 진입 성공");
 		session.insert("qnacomment.insertcomment", commentvo);
-		
+	}
+	
+	@Override
+	public void admincreate(QnaCommentVO commentvo) throws Exception {
+		System.out.println("qnacomment dao 진입 성공");
+		session.insert("qnacomment.admininsertcomment", commentvo);
 	}
 	//qnalist가져오기
 	@Override

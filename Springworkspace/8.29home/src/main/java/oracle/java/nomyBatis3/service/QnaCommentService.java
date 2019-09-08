@@ -11,7 +11,7 @@ public interface QnaCommentService {
 	
 	//댓글 작성
 	void create(QnaCommentVO commentvo) throws Exception;
-
+	void admincreate(QnaCommentVO commentvo) throws Exception;
 	int count(int q_no);
 
 	List<QnaCommentVO> getCommentList(int q_no, int start, int end, HttpSession httpsession);

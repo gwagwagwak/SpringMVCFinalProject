@@ -64,6 +64,13 @@ public class QnaServiceImpl implements QnaService {
 		System.out.println("qnaupdate serviceimpl접근 완료");
 
 	}
+	
+	@Override
+	public void adminreplyComplete(int q_no) throws Exception {
+		qdao.adminreplyComplete(q_no);
+		System.out.println("admin reply complete service 접근 완료");
+		
+	}
 
 	@Override
 	public void deleteQna(int q_no) throws Exception {
@@ -92,6 +99,8 @@ public class QnaServiceImpl implements QnaService {
 	public void increaseViewCnt(int q_no) throws Exception {
 		qdao.increaseViewCnt(q_no);
 	}
+
+	
 
 	/*
 	 * @Override public List<QnaVO> qnaList() {

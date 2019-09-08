@@ -49,6 +49,12 @@
 		(seq_qnacomment.nextval, #{comt_writer}, #{comt_content}, sysdate, 0, #{comt_textid})
 	</insert>
 	
+	<insert id="admininsertcomment" >
+		insert into qnacomment 
+		(comt_no, comt_writer, comt_content, comt_date, comt_flag, comt_textid) values
+		(seq_qnacomment.nextval, 'Administrator', #{comt_content}, sysdate, 1, #{comt_textid})
+	</insert>
+	
 	
 
 

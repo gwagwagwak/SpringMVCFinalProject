@@ -9,7 +9,7 @@ select * from(select ROW_NUMBER() over(order by q_no desc)as rn, qna.* from qna)
 ${count} -(${pager.curPage}-1) * 10 + 0(0번부터 9번까지 한페이지에 들어감) 
 
 
-
+select * from qnacomment;
 insert into member values('business@test', '111', '', '기업', '가', 10105555, sysdate, 'south korea', null, null, 3, '비상장', '45688797', '엔쥐');
 select * from qna;
 

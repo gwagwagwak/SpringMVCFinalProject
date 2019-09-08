@@ -34,21 +34,37 @@ public class QnaCommentController {
 	@Inject
 	private QnaCommentService qcservice;
 	
+	@Inject
+	private QnaService qservice;
+	
 	@RequestMapping("commentInsert.do")
 	public String commentInsert(QnaCommentVO commentvo, HttpSession httpsession) throws Exception{
 		//로그인을했을 경우 멤버 객체를 세션값으로 받아온다.
 		MemberVO loginmember =(MemberVO)httpsession.getAttribute("loginMember");
-		String member_email = loginmember.getM_email();
 		
-		//접속중인 멤버 아이디를 댓글 작성자 아이디에 등록
-		commentvo.setComt_writer(member_email);		//아이디 셋팅 
-		
-		System.out.println(commentvo.toString());
-		qcservice.create(commentvo);
-		System.out.println("댓글 등록 완성");
-		
-		/*return "redirect:/qnaRead2.do:";*/
-		/*return "redirect:getQnaList.do";*/
+		//loginmember이 관리자인 경우 flag =2로 설정하여 관리자가 달았다고 표시한다.
+		if(loginmember.getM_type() == 1){
+			qcservice.admincreate(commentvo);
+			System.out.println("관리자 댓글 등록 완성");
+			
+			int q_no = commentvo.getComt_textid(); //원글 아이디 번호
+			qservice.adminreplyComplete(q_no);
+			System.out.println("관리자 답변 작성 완료");
+		}
+		else{
+			String member_email = loginmember.getM_email();
+			
+			//접속중인 멤버 아이디를 댓글 작성자 아이디에 등록
+			commentvo.setComt_writer(member_email);		//아이디 셋팅 
+			
+			System.out.println(commentvo.toString());
+			qcservice.create(commentvo);
+			System.out.println("댓글 등록 완성");
+			
+			/*return "redirect:/qnaRead2.do:";*/
+			/*return "redirect:getQnaList.do";*/
+		}
+	
 		
 		return "s";
 		

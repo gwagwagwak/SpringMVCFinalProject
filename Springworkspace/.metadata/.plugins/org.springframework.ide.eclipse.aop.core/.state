@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="8.31testtestsets"/>
 <aop-project name="Final_paylog"/>
-<aop-project name="test777"/>
-<aop-project name="test555"/>
 <aop-project name="spring02"/>
 <aop-project name="ch11-mybatis"/>
 <aop-project name="paylog_ver2"/>
 <aop-project name="test222"/>
 <aop-project name="reference"/>
 <aop-project name="test444"/>
-<aop-project name="test666"/>
-<aop-project name="tes0830"/>
 <aop-project name="spring01"/>
 <aop-project name="spring03"/>
 <aop-project name="Project_Page (3)"/>

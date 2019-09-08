@@ -148,6 +148,32 @@ public class MemberDaoImpl implements MemberDao{
 		return session.selectOne("member.unlistBusinessCount");
 	}
 
+	//회원 정보 변경
+	@Override
+	public void updateUserInfo(MemberVO member) {
+		System.out.println("updateUserInfo dao 접근 완료");
+		System.out.println(member.toString());
+		
+		session.update("qna.updateUserInfo", member);
+		System.out.println("qna 메퍼 처리 완료");
+		
+	}
+
+	//비밀번호 변경
+	@Override
+	public void changePW(String m_pw) {
+		System.out.println("changePW dao 접근 완료");
+		
+		
+	}
+
+	//security answer 추가
+	@Override
+	public void addSecurityAnswer(MemberVO member) {
+		System.out.println("addSecurityAnswer dao 접근 완료");
+		
+	}
+
 
 
 	

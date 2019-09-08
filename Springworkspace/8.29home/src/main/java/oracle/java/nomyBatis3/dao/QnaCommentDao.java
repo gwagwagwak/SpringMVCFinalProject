@@ -16,6 +16,7 @@ public interface QnaCommentDao {
 	public void create(QnaCommentVO commentvo) throws Exception;
 	public void update(QnaCommentVO commentvo) throws Exception;
 	public void delete(Integer comt_no) throws Exception;
+	public void admincreate(QnaCommentVO commentvo) throws Exception;
 
 	//댓글 상세 보기
 	public QnaCommentVO detail(int comt_no)throws Exception;

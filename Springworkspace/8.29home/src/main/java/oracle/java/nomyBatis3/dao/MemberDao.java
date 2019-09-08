@@ -56,4 +56,12 @@ public interface MemberDao {
 	// 이메일 중복 확인
 	public int userIdCheck(String m_email);
 
+	
+	//회원 정보 업데이트
+	public void updateUserInfo(MemberVO member);
+	
+	public void changePW(String m_pw);
+	
+	public void addSecurityAnswer(MemberVO member);
+
 }

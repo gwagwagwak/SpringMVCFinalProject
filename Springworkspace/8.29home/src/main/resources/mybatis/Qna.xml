@@ -133,6 +133,7 @@
 		<!-- insert into qna (q_no, q_title, q_content, q_writer, q_divide, q_date, q_replytype, q_complete, q_private)
 		values
 		(seq_qna.nextval, #{q_title}, #{q_content}, #{q_writer}, #{q_divide}, sysdate, #{q_replytype}, '답변미완료', #{q_private}) -->
+		 
 		 insert into qna (q_no, q_title, q_content, q_writer, q_divide, q_date, q_replytype, q_complete, q_private)
 		values
 		(seq_qna.nextval, #{q_title}, #{q_content}, #{q_writer}, #{q_divide}, sysdate, #{q_replytype}, '답변미완료', #{q_private})
@@ -141,6 +142,12 @@
 	<update id="updateQna">
 		update qna set
 		q_title = #{q_title}, q_content=#{q_content}, q_divide=#{q_divide}, q_replytype=#{q_replytype}, q_private=#{q_private}
+		where q_no=#{q_no}
+	</update>
+	
+	<update id="adminreplyComplete">
+		update qna set
+		q_replytype = '답변완료'
 		where q_no=#{q_no}
 	</update>
 	
