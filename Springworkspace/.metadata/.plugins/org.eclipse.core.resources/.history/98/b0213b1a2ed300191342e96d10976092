@@ -1,0 +1,72 @@
+package oracle.java.nomyBatis3.service;
+
+import javax.inject.Inject;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMessage.RecipientType;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Service;
+
+import oracle.java.nomyBatis3.dao.AutoPayDao;
+import oracle.java.nomyBatis3.dao.CardDao;
+import oracle.java.nomyBatis3.dao.MemberDao;
+import oracle.java.nomyBatis3.dao.QnaCommentDao;
+import oracle.java.nomyBatis3.dao.QnaDao;
+import oracle.java.nomyBatis3.dao.QnaMainDao;
+import oracle.java.nomyBatis3.model.QnaMainVO;
+
+@Service
+public class QnaMainServiceImpl implements QnaMainService {
+
+	/*
+	 * @Autowired private MemberDao mdao;
+	 * 
+	 * @Autowired private AutoPayDao adao;
+	 * 
+	 * @Autowired private CardDao cdao;
+	 * 
+	 * @Autowired private QnaCommentDao qcdao;
+	 * 
+	 * @Autowired private QnaDao qdao;
+	 */
+
+	@Inject
+	JavaMailSender mailSender; // 메일 발송 객체
+	
+	@Autowired
+	private QnaMainDao qnamiandao;
+
+	@Override
+	public void sendEmail(QnaMainVO qnamainvo) {
+		try {
+			MimeMessage msg = mailSender.createMimeMessage();
+
+			System.out.println("값 확인 : " + qnamainvo.getQm_receivcemail() + qnamainvo.getQm_sendermail()
+					+ qnamainvo.getQm_sendername() + qnamainvo.getQm_title());
+			System.out.println("내용 : " + qnamainvo.getQm_content());
+			
+			// 이메일 수신자
+			// import javax.mail.internet.MimMessage.RecipientType;
+			msg.addRecipient(RecipientType.TO, new InternetAddress(qnamainvo.getQm_receivcemail()));
+
+			// 이메일 발신자
+			msg.addFrom(new InternetAddress[] {
+					new InternetAddress(qnamainvo.getQm_sendermail(), qnamainvo.getQm_sendername()) });
+
+			// 이메일 제목
+			msg.setSubject(qnamainvo.getQm_title(), "utf-8");
+
+			// 이메일 본문
+			msg.setText(qnamainvo.getQm_content(), "utf-8");
+
+			// 전송
+			mailSender.send(msg);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

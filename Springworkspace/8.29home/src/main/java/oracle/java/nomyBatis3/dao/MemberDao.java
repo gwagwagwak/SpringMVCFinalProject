@@ -64,4 +64,8 @@ public interface MemberDao {
 	
 	public void addSecurityAnswer(MemberVO member);
 
+	//비밀번호 변경
+	public void updatePw(String m_pw,String m_email);
+	
+	
 }

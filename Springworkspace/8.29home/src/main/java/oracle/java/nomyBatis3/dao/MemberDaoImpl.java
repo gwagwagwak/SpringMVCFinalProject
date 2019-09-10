@@ -186,7 +186,30 @@ public class MemberDaoImpl implements MemberDao{
 	}
 
 
+	@Override
+	public void updatePw(String m_pw, String m_email) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("m_pw",m_pw);
+		map.put("m_email",m_email);
+		session.update("member.updatePw",map);
+		
+	}
 
+	//비밀번호 변경
+/*	@Override
+	public void updatePw(String m_pw, String m_email) {
+		// TODO Auto-generated method stub
+
+				Map<String, Object> map = new HashMap<>();
+				map.put("m_pw",m_pw);
+				map.put("m_email",m_email);
+				session.update("member.updatePw",map);
+	}
+*/
+
+
+	
+	
 	
 	
 

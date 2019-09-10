@@ -43,18 +43,19 @@ public class QnaCommentController {
 		MemberVO loginmember =(MemberVO)httpsession.getAttribute("loginMember");
 		
 		//loginmember이 관리자인 경우 flag =2로 설정하여 관리자가 달았다고 표시한다.
-		if(loginmember.getM_type() == 1){
+		/*if(loginmember.getM_type() == 1){
 			qcservice.admincreate(commentvo);
 			System.out.println("관리자 댓글 등록 완성");
 			
 			int q_no = commentvo.getComt_textid(); //원글 아이디 번호
 			qservice.adminreplyComplete(q_no);
 			System.out.println("관리자 답변 작성 완료");
+			
 			qservice.adminreplyComplete(commentvo.getComt_textid());
 			System.out.println("답변완료 처리 완성");
 		}
 		
-		else{
+		else{*/
 			String member_email = loginmember.getM_email();
 			
 			//접속중인 멤버 아이디를 댓글 작성자 아이디에 등록
@@ -66,7 +67,7 @@ public class QnaCommentController {
 			
 			/*return "redirect:/qnaRead2.do:";*/
 			/*return "redirect:getQnaList.do";*/
-		}
+		//}
 		return "s";
 	}
 	

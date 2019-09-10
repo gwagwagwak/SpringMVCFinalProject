@@ -67,4 +67,8 @@ public interface MemberService {
 	
 	//회원 2차 비밀번호 추가
 	public void addSecurityAnswer(MemberVO member);
+	
+//	public void updatePw(String m_pw,String m_email);
+
+	public void updatePw(String m_pw, String m_email);
 }

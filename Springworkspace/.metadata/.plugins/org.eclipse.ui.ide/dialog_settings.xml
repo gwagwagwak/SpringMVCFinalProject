@@ -154,6 +154,20 @@
 		<item value="268" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="ExternalProjectImportWizard">
+		<item value="true" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\Win10\Desktop\파이널프로젝트_김민정_카드,결제기능 완성본\FP-master3-master.zip"/>
+			<item value="C:\Users\Win10\Desktop\paylog.zip"/>
+		</list>
+	</section>
+	<section name="ResourceNavigator">
+		<item value="" key="ResourceWorkingSetFilter.STORE_WORKING_SET"/>
+		<item value="1" key="ResourceViewer.STORE_SORT_TYPE"/>
 	</section>
 	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
 		<item value="false" key="FilterByLocation"/>

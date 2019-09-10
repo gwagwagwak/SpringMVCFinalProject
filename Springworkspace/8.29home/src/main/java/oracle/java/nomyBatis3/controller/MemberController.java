@@ -30,7 +30,9 @@ import oracle.java.nomyBatis3.DTO.LoginDTO;
 import oracle.java.nomyBatis3.DTO.ResponseDTO;
 import oracle.java.nomyBatis3.dao.MemberDaoImpl;
 import oracle.java.nomyBatis3.interceptor.SessionNames;
+import oracle.java.nomyBatis3.model.CardVO;
 import oracle.java.nomyBatis3.model.MemberVO;
+import oracle.java.nomyBatis3.model.PayListVO;
 import oracle.java.nomyBatis3.model.QnaVO;
 import oracle.java.nomyBatis3.service.AutoPayService;
 import oracle.java.nomyBatis3.service.CardService;
@@ -46,9 +48,13 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberDaoImpl.class);
 	@Inject
 	MemberService mservice;
-
-	QnaService qservice;
 	
+	@Inject
+	QnaService qservice;
+	@Inject
+	CardService cservice;
+	@Inject
+	PayListService pservice;
 	ModelAndView mv;
 
 	// 메인페이지 이동
@@ -65,7 +71,7 @@ public class MemberController {
 		List<MemberVO> list = mservice.getMemberList();
 		logger.info("회원목록 : " + list);
 		model.addAttribute("list", list);
-		return "member/memberList"; // 회원 목록 페이지로 이동
+		return "memberList"; // 회원 목록 페이지로 이동
 	}
 	
 
@@ -89,7 +95,7 @@ public class MemberController {
 
 	// 로그인 성공시 이동 위치 (@CookieValue(value = "쿠키이름", defaultValue =
 	// "oraclejavacommunity")
-	@RequestMapping(value = "loginSuccess.do")
+	/*@RequestMapping(value = "loginSuccess.do")
 	public String loginSuccess(Model model, HttpSession httpsession) throws Exception {
 		MemberVO loginmember = (MemberVO) httpsession.getAttribute("loginMember");
 
@@ -102,7 +108,38 @@ public class MemberController {
 			return "memberMain";
 		// 기본적으로 일반회원 메인으로 ㄱㄱ
 		return "memberMain";
+	}*/
+	
+	@RequestMapping(value = "loginSuccess.do")
+	public String loginSuccess(Model model, HttpSession httpsession,HttpServletRequest request) throws Exception {
+		
+		HttpSession session = request.getSession();
+		MemberVO loginmember = (MemberVO) httpsession.getAttribute("loginMember");
+		System.out.println("로그인 이메일은 " +loginmember.getM_email());
+		
+		List<CardVO> clist = cservice.getCardList();
+		model.addAttribute("clist", clist);
+		System.out.println("카드리스트 완성");
+		List<PayListVO> plist = pservice.getPayList1(loginmember.getM_email());
+		model.addAttribute("plist",plist);
+		System.out.println("페이리스트 완성");
+		
+		session.setAttribute("username", loginmember.getM_email());
+		session.setAttribute("m_addr", loginmember.getM_addr());
+		
+		if (loginmember.getM_type() == 1) // 관리자 ->관리자페이지로이동
+			return "memberMain";
+		else if (loginmember.getM_type() == 2)// 일반 회원
+			return "memberMain";
+		else if (loginmember.getM_type() == 3)// 비지니스 회원
+			return "memberMain";
+		// 기본적으로 일반회원 메인으로 ㄱㄱ
+		return "memberMain";
 	}
+
+	
+	
+	
 
 	// 로그인 실페시 이동 위치
 	@RequestMapping(value = "loginFail.do")
@@ -155,7 +192,7 @@ public class MemberController {
 	public ModelAndView companyIntroduceHandle(Model model) throws Exception {
 		mv = new ModelAndView();
 
-		mv.setViewName("member/companyIntroduce");
+		mv.setViewName("companyIntroduce");
 		/* return "companyIntroduce"; */
 		return mv;
 	}
@@ -163,7 +200,7 @@ public class MemberController {
 	// 비밀번호 찾기 페이지로 이동
 	@RequestMapping(value = "find_psw.do")
 	public String findPWHandle(Model model) throws Exception {
-		return "member/find_psw";
+		return "find_psw";
 	}
 
 	// 로그인 페이지로 이동
@@ -177,19 +214,19 @@ public class MemberController {
 	public String join_first(Model model) throws Exception {
 		System.out.println("11111111111111111111111");
 		/* return "member/join_first"; */
-		return "member/join_first";
+		return "join_first";
 	}
 
 	// 일반 회원가입 페이지로 이동
 	@RequestMapping(value = "registerForm_03_p.do")
 	public String registerForm_03_p(Model model) throws Exception {
-		return "member/registerForm_03_p";
+		return "registerForm_03_p";
 	}
 
 	// 기업 회원가입 페이지로 이동
 	@RequestMapping(value = "registerForm_03_b.do")
 	public String registerForm_03_b(Model model) throws Exception {
-		return "member/registerForm_03_b";
+		return "registerForm_03_b";
 	}
 
 	// 고객센터로 이동
@@ -201,13 +238,13 @@ public class MemberController {
 	// 이용방법페이지로 이동
 	@RequestMapping(value = "privacy.do")
 	public String Privacy(Model model) throws Exception {
-		return "member/footer_privacy";
+		return "footer_privacy";
 	}
 
 	// 회원가입 조건 페이지로 이동
 	@RequestMapping(value = "Form_conditions.do")
 	public String form_conditions(Model model) throws Exception {
-		return "member/Form_conditions";
+		return "Form_conditions";
 	}
 
 
@@ -217,7 +254,7 @@ public class MemberController {
 		List<MemberVO> list = mservice.getBusinessMemberList();
 		logger.info("회원목록 : " + list);
 		model.addAttribute("list", list);
-		return "member/p_memberList"; // 회원 목록 페이지로 이동
+		return "p_memberList"; // 회원 목록 페이지로 이동
 	}
 
 	// 일반 회원 리스트
@@ -226,7 +263,7 @@ public class MemberController {
 		List<MemberVO> list = mservice.getPersonalMemberList();
 		logger.info("회원목록 : " + list);
 		model.addAttribute("list", list);
-		return "member/b_memberList"; // 회원 목록 페이지로 이동
+		return "b_memberList"; // 회원 목록 페이지로 이동
 	}
 
 
@@ -234,7 +271,7 @@ public class MemberController {
 	// 회원별 리스트 구분 페이지 이동
 	@RequestMapping(value = "membertypelist.do")
 	public String membertypelist(Model model) throws Exception {
-		return "member/membertypelist";
+		return "membertypelist";
 	}
 
 	// personal memberlist
@@ -247,7 +284,7 @@ public class MemberController {
 		logger.info("회원목록 : " + list);
 		model.addAttribute("list", list);
 		model.addAttribute("count", count);
-		return "member/personalMemberList";
+		return "personalMemberList";
 	}
 
 	// list business memberlist (상장)
@@ -263,7 +300,7 @@ public class MemberController {
 		model.addAttribute("count", count);
 		
 		
-		return "member/listBusinessMemberList";
+		return "listBusinessMemberList";
 	}
 	// unlist business memberlist (비상장)
 	@RequestMapping(value = "unlistBusinessMemberList.do")
@@ -278,7 +315,7 @@ public class MemberController {
 		model.addAttribute("count", count);
 		
 		
-		return "member/unlistBusinessMemberList";
+		return "unlistBusinessMemberList";
 	}
 
 	// 일반 회원 가입
@@ -341,7 +378,7 @@ public class MemberController {
 	
 	
 	//멤버 마이 페이지 이동
-	@RequestMapping(value ="member/userInformation.do")
+	@RequestMapping(value ="userInformation.do")
 	public ModelAndView userInformation(@RequestParam String m_email, Model model) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
@@ -349,9 +386,11 @@ public class MemberController {
 		System.out.println("회원정보 controller 진입 성공");
 		List<QnaVO> list = qservice.getMemberQnalist(m_email);    // 멤버 목록 가져오기
 		System.out.println("회원 qna리스트 가져오기 성공");
-		//Map<String, Object> map = new HashMap<>();
-		mv.addObject(list);
-		mv.setViewName("member/userInfomation");
+		Map<String, Object> map = new HashMap<>();
+		map.put("list", list);
+		
+		mv.addObject("map", map);
+		mv.setViewName("userInfomation");
 		
 		return mv;
 	}
@@ -364,11 +403,16 @@ public class MemberController {
 	public String updateUserInfo(@ModelAttribute MemberVO member) throws Exception {
 
 		System.out.println("updateUserInfo.do  controller 진입 성공");
+		System.out.println(member.getM_email());
+		System.out.println(member.getM_addr());
+		System.out.println(member.getM_hp());
+		
 		mservice.updateUserInfo(member);
 		System.out.println("member 업데이트 완료");
 
 		
-		return "redirect:member/userInformation.do";
+		/*return "redirect:userInformation.do?";*/
+		return "memberMain";
 	}
 	
 
@@ -382,7 +426,7 @@ public class MemberController {
 		System.out.println("member 비밀번호 변경 완료");
 
 	
-		return "redirect:member/userInformation.do";
+		return "redirect:userInformation.do";
 	}
 	
 
@@ -396,10 +440,28 @@ public class MemberController {
 		System.out.println("member 업데이트 완료");
 
 		
-		return "redirect:member/userInformation.do";
+		return "redirect:userInformation.do";
 	}
 	
 	
+	//비밀번호 변경 
+	@RequestMapping(value = "updatePW.do")
+	public String updatePW(Model model, HttpSession httpsession,HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+		MemberVO loginmember = (MemberVO) httpsession.getAttribute("loginMember");
+		String m_pw=request.getParameter("m_pw");
+		//mservice.updatePw(m_pw,loginmember.getM_email());
+		mservice.updatePw(m_pw,loginmember.getM_email());
+	
+		
+		return "userInfomation";
+	}
+	
+	
+	@RequestMapping(value = "changePasswordForm.do")
+	public String changePasswordForm(Model model) throws Exception {
+		return "changePasswordForm";
+	}
 
 	// 로그인 - 일단 실패한 로그인 처리
 	/*

@@ -4,8 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,43 +48,44 @@ public class CardController {
 	
 	ModelAndView mv;
 	
-	//카드 한개 정보 가져오기
+	//ī�� �Ѱ� ���� ��������changeCard.do
 	@RequestMapping(value = "getCardList.do")
-	public ModelAndView getcardlistHandle(@RequestParam String c_username) throws Exception {
+	public ModelAndView getcardlistHandle() throws Exception {
 		
-		List<CardVO> clist = cservice.getCardList(c_username);		//
+		List<CardVO> clist = cservice.getCardList();		//
 		
-		System.out.println("qnalist목록 생성 완료");
 		
 		mv = new ModelAndView();
-		mv.setViewName("이동할 jsp 페이지 이름만 쓰시오");
+		mv.setViewName("myCard");
 
-		// 리스트의 데이터가 많아서 해쉬맵에 담는게 효율적이다.
+/*		// ����Ʈ�� �����Ͱ� ���Ƽ� �ؽ��ʿ� ��°� ȿ�����̴�.
 		Map<String, Object> map = new HashMap<>();
 		map.put("clist", clist);
 
-		mv.addObject("map", map); // 데이터 저장
-		
+		mv.addObject("map", map); // ������ ����
+		*/
+
+		mv.addObject("clist",clist);
 			
 		return mv;
 		
 		/*
-	 	jsp 페이지로 값을 넘겨준 뒤
+	 	jsp �������� ���� �Ѱ��� ��
 	   
-	   	페이지에서는 jstl을 이용하여 ${map.clist} 로 리스트를 불러와서 반복문을 이요하여 사용할 수 있다.
+	   	������������ jstl�� �̿��Ͽ� ${map.clist} �� ����Ʈ�� �ҷ��ͼ� �ݺ����� �̿��Ͽ� ����� �� �ִ�.
 	   	
 	   
-	   	예시!!!!!!
+	   	����!!!!!!
 	   	
 	   	<c:forEach var="row" items="${map.list}">
 						<tr>
 							<td class="number_dot">${row.q_no}</td>
 							<td>${row.q_divide}</td>
 							<td><c:choose>
-									<c:when test="${row.q_private eq '비밀글'}">
+									<c:when test="${row.q_private eq '��б�'}">
 										${row.q_title} <span class="glyphicon glyphicon-ok"></span>
 									</c:when>
-									<c:when test="${row.q_private eq '공개글'}">
+									<c:when test="${row.q_private eq '������'}">
 										<a href="qnaRead.do?q_no=${row.q_no} &curPage=${map.pager.curPage}">${row.q_title} </a>
 									</c:when>
 									<%-- <c:otherwise> ... </c:otherwise> --%>
@@ -92,18 +97,38 @@ public class CardController {
 							<td>${row.q_complete}</td>
 						</tr>
 					</c:forEach>
-
 	  	
 	 */
 	}
+	@RequestMapping(value = "changeCard.do")
+	public ModelAndView changecardlistHandle() throws Exception {
+		
+		List<CardVO> clist = cservice.getCardList();		//
+		
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("ChangeCard");
+
+
+		mv.addObject("clist",clist);
+			
+		return mv;
+		
 	
+	}
+
 	@RequestMapping(value = "getCard.do")
-	public ModelAndView getcardHandle(@RequestParam int c_number) throws Exception {
+	public ModelAndView getcardHandle(HttpServletRequest request) throws Exception {
 		
 		mv = new ModelAndView();
-		mv.setViewName("이동할 jsp 페이지 이름만 쓰시오");
+		mv.setViewName("myCard");
+		System.out.println(Integer.parseInt(request.getParameter("c_number")));
+
+		mv.addObject("card", cservice.getCard(Integer.parseInt(request.getParameter("c_number"))));
+		List<CardVO> clist = cservice.getCardList();
+		mv.addObject("clist",clist);
 		
-		mv.addObject("cvo", cservice.getCard(c_number));
+		mv.setViewName("myCard");
 		return mv;
 	}
 	
@@ -114,20 +139,16 @@ public class CardController {
 	
 	
 
-	@RequestMapping(value = "registCard.do")
-	public ModelAndView registcardHandle(@ModelAttribute CardVO card) throws Exception {
-		//넘겨받은 값에의해 자동으로 객체 생성
+	@RequestMapping(value = "registCardForm.do")
+	public ModelAndView registcardfromHandle(@ModelAttribute CardVO card) throws Exception {
+		//�Ѱܹ��� �������� �ڵ����� ��ü ����
 		
 		
 		mv = new ModelAndView();
-		mv.setViewName("이동할 jsp 페이지 이름만 쓰시오");
+		mv.setViewName("addCard");
 		
 		
 
-		//확인
-		System.out.println(card.toString());
-		
-		cservice.registCard(card);
 		
 	/*	
 		mv.addObject("cvo", map);
@@ -136,40 +157,68 @@ public class CardController {
 		
 	}
 	
+	@RequestMapping(value = "registCard.do")
+	public String registcardHandle(@ModelAttribute CardVO card, HttpServletRequest request,Model model) throws Exception {
+		//�Ѱܹ��� �������� �ڵ����� ��ü ����
+		System.out.println("registcard.do controller접근 완료");
+		
+		ModelAndView mv = new ModelAndView();
+		
+		HttpSession session = request.getSession();
+		
+		String c_number=request.getParameter("cardNumber");
+		String brand=request.getParameter("brand");
+		String expDate=request.getParameter("expDate");
+		String verificationCode=request.getParameter("verificationCode");
+		String billingAddressId=request.getParameter("billingAddressId");
+		String username=(String) session.getAttribute("username");
+		String c_name=request.getParameter("c_name");
+		
+		System.out.println("값 입력 완료 " +c_number);
+		System.out.println(brand);
+		System.out.println(expDate);
+		System.out.println(verificationCode);
+		System.out.println(billingAddressId);
+		System.out.println(username);
+		System.out.println(c_name);
+		
+		
+		card=new CardVO(c_number,brand,expDate,verificationCode,billingAddressId,username,c_name);
+		System.out.println("카드 생성 완료");	
+		
+		List<CardVO> clist = cservice.getCardList();
+		System.out.println("카드 리스트 받아오기 완료");
+		mv.addObject("clist",clist);
+		
+		cservice.registCard(card);
+		return "redirect:/getCard.do?c_number="+Integer.parseInt(c_number);
+		
+	}
+	
 
-	//아마 수정 필요...?
-	@RequestMapping(value = "updateCard.do")
-	public ModelAndView updatecardHandle(@ModelAttribute CardVO card) throws Exception {
-		//자동 주입으로 만료일, 보안코드, 주소 값이 들어간 CardVO 객체 card가 생성
-		mv = new ModelAndView();
-		mv.setViewName("이동할 jsp 페이지 이름만 쓰시오");
-		
-		//확인
-		System.out.println(card.toString());
-		
-		
-		cservice.updateCard(card);
-		
-		return mv;
-	}
-	
-	
-	
-	
-	//아마 수정 필요...?
 	@RequestMapping(value = "deleteCard.do")
-	public ModelAndView deletecardHandle(@RequestParam int c_number) throws Exception {
+	public String deletecardHandle(HttpServletRequest request) throws Exception {
+
+		
+		String c_number=request.getParameter("c_number");
+		System.out.println(c_number);
+		cservice.deleteCard(Integer.parseInt(c_number));
+		
+		
+		return "redirect:/actionCardAfter.do";
+	}
+	@RequestMapping(value = "actionCardAfter.do")
+	public ModelAndView deletecardAfter(HttpServletRequest request) throws Exception {
 		
 		mv = new ModelAndView();
-		mv.setViewName("이동할 jsp 페이지 이름만 쓰시오");
+		mv.setViewName("myCard");
 		
-		
-		
-		cservice.deleteCard(c_number);
+		List<CardVO> clist = cservice.getCardList();
+		mv.addObject("card", cservice.getLatestCard());
+		mv.addObject("clist",clist);
 		
 		
 		return mv;
 	}
-	
 	
 }

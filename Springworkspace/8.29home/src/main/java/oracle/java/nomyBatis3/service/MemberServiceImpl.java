@@ -179,6 +179,20 @@ public class MemberServiceImpl implements MemberService{
 		mdao.addSecurityAnswer(member);
 	}
 
+
+	public void updatePw(String m_pw, String m_email) {
+		// TODO Auto-generated method stub
+		mdao.updatePw(m_pw,m_email);
+	}
+
+	//비밀번호 변경
+
+	/*public void updatePw(String m_pw, String m_email) {
+		
+			mdao.updatePw(m_pw,m_email);	
+		
+	}*/
+
 	
 
 

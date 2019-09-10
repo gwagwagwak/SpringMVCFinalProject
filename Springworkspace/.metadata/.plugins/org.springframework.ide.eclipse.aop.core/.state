@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<aop-project name="20190817"/>
 <aop-project name="Final_paylog"/>
 <aop-project name="spring02"/>
 <aop-project name="ch11-mybatis"/>
@@ -9,9 +10,8 @@
 <aop-project name="test444"/>
 <aop-project name="spring01"/>
 <aop-project name="spring03"/>
-<aop-project name="FP-master3"/>
 <aop-project name="Project_Page (3)"/>
-<aop-project name="8.29home"/>
+<aop-project name="FP-master"/>
 <aop-project name="board"/>
 <aop-project name="paylog_Final"/>
 </aop-reference-model>

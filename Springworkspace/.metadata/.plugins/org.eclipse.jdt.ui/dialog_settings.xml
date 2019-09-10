@@ -107,7 +107,7 @@
 		<item value="false" key="OmitCallToSuper"/>
 	</section>
 	<section name="ClasspathContainerSelectionPage">
-		<item value="3" key="index"/>
+		<item value="4" key="index"/>
 	</section>
 	<section name="DialogBounds_AddUnimplementedConstructorsDialog">
 		<item value="531" key="DIALOG_WIDTH"/>
@@ -117,7 +117,7 @@
 		<item value="110" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item value="3" key="pageIndex"/>
+		<item value="2" key="pageIndex"/>
 	</section>
 	<section name="quick_assist_proposal_size">
 	</section>

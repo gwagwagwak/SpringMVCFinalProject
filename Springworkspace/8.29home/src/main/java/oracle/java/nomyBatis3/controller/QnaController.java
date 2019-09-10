@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import oracle.java.nomyBatis3.model.MemberVO;
+import oracle.java.nomyBatis3.model.QnaCommentVO;
 import oracle.java.nomyBatis3.model.QnaVO;
 import oracle.java.nomyBatis3.service.AutoPayService;
 import oracle.java.nomyBatis3.service.CardService;
@@ -35,6 +37,9 @@ public class QnaController {
 	// 상호파트
 	@Autowired
 	QnaService qservice;
+	
+	@Inject
+	QnaCommentService commentservice;
 
 	ModelAndView mv;
 
@@ -46,7 +51,6 @@ public class QnaController {
 	public ModelAndView getlist(@RequestParam(defaultValue = "1") int curPage) throws Exception {
 
 		int count = qservice.getTotalQnaCount(); // 전체 레코드 갯수
-
 		Pager pager = new Pager(count, curPage);// 페이징 클래스
 
 		int start = pager.getPageBegin();
@@ -58,7 +62,7 @@ public class QnaController {
 		System.out.println("qnalist목록 생성 완료");
 
 		mv = new ModelAndView();
-		mv.setViewName("qna/qnaList");
+		mv.setViewName("qnaList");
 
 		// 리스트의 데이터가 많아서 해쉬맵에 담는게 효율적이다.
 		Map<String, Object> map = new HashMap<>();
@@ -97,7 +101,7 @@ public class QnaController {
 		}*/
 		
 		mv = new ModelAndView();
-		mv.setViewName("qna/qnaListIncomplete");
+		mv.setViewName("qnaListIncomplete");
 		
 		Map<String, Object> map = new HashMap<>();
 		map.put("incomplete_qlist", incomplete_qlist);
@@ -126,7 +130,7 @@ public class QnaController {
 		System.out.println("admin complete list목록 생성 완료");
 		
 		mv = new ModelAndView();
-		mv.setViewName("qna/qnaListComplete");
+		mv.setViewName("qnaListComplete");
 		
 		Map<String, Object> map = new HashMap<>();
 		map.put("complete_qlist", complete_qlist);
@@ -156,7 +160,7 @@ public class QnaController {
 		 * mv = new ModelAndView(); mv.setViewName("qnaWrite2");
 		 */
 		/* mv.setViewName("qnaWrite"); */
-		return "qna/qnaWrite";
+		return "qnaWrite";
 	}
 
 	// qna write 한다.
@@ -198,9 +202,9 @@ public class QnaController {
 	}
 
 	
-	// 미완성 qnaRead
+	//  qnaRead
 	@RequestMapping(value = "qnaRead2.do", method = RequestMethod.GET)
-	public ModelAndView qnaview(@RequestParam int q_no, @RequestParam int curPage, HttpSession session)
+	public ModelAndView qnaview(@RequestParam int q_no, @RequestParam(defaultValue="1") int curPage, HttpSession httpsession)
 			throws Exception {
 		System.out.println("qnaread2컨트롤러 접근");
 		System.out.println("q_no" + q_no);
@@ -214,10 +218,27 @@ public class QnaController {
 		
 		/*mv.setViewName("qnaRead2");*/
 		
+		
+		int comment_count = commentservice.count(q_no);
+		System.out.println("댓글 개수 : " +comment_count  );
+		
+		Pager pager = new Pager(comment_count, curPage);
+		int start = pager.getPageBegin();
+		int end = pager.getPageEnd();
+		List<QnaCommentVO> commentlist = commentservice.getCommentList(q_no, start, end, httpsession);
+		System.out.println("댓글 목록가져오기 완료");
+		System.out.println(commentlist.toString());
+		
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("commentlist", commentlist);
+		map.put("pager", pager);
+		
 		mv.setViewName("qnaRead3");
 		
 		mv.addObject("qna", qservice.getQna(q_no));
 		mv.addObject("curPage", curPage);
+		mv.addObject("map", map);
 		System.out.println("qna 가져오기 완료");
 		return mv;
 	}
@@ -229,7 +250,7 @@ public class QnaController {
 	public ModelAndView qnaUpdatePageHandle(@RequestParam int q_no, HttpSession httpsession) throws Exception {
 
 		mv = new ModelAndView();
-		mv.setViewName("qna/qnaUpdate");
+		mv.setViewName("qnaUpdate");
 		QnaVO qna = qservice.getQna(q_no);
 
 		System.out.println("qna이동 페이지 컨트롤 진입 성공");

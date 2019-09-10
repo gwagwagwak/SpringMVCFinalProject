@@ -18,6 +18,7 @@ set q_private = 'public'
 
 select * from member ;
 
+select * from qna where q_writer = 'rmfhwlt0@naver.com';
 
 SELECT ROW_NUMBER() OVER (ORDER BY q_no DESC) AS ROWNUM, qna.* FROM qna ORDER BY ROWNUM DESC
 
@@ -25,16 +26,25 @@ SELECT ROW_NUMBER() OVER (ORDER BY q_no DESC) AS ROWNUM, qna.* FROM qna ORDER BY
 		from qna q, member 
 		where q.q_writer = m.m_email and q.q_no = 15;
 
+		select * from qnacomment where comt_writer='rmfhwlt0@naver.com'; 
 		
 			select count(*)
 		from qna
 		where q_complete='답변미완료';
 	
+	select * from paylist;
+	insert into paylist values(seq_paylist, '맛집', sysdate, 10000, '원화', '일반', 1231234, 'rmfhwlt0@naver.com');
+	
+		alter table paylist rename column p_user to p_username;
 		
 update qna 
 set q_complete='답변미완료'
 where q_complete='미완료';		
 
+ALTER TABLE card ADD(c_name varchar2(50));
+
+
+select * from card;
 
 select * from qna;
 		
