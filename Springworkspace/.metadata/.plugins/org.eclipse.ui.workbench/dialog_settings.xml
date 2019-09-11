@@ -16,6 +16,8 @@
 		<list key="textArray">
 		</list>
 	</section>
+	<section name="PreferencesImportWizard">
+	</section>
 	<section name="NewWizardAction">
 		<item value="org.eclipse.jst.jsp.ui.internal.wizard.NewJSPWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
@@ -45,8 +47,8 @@
 		</list>
 	</section>
 	<section name="ImportExportAction">
-		<item value="org.eclipse.ui.wizards.export.FileSystem" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
-		<item value="org.eclipse.ui.wizards.import.ExternalProject" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
+		<item value="org.eclipse.ui.wizards.export.ZipFile" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
+		<item value="org.eclipse.ui.wizards.import.FileSystem" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
 			<item value="org.eclipse.ui.Basic"/>
 		</list>
@@ -54,10 +56,17 @@
 			<item value="org.eclipse.ui.Basic"/>
 		</list>
 	</section>
+	<section name="ZipFileImportWizard">
+	</section>
 	<section name="FileSystemImportWizard">
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\Users\Win10\Desktop\파이널프로젝트_김민정_카드,결제기능 완성본\9.10_김민정_최종 완성본\NewOne\20190817"/>
+			<item value="C:\Users\Win10\Desktop\파이널프로젝트_김민정_카드,결제기능 완성본\9.10_김민정_최종 완성본\8.29home (1)"/>
+			<item value="C:\Users\Win10\Desktop\내 파이널들\9.9\8.29home"/>
+			<item value="C:\Users\Win10\Desktop\내 파이널들\9.9_하건\paylog_completeform"/>
+			<item value="C:\Users\Win10\Desktop\내 파이널들\9.8_집_오후\8.29home"/>
 			<item value="C:\Users\Win10\Desktop\파이널프로젝트_김민정_카드,결제기능 완성본\9.8 최신본_김민정\FP-master3\FP-master3"/>
 			<item value="C:\Users\Win10\Desktop\파이널프로젝트_김민정_카드,결제기능 완성본\FP-master3-master\FP-master3-master"/>
 			<item value="C:\Users\Win10\Desktop\paylog_completeform"/>
@@ -73,7 +82,15 @@
 			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.26\Final_paylog"/>
 			<item value="G:\국비반\kgIT뱅크_파이널 프로젝트\8.23_한 파일\이경희\Project_Page (3)"/>
 			<item value="G:\국비반\스프링 프로젝트\mvc_db_ibatis_희수꺼\board"/>
-			<item value="C:\Users\Win10\Downloads\ch11-mybatis"/>
+		</list>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item value="true" key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID"/>
+		<item value="true" key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\Win10\Desktop\8.29home.zip"/>
+			<item value="C:\Users\Win10\Desktop\내 파이널들\9.10_민정씨꺼 붙이는중\1_컨트롤러,dao,service,model붙임\8.29home.zip"/>
+			<item value="C:\Users\Win10\Desktop\내 파이널들\9.10_현재 돌아감\8.29home.zip"/>
 		</list>
 	</section>
 </section>

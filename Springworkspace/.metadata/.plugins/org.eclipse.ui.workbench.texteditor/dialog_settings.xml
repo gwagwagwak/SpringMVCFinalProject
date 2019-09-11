@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="Regi" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="context"/>
-			<item value="adminreplyComplete"/>
-			<item value="getQnaList"/>
-			<item value="connector"/>
-			<item value="path"/>
-			<item value="update"/>
-			<item value="body"/>
-			<item value="autofocus"/>
+			<item value="regi"/>
+			<item value="Register"/>
+			<item value="로그아웃"/>
+			<item value="은행"/>
+			<item value="은행 계쫘"/>
+			<item value="결제"/>
+			<item value="결제내역"/>
+			<item value="parse"/>
 		</list>
 		<list key="replacehistory">
 			<item value="m_joindate"/>
@@ -27,7 +27,7 @@
 		<item value="288" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="1231" key="DIALOG_X_ORIGIN"/>
-		<item value="532" key="DIALOG_Y_ORIGIN"/>
+		<item value="988" key="DIALOG_X_ORIGIN"/>
+		<item value="453" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

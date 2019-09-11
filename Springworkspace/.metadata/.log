@@ -3881,3 +3881,41 @@ java.lang.NullPointerException
 !MESSAGE 
 !STACK 0
 java.lang.NullPointerException
+!SESSION 2019-09-11 11:25:04.746 -----------------------------------------------
+eclipse.buildId=3.8.1.201607290850-RELEASE-e46
+java.version=1.8.0_201
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.springsource.sts.ide
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -clean -product org.springsource.sts.ide
+
+!ENTRY org.eclipse.e4.ui.workbench 4 0 2019-09-11 11:28:46.558
+!MESSAGE Unable to retrieve the bundle from the URI: bundleclass://com.genuitec.eclipse.meexplorer/com.genuitec.eclipse.meexplorer.breadcrumb.e4.BreadCrumbContainer
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-09-11 11:29:01.538
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Win10'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2019-09-11 11:29:07.781
+!MESSAGE Project facet grails.app has not been defined. It is used in plugin com.vmware.vfabric.ide.eclipse.tcserver.core.
+
+!ENTRY org.eclipse.jdt.core 4 0 2019-09-11 11:29:15.444
+!MESSAGE Invalid ZIP archive: C:\Users\Win10\.m2\repository\org\springframework\spring-context-support\4.3.4.RELEASE\spring-context-support-4.3.4.RELEASE.jar
+
+!ENTRY org.eclipse.jdt.core 4 0 2019-09-11 11:29:15.446
+!MESSAGE Invalid ZIP archive: C:\Users\Win10\.m2\repository\org\quartz-scheduler\quartz\2.3.0\quartz-2.3.0.jar
+
+!ENTRY org.eclipse.jdt.core 4 0 2019-09-11 11:29:15.506
+!MESSAGE Invalid ZIP archive: C:\Users\Win10\.m2\repository\org\springframework\spring-jdbc\4.1.6.RELEASE\spring-jdbc-4.1.6.RELEASE.jar
+
+!ENTRY org.eclipse.jdt.core 4 0 2019-09-11 11:29:15.508
+!MESSAGE Invalid ZIP archive: C:\Users\Win10\.m2\repository\org\springframework\spring-test\4.1.6.RELEASE\spring-test-4.1.6.RELEASE.jar
+
+!ENTRY org.eclipse.jdt.core 4 0 2019-09-11 11:29:15.531
+!MESSAGE Invalid ZIP archive: C:\Users\Win10\.m2\repository\org\springframework\spring-context\4.1.6.RELEASE\spring-context-4.1.6.RELEASE.jar
+
+!ENTRY org.eclipse.jdt.core 4 0 2019-09-11 11:29:15.534
+!MESSAGE Invalid ZIP archive: C:\Users\Win10\.m2\repository\org\springframework\spring-webmvc\4.1.6.RELEASE\spring-webmvc-4.1.6.RELEASE.jar
